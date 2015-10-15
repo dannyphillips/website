@@ -1,9 +1,8 @@
 # Site settings
 title: Danny Phillips
 description: Danny Phillips's Personal Site
-favicon: /iCard-Resume/assets/img/avatar.JPG
-url: https://ddbullfrog.github.io/iCard-Resume
-rss_url: /iCard-Resume/pages/atom.xml
+favicon: /dannyphillips.github.io/assets/img/avatar.jpg
+url: https://dannyphillips.github.io/
 
 # Build settings
 markdown: kramdown
@@ -19,7 +18,7 @@ author:
   github: dannyphillips
   linkedin: dannyphillips1
   twitter: dphil4life
-  gavatar: /dannyphillips.github.io/assets/img/avatar.JPG
+  gavatar: /dannyphillips.github.io/assets/img/avatar.jpg
   workHistory:
     - work1:
       company: Procore Technologies
@@ -51,13 +50,13 @@ author:
       description: I fixed all the things
   educationHistory:
     - education1:
-      organization: Northeastern University
+      organization: University of California, Santa Barbara
       degree: Bachelor
-      major: Software Engineering
-      started: 2005
-      duration: (2005 - 2009)
+      major: Mechanical Engineering
+      started: 2009
+      duration: (2009 - 2013)
       description: I am not a description. I am not description.I am not description. I am not a description. I am not description.I am not description. I am not a description. I am not description.I am not description. I am not a description. I am not description.I am not description. I am not a description. I am not description.I am not description. I am not a description. I am not description.I am not description. I am not a description. I am not description.I am not description. I am not a description. I am not description.I am not description.
-  Other :
+  languages :
     - language1:
       name: Chinese
       proficiency: Native
@@ -70,16 +69,16 @@ author:
   programmingSkills:
     - skill1:
       name: HTML
-      percentage: 100%
-    - skill2:
-      name: Bootstrap
       percentage: 90%
+    - skill2:
+      name: CSS
+      percentage: 80%
     - skill3:
       name: JavaScript
       percentage: 80%
     - skill4:
-      name: AngularJS
-      percentage: 80%
+      name: ReactJS
+      percentage: 100%
     - skill5:
-      name: Java/Java EE
-      percentage: 90%
+      name: Ruby on Rails
+      percentage: 70%
