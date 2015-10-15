@@ -24,28 +24,28 @@ author:
       company: Procore Technologies
       location: Carpinteria, California
       title: Software Engineer
-      started: September 2014
+      started: Sep 2014
       duration: (September 2014 - Present)
       description: I am a Front-End Developer for a Ruby on Rails application. I work primarily in javascript creating intuitive user-interfaces with React components.
     - work2:
       company: Kollabra Consulting
       location: Goleta, California
       title: Mechanical Engineer II
-      started: June 2013
+      started: Jun 2013
       duration: (June 2013 - September 2014)
       description: I did cool things.
     - work3:
       company: UCSB ResNet
       location: Santa Barbara, California
       title: Senior Network Technician
-      started: April 2010
+      started: Apr 2010
       duration: (April 2010 - June 2013)
       description: I fixed all the things
     - work4:
       company: Westco Intl
       location: Santa Barbara, California
       title: Mechanical Engineer I 
-      started: March 2013
+      started: Mar 2013
       duration: (March 2013 - June 2013)
       description: I fixed all the things
   educationHistory:
