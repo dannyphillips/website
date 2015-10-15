@@ -1,8 +1,7 @@
 # Site settings
-title: Dong Liang's CV
-description: ddbullfrog's CV
+title: Danny Phillips
+description: Danny Phillips's Personal Site
 favicon: /iCard-Resume/assets/img/avatar.JPG
-baseurl: https://ddbullfrog.github.io/iCard-Resume
 url: https://ddbullfrog.github.io/iCard-Resume
 rss_url: /iCard-Resume/pages/atom.xml
 
@@ -11,38 +10,45 @@ markdown: kramdown
 
 # Author settings
 author:
-  name: Dong Liang
-  title: Java Developer
-  address: Auckland, New Zealand
-  email: dongg.liang@gmail.com
-  link: http://ddbullfrog.com
+  name: Danny Phillips
+  title: Software Engineer
+  address: Santa Barbara, California
+  email: danny.phillips8@gmail.com
+  link: http://dannyphillips.me
   weibo:
-  github: ddbullfrog
-  linkedin: ddbullfrog
-  twitter: ddbullfrog
-  gavatar: /iCard-Resume/assets/img/avatar.JPG
+  github: dannyphillips
+  linkedin: dannyphillips1
+  twitter: dphil4life
+  gavatar: /dannyphillips.github.io/assets/img/avatar.JPG
   workHistory:
     - work1:
-      company: Finzsoft Solutions Ltd
-      location: Auckland, New Zealand
-      title: Java Developer
-      started: 2014
-      duration: (2014 - Present)
-      description: I am not a description. I am not description.I am not description. I am not a description. I am not description.I am not description. I am not a description. I am not description.I am not description. I am not a description. I am not description.I am not description. I am not a description. I am not description.I am not description. I am not a description. I am not description.I am not description. I am not a description. I am not description.I am not description. I am not a description. I am not description.I am not description.
+      company: Procore Technologies
+      location: Carpinteria, California
+      title: Software Engineer
+      started: September 2014
+      duration: (September 2014 - Present)
+      description: I am a Front-End Developer for a Ruby on Rails application. I work primarily in javascript creating intuitive user-interfaces with React components.
     - work2:
-      company: Agfa HealthCare
-      location: Shanghai, China
-      title: Java Developer
-      started: 2012
-      duration: (2012 - 2014)
-      description: I am not a description. I am not description.I am not description. I am not a description. I am not description.I am not description. I am not a description. I am not description.I am not description. I am not a description. I am not description.I am not description. I am not a description. I am not description.I am not description. I am not a description. I am not description.I am not description. I am not a description. I am not description.I am not description. I am not a description. I am not description.I am not description.
+      company: Kollabra Consulting
+      location: Goleta, California
+      title: Mechanical Engineer II
+      started: June 2013
+      duration: (June 2013 - September 2014)
+      description: I did cool things.
     - work3:
-      company: Citigroup Services and Technology (China) Limited
-      location: Shanghai, China
-      title: Java Developer
-      started: 2009
-      duration: (2009 - 2012)
-      description: I am not a description. I am not description.I am not description. I am not a description. I am not description.I am not description. I am not a description. I am not description.I am not description. I am not a description. I am not description.I am not description. I am not a description. I am not description.I am not description. I am not a description. I am not description.I am not description. I am not a description. I am not description.I am not description. I am not a description. I am not description.I am not description.
+      company: UCSB ResNet
+      location: Santa Barbara, California
+      title: Senior Network Technician
+      started: April 2010
+      duration: (April 2010 - June 2013)
+      description: I fixed all the things
+    - work4:
+      company: Westco Intl
+      location: Santa Barbara, California
+      title: Mechanical Engineer I 
+      started: March 2013
+      duration: (March 2013 - June 2013)
+      description: I fixed all the things
   educationHistory:
     - education1:
       organization: Northeastern University
@@ -51,7 +57,7 @@ author:
       started: 2005
       duration: (2005 - 2009)
       description: I am not a description. I am not description.I am not description. I am not a description. I am not description.I am not description. I am not a description. I am not description.I am not description. I am not a description. I am not description.I am not description. I am not a description. I am not description.I am not description. I am not a description. I am not description.I am not description. I am not a description. I am not description.I am not description. I am not a description. I am not description.I am not description.
-  languages:
+  Other :
     - language1:
       name: Chinese
       proficiency: Native
