@@ -4,15 +4,15 @@ import {mapDispatchToProps} from 'utils/reactRedux';
 import { Map, List } from 'immutable';
 
 import { Jumbotron } from 'react-bootstrap';
+import { RaisedButton } from 'material-ui';
 
 class HomeHandler extends React.Component {
   render() {
     return (
       <span>
-        <Jumbotron>
-          <h1>together.</h1>
-          <p>Our feed</p>
-        </Jumbotron>
+        <RaisedButton label="Default" />
+        <RaisedButton label="Primary" primary={true} />
+        <RaisedButton label="Secondary" secondary={true} />
       </span>
     );
   }

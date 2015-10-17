@@ -6,8 +6,8 @@ export default class AppNav extends React.Component {
   static defaultProps = {
     menuItems: [
       {label: 'Home', path: '/home'},
-      {label: 'Moments', path: '/moments'},
-      {label: 'Settings', path: '/settings'},
+      {label: 'Photos', path: '/photos'},
+      {label: 'Blog', path: '/blog'},
     ],
   }
 
@@ -18,7 +18,7 @@ export default class AppNav extends React.Component {
   render() {
     const { menuItems } = this.props;
     return (
-      <Navbar brand='tg.us'>
+      <Navbar brand='DP'>
         <Nav>
           {menuItems.map((item, i) => {
             return (
