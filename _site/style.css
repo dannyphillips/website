@@ -183,9 +183,8 @@ fieldset[disabled] .btn-xl.active {
 }
 
 .navbar-default .navbar-brand {
-    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
-    text-transform: uppercase;
-    font-weight: 700;
+    font-family: "Kaushan Script","Helvetica Neue",Helvetica,Arial,cursive;
+    color: #3399ff;
 }
 
 .navbar-default .navbar-brand:hover,
@@ -869,4 +868,14 @@ img::-moz-selection {
 
 body {
     webkit-tap-highlight-color: #3399ff;
+}
+
+.navbar-default .navbar-brand {
+    text-transform: uppercase;
+    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: 700;
+    color: white;
+}
+a:hover {
+	border: none !important;
 }
