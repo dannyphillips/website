@@ -1,12 +1,20 @@
 {% include css/bootstrap.min.css %}
 {% include css/agency.css %}
-
 .navbar-default .navbar-brand {
     text-transform: uppercase;
     font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
     font-weight: 700;
     color: white;
+    :hover {
+    	color: black;
+    }
 }
 a:hover {
 	border: none !important;
+}
+section {
+	padding: 100px;
+}
+.timeline>li {
+	margin-bottom: 50px;
 }

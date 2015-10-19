@@ -1,5 +1,5 @@
 url: https://dannyphillips.me
-baseurl: /home/
+baseurl: /home
 
 # Site settings
 title: Danny Phillips
@@ -17,11 +17,11 @@ social:
   - title: twitter
     url: http://twitter.com/dphil4life
   - title: google-plus
-    url:  http://plus.google.com/dannyphillips8
+    url:  https://plus.google.com/u/1/+DannyPhillips8/
   - title: linkedin
-    url: http://linkedin.com/dannyphillips1
-  - title: bitbucket 
-    url: http://bitbucket.org/jekyll
+    url: https://www.linkedin.com/in/dannyphillips1
+  - title: instagram 
+    url: https://instagram.com/dannyphillips8/
   - title: github
     url: http://github.com/dannyphillips
 

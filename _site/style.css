@@ -869,13 +869,21 @@ img::-moz-selection {
 body {
     webkit-tap-highlight-color: #3399ff;
 }
-
 .navbar-default .navbar-brand {
     text-transform: uppercase;
     font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
     font-weight: 700;
     color: white;
+    :hover {
+    	color: black;
+    }
 }
 a:hover {
 	border: none !important;
+}
+section {
+	padding: 100px;
+}
+.timeline>li {
+	margin-bottom: 50px;
 }
