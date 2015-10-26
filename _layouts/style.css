@@ -18,3 +18,7 @@ section {
 .timeline>li {
 	margin-bottom: 50px;
 }
+.profile {
+    height: 300px;
+    padding-bottom: 20px;
+}
