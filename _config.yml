@@ -22,13 +22,15 @@ social:
     url: https://www.linkedin.com/in/dannyphillips1
   - title: instagram 
     url: https://instagram.com/dannyphillips8/
+  - title: bitbucket
+    url: https://bitbucket.org/dannyphillips/ 
   - title: github
     url: http://github.com/dannyphillips
 
 # Postal address (add as many lines as necessary)
 address:
-  - line: 3481 Melrose Place
-  - line: Beverly Hills, CA 90210
+  - line: 1217 Cypress Point Ln
+  - line: Ventura, CA 93003
 
 # Build settings
 markdown: kramdown
