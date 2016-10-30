@@ -1,2 +1,2 @@
-# dannyphillips.github.io
-My Github Page
+# Portfolio Website
+Hosted on GitHub Pages
