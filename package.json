@@ -1,6 +1,13 @@
 {
+  "name": "portfolio",
+  "repository": {
+      "type": "git",
+      "url": "https://github.com/dannyphillips/portfolio.git"
+  },
   "scripts": {
-    "now-build": "next build && next export -o dist"
+    "now-build": "next build && next export -o dist",
+    "now-start": "next",
+    "now-deploy": "now --public"
   },
   "dependencies": {
     "next": "latest",
