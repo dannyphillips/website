@@ -30,7 +30,7 @@ const Title = styled.h3`
   margin-bottom: 0.75rem;
 `
 
-const tag = ({
+const Tags = ({
   data: {
     allMdx: { group },
   },
@@ -45,8 +45,7 @@ const tag = ({
         <SectionTitle>tags</SectionTitle>
         {group.map(tag => (
           <Title key={tag.fieldValue}>
-            <Link to={`/tags/${kebabCase(tag.fieldValue)}`}>{tag.fieldValue}</Link> (
-            {tag.totalCount})
+            <Link to={`/tags/${kebabCase(tag.fieldValue)}`}>{tag.fieldValue}</Link> ({tag.totalCount})
           </Title>
         ))}
       </Content>
@@ -54,9 +53,9 @@ const tag = ({
   </Layout>
 )
 
-export default tag
+export default Tags
 
-tag.propTypes = {
+Tags.propTypes = {
   data: PropTypes.shape({
     allMdx: PropTypes.shape({
       group: PropTypes.array.isRequired,

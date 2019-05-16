@@ -23,7 +23,7 @@ const Content = styled.div`
   }
 `
 
-const tag = ({ pageContext: { tag }, data: { allMdx } }) => {
+const Tag = ({ pageContext: { tag }, data: { allMdx } }) => {
   const { edges, totalCount } = allMdx
   const subline = `${totalCount} post${totalCount === 1 ? '' : 's'} tagged with "${tag}"`
 
@@ -56,9 +56,9 @@ const tag = ({ pageContext: { tag }, data: { allMdx } }) => {
   )
 }
 
-export default tag
+export default Tag
 
-tag.propTypes = {
+Tag.propTypes = {
   pageContext: PropTypes.shape({
     tag: PropTypes.string.isRequired,
   }).isRequired,
@@ -72,10 +72,7 @@ tag.propTypes = {
 
 export const postQuery = graphql`
   query tagPage($tag: String!) {
-    allMdx(
-      sort: { fields: [frontmatter___date], order: DESC }
-      filter: { frontmatter: { tags: { eq: $tag } } }
-    ) {
+    allMdx(sort: { fields: [frontmatter___date], order: DESC }, filter: { frontmatter: { tags: { eq: $tag } } }) {
       totalCount
       edges {
         node {
