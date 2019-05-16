@@ -1,15 +1,17 @@
-import React from 'react'
-import { graphql } from 'gatsby'
+import React from "react";
+import { graphql } from "gatsby";
 
-import { Layout, Wrapper } from '../components'
+import { Layout, Wrapper, Home } from "../components";
 
 const IndexPage = () => (
   <Layout>
-    <Wrapper>Here is the index page</Wrapper>
+    <Wrapper>
+      <Home />
+    </Wrapper>
   </Layout>
-)
+);
 
-export default IndexPage
+export default IndexPage;
 
 export const IndexQuery = graphql`
   query IndexQuery {
@@ -30,4 +32,4 @@ export const IndexQuery = graphql`
       }
     }
   }
-`
+`;

@@ -24,6 +24,7 @@ const GlobalStyle = createGlobalStyle`
   html {
     font-family: ${props => props.theme.fontFamily.sansSerif};
     font-size: ${props => props.theme.baseFontSize};
+    height: 100%;
     h1 {
       font-size: 3.052rem;
     }
@@ -187,8 +188,12 @@ const GlobalStyle = createGlobalStyle`
 `
 
 const Footer = styled.footer`
+  position: fixed;
+  bottom: 0;
   text-align: center;
-  padding: 3rem 1rem;
+  color: white;
+  padding: 10px;
+  width: 100%;
   span {
     font-size: 0.75rem;
   }
@@ -204,13 +209,12 @@ const Layout = ({ children, customSEO }) => {
         <GlobalStyle />
         {children}
         <Footer>
-          &copy; 2019 by Danny Phillips. All rights reserved. <br />
-          <a href="https://github.com/dannyphillips/danny-phillips">GitHub Repository</a> <br />
-          <span>Last build: {buildTime}</span>
+          <span>&copy; 2019 by Danny Phillips. All rights reserved.</span>
+          <span> [Last build: {buildTime}]</span>
         </Footer>
       </>
     </ThemeProvider>
-  )
+  );
 }
 
 export default Layout
