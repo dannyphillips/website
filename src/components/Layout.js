@@ -214,7 +214,7 @@ const Layout = ({ children, customSEO }) => {
         </Footer>
       </>
     </ThemeProvider>
-  );
+  )
 }
 
 export default Layout
