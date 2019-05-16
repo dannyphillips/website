@@ -43,7 +43,7 @@
     "react",
     "graphql"
   ],
-  "license": "MIT",
+  "license": "Unlicensed",
   "main": "n/a",
   "scripts": {
     "build": "gatsby build",
