@@ -1,5 +1,5 @@
 {
-  "name": "Danny Phillips",
+  "name": "danny-phillips",
   "description": "All about me. My resume, my blog, and my projects",
   "version": "1.0.0",
   "author": "Danny Phillips",
@@ -37,7 +37,6 @@
     "typeface-open-sans": "^0.0.54"
   },
   "keywords": [
-    "gatsby",
     "blog",
     "portfolio",
     "react",
