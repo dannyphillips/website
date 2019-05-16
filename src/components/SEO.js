@@ -24,10 +24,6 @@ const SEO = props => {
     description = config.siteDescription
   }
 
-  // schema.org in JSONLD format
-  // https://developers.google.com/search/docs/guides/intro-structured-data
-  // You can fill out the 'author', 'creator' with more data or another type (e.g. 'Organization')
-
   const schemaOrgWebPage = {
     '@context': 'http://schema.org',
     '@type': 'WebPage',
