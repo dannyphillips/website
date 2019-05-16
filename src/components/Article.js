@@ -45,7 +45,7 @@ const Excerpt = styled.p`
   margin-bottom: 1rem;
 `
 
-const Article = ({ title, date, excerpt, slug, timeToRead, categories }) => {
+const Article = ({ title, date, excerpt, slug, timeToRead, tags }) => {
   const firstChar = title.charAt(0)
 
   return (
@@ -56,10 +56,10 @@ const Article = ({ title, date, excerpt, slug, timeToRead, categories }) => {
       </Title>
       <Subline>
         {date} &mdash; {timeToRead} Min Read &mdash; In{' '}
-        {categories.map((cat, i) => (
+        {tags.map((cat, i) => (
           <React.Fragment key={cat}>
             {!!i && ', '}
-            <Link to={`/categories/${kebabCase(cat)}`}>{cat}</Link>
+            <Link to={`/tags/${kebabCase(cat)}`}>{cat}</Link>
           </React.Fragment>
         ))}
       </Subline>
@@ -76,5 +76,5 @@ Article.propTypes = {
   excerpt: PropTypes.string.isRequired,
   slug: PropTypes.string.isRequired,
   timeToRead: PropTypes.number.isRequired,
-  categories: PropTypes.array.isRequired,
+  tags: PropTypes.array.isRequired,
 }

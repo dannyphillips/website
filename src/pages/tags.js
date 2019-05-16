@@ -30,23 +30,23 @@ const Title = styled.h3`
   margin-bottom: 0.75rem;
 `
 
-const Category = ({
+const tag = ({
   data: {
     allMdx: { group },
   },
 }) => (
   <Layout>
     <Wrapper>
-      <Helmet title={`Categories | ${config.siteTitle}`} />
+      <Helmet title={`tags | ${config.siteTitle}`} />
       <Header>
         <Link to="/">{config.siteTitle}</Link>
       </Header>
       <Content>
-        <SectionTitle>Categories</SectionTitle>
-        {group.map(category => (
-          <Title key={category.fieldValue}>
-            <Link to={`/categories/${kebabCase(category.fieldValue)}`}>{category.fieldValue}</Link> (
-            {category.totalCount})
+        <SectionTitle>tags</SectionTitle>
+        {group.map(tag => (
+          <Title key={tag.fieldValue}>
+            <Link to={`/tags/${kebabCase(tag.fieldValue)}`}>{tag.fieldValue}</Link> (
+            {tag.totalCount})
           </Title>
         ))}
       </Content>
@@ -54,9 +54,9 @@ const Category = ({
   </Layout>
 )
 
-export default Category
+export default tag
 
-Category.propTypes = {
+tag.propTypes = {
   data: PropTypes.shape({
     allMdx: PropTypes.shape({
       group: PropTypes.array.isRequired,
@@ -65,9 +65,9 @@ Category.propTypes = {
 }
 
 export const postQuery = graphql`
-  query CategoriesPage {
+  query tagsPage {
     allMdx {
-      group(field: frontmatter___categories) {
+      group(field: frontmatter___tags) {
         fieldValue
         totalCount
       }

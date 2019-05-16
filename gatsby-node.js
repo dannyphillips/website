@@ -35,7 +35,7 @@ exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
 
   const postTemplate = require.resolve('./src/templates/post.js')
-  const categoryTemplate = require.resolve('./src/templates/category.js')
+  const tagTemplate = require.resolve('./src/templates/tag.js')
 
   const result = await wrapper(
     graphql(`
@@ -48,7 +48,7 @@ exports.createPages = async ({ graphql, actions }) => {
               }
               frontmatter {
                 title
-                categories
+                tags
               }
             }
           }
@@ -74,24 +74,24 @@ exports.createPages = async ({ graphql, actions }) => {
     })
   })
 
-  const categorySet = new Set()
+  const tagSet = new Set()
 
   _.each(posts, edge => {
-    if (_.get(edge, 'node.frontmatter.categories')) {
-      edge.node.frontmatter.categories.forEach(cat => {
-        categorySet.add(cat)
+    if (_.get(edge, 'node.frontmatter.tags')) {
+      edge.node.frontmatter.tags.forEach(cat => {
+        tagSet.add(cat)
       })
     }
   })
 
-  const categories = Array.from(categorySet)
+  const tags = Array.from(tagSet)
 
-  categories.forEach(category => {
+  tags.forEach(tag => {
     createPage({
-      path: `/categories/${_.kebabCase(category)}`,
-      component: categoryTemplate,
+      path: `/tags/${_.kebabCase(tag)}`,
+      component: tagTemplate,
       context: {
-        category,
+        tag,
       },
     })
   })

@@ -23,21 +23,21 @@ const Content = styled.div`
   }
 `
 
-const Category = ({ pageContext: { category }, data: { allMdx } }) => {
+const tag = ({ pageContext: { tag }, data: { allMdx } }) => {
   const { edges, totalCount } = allMdx
-  const subline = `${totalCount} post${totalCount === 1 ? '' : 's'} tagged with "${category}"`
+  const subline = `${totalCount} post${totalCount === 1 ? '' : 's'} tagged with "${tag}"`
 
   return (
     <Layout>
       <Wrapper>
-        <Helmet title={`Category: ${category} | ${config.siteTitle}`} />
+        <Helmet title={`tag: ${tag} | ${config.siteTitle}`} />
         <Header>
           <Link to="/">{config.siteTitle}</Link>
         </Header>
         <Content>
-          <SectionTitle>Category &ndash; {category}</SectionTitle>
+          <SectionTitle>tag &ndash; {tag}</SectionTitle>
           <Subline sectionTitle>
-            {subline} (See <Link to="/categories">all categories</Link>)
+            {subline} (See <Link to="/tags">all tags</Link>)
           </Subline>
           {edges.map(post => (
             <Article
@@ -46,7 +46,7 @@ const Category = ({ pageContext: { category }, data: { allMdx } }) => {
               excerpt={post.node.excerpt}
               timeToRead={post.node.timeToRead}
               slug={post.node.fields.slug}
-              categories={post.node.frontmatter.categories}
+              tags={post.node.frontmatter.tags}
               key={post.node.fields.slug}
             />
           ))}
@@ -56,11 +56,11 @@ const Category = ({ pageContext: { category }, data: { allMdx } }) => {
   )
 }
 
-export default Category
+export default tag
 
-Category.propTypes = {
+tag.propTypes = {
   pageContext: PropTypes.shape({
-    category: PropTypes.string.isRequired,
+    tag: PropTypes.string.isRequired,
   }).isRequired,
   data: PropTypes.shape({
     allMdx: PropTypes.shape({
@@ -71,10 +71,10 @@ Category.propTypes = {
 }
 
 export const postQuery = graphql`
-  query CategoryPage($category: String!) {
+  query tagPage($tag: String!) {
     allMdx(
       sort: { fields: [frontmatter___date], order: DESC }
-      filter: { frontmatter: { categories: { eq: $category } } }
+      filter: { frontmatter: { tags: { eq: $tag } } }
     ) {
       totalCount
       edges {
@@ -82,7 +82,7 @@ export const postQuery = graphql`
           frontmatter {
             title
             date(formatString: "MM/DD/YYYY")
-            categories
+            tags
           }
           fields {
             slug
