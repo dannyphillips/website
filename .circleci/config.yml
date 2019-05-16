@@ -39,21 +39,18 @@ aliases:
 version: 2.1
 
 jobs:
-  lint:
+  build:
     executor: node
     steps:
     - checkout
     - <<: *restore_cache
     - <<: *install_node_modules
     - <<: *save_cache
-    - run:
-        name: Run ESLint
-        command: yarn lint:ci
     - <<: *store_results
     - <<: *store_results_artifacts
 
 workflows:
   version: 2
-  lint-test:
+  test-build:
     jobs:
-    - lint
+    - build

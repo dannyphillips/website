@@ -1,6 +1,3 @@
-/* eslint react/no-unknown-property: 0 */
-/* eslint react/prefer-stateless-function: 0 */
-
 /**
  * Spotify player iframe widget
  *
