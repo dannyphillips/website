@@ -1,10 +1,12 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import styled, { ThemeProvider, createGlobalStyle } from 'styled-components'
+import React from "react";
+import PropTypes from "prop-types";
+import styled, { ThemeProvider, createGlobalStyle } from "styled-components";
+import { Link } from "gatsby";
 
-import SEO from './SEO'
-import theme from '../../config/theme'
-import useBuildTime from '../hooks/useBuildTime'
+import { Button } from "../components";
+import SEO from "./SEO";
+import theme from "../../config/theme";
+import useBuildTime from "../hooks/useBuildTime";
 
 const GlobalStyle = createGlobalStyle`
   *,
@@ -185,7 +187,17 @@ const GlobalStyle = createGlobalStyle`
   [hidden] {
     display: none !important;
   }
-`
+`;
+
+const Header = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  height: 50px;
+  padding: 10px;
+  background-color: black;
+`;
 
 const Footer = styled.footer`
   position: fixed;
@@ -197,16 +209,88 @@ const Footer = styled.footer`
   span {
     font-size: 0.75rem;
   }
-`
+`;
+
+const LinkContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
 
 const Layout = ({ children, customSEO }) => {
-  const buildTime = useBuildTime()
+  const buildTime = useBuildTime();
 
   return (
     <ThemeProvider theme={theme}>
       <>
         {!customSEO && <SEO buildTime={buildTime} />}
         <GlobalStyle />
+        <Header>
+          <Button big>
+            <svg
+              width="1792"
+              height="1792"
+              viewBox="0 0 1792 1792"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path d="M1764 11q33 24 27 64l-256 1536q-5 29-32 45-14 8-31 8-11 0-24-5l-453-185-242 295q-18 23-49 23-13 0-22-4-19-7-30.5-23.5t-11.5-36.5v-349l864-1059-1069 925-395-162q-37-14-40-55-2-40 32-59l1664-960q15-9 32-9 20 0 36 11z" />
+            </svg>
+            Brand
+          </Button>
+          <LinkContainer>
+            <Link to="/about">
+              <Button big>
+                <svg
+                  width="1792"
+                  height="1792"
+                  viewBox="0 0 1792 1792"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M1764 11q33 24 27 64l-256 1536q-5 29-32 45-14 8-31 8-11 0-24-5l-453-185-242 295q-18 23-49 23-13 0-22-4-19-7-30.5-23.5t-11.5-36.5v-349l864-1059-1069 925-395-162q-37-14-40-55-2-40 32-59l1664-960q15-9 32-9 20 0 36 11z" />
+                </svg>
+                About
+              </Button>
+            </Link>
+            <Link to="/experience">
+              <Button big>
+                <svg
+                  width="1792"
+                  height="1792"
+                  viewBox="0 0 1792 1792"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M1764 11q33 24 27 64l-256 1536q-5 29-32 45-14 8-31 8-11 0-24-5l-453-185-242 295q-18 23-49 23-13 0-22-4-19-7-30.5-23.5t-11.5-36.5v-349l864-1059-1069 925-395-162q-37-14-40-55-2-40 32-59l1664-960q15-9 32-9 20 0 36 11z" />
+                </svg>
+                Experience
+              </Button>
+            </Link>
+            <Link to="/projects">
+              <Button big>
+                <svg
+                  width="1792"
+                  height="1792"
+                  viewBox="0 0 1792 1792"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M1764 11q33 24 27 64l-256 1536q-5 29-32 45-14 8-31 8-11 0-24-5l-453-185-242 295q-18 23-49 23-13 0-22-4-19-7-30.5-23.5t-11.5-36.5v-349l864-1059-1069 925-395-162q-37-14-40-55-2-40 32-59l1664-960q15-9 32-9 20 0 36 11z" />
+                </svg>
+                Projects
+              </Button>
+            </Link>
+            <Link to="/blog">
+              <Button big>
+                <svg
+                  width="1792"
+                  height="1792"
+                  viewBox="0 0 1792 1792"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M1764 11q33 24 27 64l-256 1536q-5 29-32 45-14 8-31 8-11 0-24-5l-453-185-242 295q-18 23-49 23-13 0-22-4-19-7-30.5-23.5t-11.5-36.5v-349l864-1059-1069 925-395-162q-37-14-40-55-2-40 32-59l1664-960q15-9 32-9 20 0 36 11z" />
+                </svg>
+                Blog
+              </Button>
+            </Link>
+          </LinkContainer>
+        </Header>
         {children}
         <Footer>
           <span>&copy; 2019 by Danny Phillips. All rights reserved.</span>
@@ -214,16 +298,16 @@ const Layout = ({ children, customSEO }) => {
         </Footer>
       </>
     </ThemeProvider>
-  )
-}
+  );
+};
 
-export default Layout
+export default Layout;
 
 Layout.propTypes = {
   children: PropTypes.oneOfType([PropTypes.array, PropTypes.node]).isRequired,
-  customSEO: PropTypes.bool,
-}
+  customSEO: PropTypes.bool
+};
 
 Layout.defaultProps = {
-  customSEO: false,
-}
+  customSEO: false
+};
