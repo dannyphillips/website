@@ -2,23 +2,80 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { withStyles } from '@material-ui/core/styles';
-import Drawer from '@material-ui/core/Drawer';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import List from '@material-ui/core/List';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import Typography from '@material-ui/core/Typography';
-import Divider from '@material-ui/core/Divider';
-import IconButton from '@material-ui/core/IconButton';
-import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
+import { AppBar, Toolbar, List, CssBaseline, Typography, Divider, IconButton, ListItem, ListItemIcon, ListItemText, Drawer } from '@material-ui/core';
+import ChevronLeftIcon  from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
 
 const drawerWidth = 240;
+
+const socialLinks = [
+  {
+    label: "Twitter",
+    icon: "twitter"
+  },
+  {
+    label: "Github",
+    icon: "github"
+  },
+  {
+    label: "LinkedIn",
+    icon: "linkedin"
+  },
+  {
+    label: "Email",
+    icon: "mail"
+  },
+]
+const staticLinks = [
+  {
+    label: "About Me",
+    icon: "about"
+  },
+  {
+    label: "Resume",
+    icon: "about"
+  },
+  {
+    label: "Blog",
+    icon: "blog"
+  },
+  {
+    label: "Reading List",
+    icon: "reading"
+  },
+]
+const projectLinks = [
+  {
+    label: "Baby Dictionary",
+    icon: "baby_dictionary"
+  },
+  {
+    label: "Conferences",
+    icon: "conferences"
+  },
+  {
+    label: "Garage",
+    icon: "garage"
+  },
+  {
+    label: "Footprints",
+    icon: "footprints"
+  },
+  {
+    label: "Mudskipper",
+    icon: "mudskipper"
+  },
+  {
+    label: "Recall",
+    icon: "recall"
+  },
+  {
+    label: "Will it Tow",
+    icon: "will_it_tow"
+  },
+]
 
 const styles = theme => ({
   root: {
@@ -140,7 +197,7 @@ class AppShell extends React.Component {
           </div>
           <Divider />
           <List>
-            {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
+            {["About Me", "", "Send email", "Drafts"].map((text, index) => (
               <ListItem button key={text}>
                 <ListItemIcon>
                   {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
@@ -152,6 +209,18 @@ class AppShell extends React.Component {
           <Divider />
           <List>
             {["All mail", "Trash", "Spam"].map((text, index) => (
+              <ListItem button key={text}>
+                <ListItemIcon>
+                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                </ListItemIcon>
+                <ListItemText primary={text} />
+              </ListItem>
+            ))}
+          </List>
+        </Drawer>
+          <Divider />
+          <List>
+            {["Twitter", "Linkedin", "Spam"].map((text, index) => (
               <ListItem button key={text}>
                 <ListItemIcon>
                   {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
