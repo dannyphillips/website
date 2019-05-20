@@ -1,9 +1,9 @@
-import React from "react";
+import React, {Fragment} from "react";
 import PropTypes from "prop-types";
 import styled, { ThemeProvider, createGlobalStyle } from "styled-components";
 import { Link } from "gatsby";
 
-import { Button } from "../components";
+import { Button } from "@material-ui/core";
 import SEO from "./SEO";
 import theme from "../../config/theme";
 import useBuildTime from "../hooks/useBuildTime";
@@ -106,8 +106,7 @@ const GlobalStyle = createGlobalStyle`
     margin-bottom: .5rem;
     color: ${props => props.theme.colors.grey.dark};
   }
-  input, textarea, button {
-    font-size: 1rem;
+  input, textarea, button   font-size: 1rem;
   }
   textarea {
     font-family: ${props => props.theme.fontFamily.sansSerif};
@@ -199,6 +198,11 @@ const Header = styled.div`
   background-color: black;
 `;
 
+const NavButton = styled(Button)`
+  margin: 50px;
+  background-color: blue;
+`;
+
 const Footer = styled.footer`
   position: fixed;
   bottom: 0;
@@ -221,73 +225,33 @@ const Layout = ({ children, customSEO }) => {
 
   return (
     <ThemeProvider theme={theme}>
-      <>
+      <Fragment>
         {!customSEO && <SEO buildTime={buildTime} />}
         <GlobalStyle />
         <Header>
-          <Button big>
-            <svg
-              width="1792"
-              height="1792"
-              viewBox="0 0 1792 1792"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path d="M1764 11q33 24 27 64l-256 1536q-5 29-32 45-14 8-31 8-11 0-24-5l-453-185-242 295q-18 23-49 23-13 0-22-4-19-7-30.5-23.5t-11.5-36.5v-349l864-1059-1069 925-395-162q-37-14-40-55-2-40 32-59l1664-960q15-9 32-9 20 0 36 11z" />
-            </svg>
+          <NavButton color="primary">
             Brand
-          </Button>
+          </NavButton>
           <LinkContainer>
             <Link to="/about">
-              <Button big>
-                <svg
-                  width="1792"
-                  height="1792"
-                  viewBox="0 0 1792 1792"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path d="M1764 11q33 24 27 64l-256 1536q-5 29-32 45-14 8-31 8-11 0-24-5l-453-185-242 295q-18 23-49 23-13 0-22-4-19-7-30.5-23.5t-11.5-36.5v-349l864-1059-1069 925-395-162q-37-14-40-55-2-40 32-59l1664-960q15-9 32-9 20 0 36 11z" />
-                </svg>
+              <NavButton color="primary">
                 About
-              </Button>
+              </NavButton>
             </Link>
             <Link to="/experience">
-              <Button big>
-                <svg
-                  width="1792"
-                  height="1792"
-                  viewBox="0 0 1792 1792"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path d="M1764 11q33 24 27 64l-256 1536q-5 29-32 45-14 8-31 8-11 0-24-5l-453-185-242 295q-18 23-49 23-13 0-22-4-19-7-30.5-23.5t-11.5-36.5v-349l864-1059-1069 925-395-162q-37-14-40-55-2-40 32-59l1664-960q15-9 32-9 20 0 36 11z" />
-                </svg>
+              <NavButton color="primary">
                 Experience
-              </Button>
+              </NavButton>
             </Link>
             <Link to="/projects">
-              <Button big>
-                <svg
-                  width="1792"
-                  height="1792"
-                  viewBox="0 0 1792 1792"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path d="M1764 11q33 24 27 64l-256 1536q-5 29-32 45-14 8-31 8-11 0-24-5l-453-185-242 295q-18 23-49 23-13 0-22-4-19-7-30.5-23.5t-11.5-36.5v-349l864-1059-1069 925-395-162q-37-14-40-55-2-40 32-59l1664-960q15-9 32-9 20 0 36 11z" />
-                </svg>
+              <NavButton color="primary">
                 Projects
-              </Button>
+              </NavButton>
             </Link>
             <Link to="/blog">
-              <Button big>
-                <svg
-                  width="1792"
-                  height="1792"
-                  viewBox="0 0 1792 1792"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path d="M1764 11q33 24 27 64l-256 1536q-5 29-32 45-14 8-31 8-11 0-24-5l-453-185-242 295q-18 23-49 23-13 0-22-4-19-7-30.5-23.5t-11.5-36.5v-349l864-1059-1069 925-395-162q-37-14-40-55-2-40 32-59l1664-960q15-9 32-9 20 0 36 11z" />
-                </svg>
+              <NavButton color="primary">
                 Blog
-              </Button>
+              </NavButton>
             </Link>
           </LinkContainer>
         </Header>
@@ -296,7 +260,7 @@ const Layout = ({ children, customSEO }) => {
           <span>&copy; 2019 by Danny Phillips. All rights reserved.</span>
           <span> [Last build: {buildTime}]</span>
         </Footer>
-      </>
+      </Fragment>
     </ThemeProvider>
   );
 };

@@ -8,7 +8,7 @@ module.exports = {
   siteLanguage: "en", // Language Tag on <html> element
   siteHeadline: "All about me", // Headline for schema.org JSONLD
   siteBanner: "/social/banner.png", // Your image for og:image tag. You can find it in the /static folder
-  favicon: "public/icons/favicon.ico", // Your image for favicons. You can find it in the /src folder
+  favicon: "src/favicon.png", // Your image for favicons. You can find it in the /src folder
   siteDescription: "All about me. My resume, my blog and my projects.", // Your site description
   author: "Danny Phillips", // Author for schemaORGJSONLD
   siteLogo: "/social/logo.png", // Image for schemaORGJSONLD
