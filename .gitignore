@@ -12,6 +12,7 @@ yarn.lock# See https://help.github.com/articles/ignoring-files/ for more about i
 
 # production
 /build
+public
 
 # misc
 .DS_Store
