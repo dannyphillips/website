@@ -1,18 +1,20 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 
-import { Layout, Home } from '../components'
+import { Layout, Wrapper, Home } from '../components'
 
-const IndexPage = () => (
+const ExperiencePage = () => (
   <Layout>
-    <Home />
+    <Wrapper>
+      <Home />
+    </Wrapper>
   </Layout>
 )
 
-export default IndexPage
+export default ExperiencePage
 
-export const IndexQuery = graphql`
-  query IndexQuery {
+export const ExperienceQuery = graphql`
+  query ExperienceQuery {
     allMdx(sort: { fields: [frontmatter___date], order: DESC }) {
       edges {
         node {

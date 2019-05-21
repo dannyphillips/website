@@ -1,7 +1,29 @@
 html {
-  height: 100%;
-  background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
   overflow: hidden;
+}
+
+body {
+}
+
+#___gatsby {
+  height: inherit;
+}
+
+div[role="group"][tabindex] {
+    height: inherit;
+}
+
+.home-bg {
+  background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+  height: inherit;
+}
+
+.home-body {
+  height: inherit;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 #stars {
@@ -56,44 +78,28 @@ html {
 }
 
 #title {
-  position: absolute;
-  top: 50%;
-  left: 0;
-  right: 0;
   color: #FFF;
   text-align: center;
   font-family: "lato", sans-serif;
   font-weight: 300;
   font-size: 100px;
   letter-spacing: 10px;
-  margin-top: -60px;
-  padding-left: 10px;
 }
 #title span {
   background: -webkit-linear-gradient(white, #38495a);
   background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
 }
 #subtitle {
-  position: absolute;
-  top: 62%;
-  left: 0;
-  right: 0;
   color: #FFF;
   text-align: center;
   font-family: "lato", sans-serif;
   font-weight: 300;
   font-size: 30px;
   letter-spacing: 10px;
-  margin-top: -60px;
-  padding-left: 10px;
 }
 #subtitle span {
   background: -webkit-linear-gradient(white, #38495a);
   background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
 }
 
 @keyframes animStar {

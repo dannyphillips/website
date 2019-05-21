@@ -30,7 +30,7 @@ const Title = styled.h3`
   margin-bottom: 0.75rem;
 `
 
-const Tags = ({
+const TagsPage = ({
   data: {
     allMdx: { group },
   },
@@ -53,9 +53,9 @@ const Tags = ({
   </Layout>
 )
 
-export default Tags
+export default TagsPage
 
-Tags.propTypes = {
+TagsPage.propTypes = {
   data: PropTypes.shape({
     allMdx: PropTypes.shape({
       group: PropTypes.array.isRequired,
@@ -63,8 +63,8 @@ Tags.propTypes = {
   }).isRequired,
 }
 
-export const postQuery = graphql`
-  query tagsPage {
+export const tagsQuery = graphql`
+  query tagsQuery {
     allMdx {
       group(field: frontmatter___tags) {
         fieldValue

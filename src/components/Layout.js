@@ -1,11 +1,10 @@
-import React, {Fragment} from "react";
+import React, { Fragment } from "react";
 import PropTypes from "prop-types";
 import styled, { ThemeProvider, createGlobalStyle } from "styled-components";
 import { Link } from "gatsby";
-
-import { Button } from "@material-ui/core";
 import SEO from "./SEO";
 import theme from "../../config/theme";
+import logo from "../logo.png";
 import useBuildTime from "../hooks/useBuildTime";
 
 const GlobalStyle = createGlobalStyle`
@@ -27,6 +26,7 @@ const GlobalStyle = createGlobalStyle`
     font-family: ${props => props.theme.fontFamily.sansSerif};
     font-size: ${props => props.theme.baseFontSize};
     height: 100%;
+    overflow: scroll;
     h1 {
       font-size: 3.052rem;
     }
@@ -64,6 +64,7 @@ const GlobalStyle = createGlobalStyle`
   body {
     background: ${props => props.theme.colors.bg};
     color: ${props => props.theme.colors.grey.default};
+    height: 100%;
   }
   a {
     color: ${props => props.theme.colors.primary};
@@ -198,9 +199,15 @@ const Header = styled.div`
   background-color: black;
 `;
 
-const NavButton = styled(Button)`
-  margin: 50px;
-  background-color: blue;
+const NavButton = styled.button`
+  color: white;
+  background: none;
+  border: none;
+  padding: 20px;
+  font-size: 20px;
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 const Footer = styled.footer`
@@ -229,29 +236,26 @@ const Layout = ({ children, customSEO }) => {
         {!customSEO && <SEO buildTime={buildTime} />}
         <GlobalStyle />
         <Header>
-          <NavButton color="primary">
-            Brand
-          </NavButton>
+          <Link to="/">
+            <LinkContainer>
+              <NavButton>
+                <img alt="logo" src={logo} height={40} />
+              </NavButton>
+              <NavButton>Danny Phillips</NavButton>
+            </LinkContainer>
+          </Link>
           <LinkContainer>
             <Link to="/about">
-              <NavButton color="primary">
-                About
-              </NavButton>
+              <NavButton>About</NavButton>
             </Link>
             <Link to="/experience">
-              <NavButton color="primary">
-                Experience
-              </NavButton>
+              <NavButton>Experience</NavButton>
             </Link>
             <Link to="/projects">
-              <NavButton color="primary">
-                Projects
-              </NavButton>
+              <NavButton>Projects</NavButton>
             </Link>
             <Link to="/blog">
-              <NavButton color="primary">
-                Blog
-              </NavButton>
+              <NavButton>Blog</NavButton>
             </Link>
           </LinkContainer>
         </Header>
