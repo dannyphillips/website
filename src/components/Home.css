@@ -10,11 +10,11 @@ body {
 }
 
 div[role="group"][tabindex] {
-    height: inherit;
+  height: inherit;
+  background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
 }
 
 .home-bg {
-  background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
   height: inherit;
 }
 
@@ -24,6 +24,9 @@ div[role="group"][tabindex] {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+#header {
+  background: transparent;
 }
 
 #stars {

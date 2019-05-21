@@ -235,7 +235,7 @@ const Layout = ({ children, customSEO }) => {
       <Fragment>
         {!customSEO && <SEO buildTime={buildTime} />}
         <GlobalStyle />
-        <Header>
+        <Header id="header">
           <Link to="/">
             <LinkContainer>
               <NavButton>
