@@ -48,7 +48,7 @@
     "dev": "gatsby develop -o",
     "develop": "gatsby develop",
     "serve": "gatsby serve",
-    "deploy": "firebase deploy"
+    "deploy": "firebase deploy --token=$FIREBASE_TOKEN"
   },
   "devDependencies": {
     "firebase-tools": "^6.10.0",
