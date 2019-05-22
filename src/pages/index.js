@@ -1,12 +1,12 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 
-import { Layout, Home } from '../components'
+import { HomeLayout, Home } from '../components'
 
 const IndexPage = () => (
-  <Layout>
+  <HomeLayout>
     <Home />
-  </Layout>
+  </HomeLayout>
 )
 
 export default IndexPage

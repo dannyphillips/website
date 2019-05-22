@@ -22,11 +22,23 @@ const GlobalStyle = createGlobalStyle`
     color: ${props => props.theme.colors.bg};
     background: ${props => props.theme.colors.primary};
   }
+
+  #___gatsby {
+    height: inherit;
+  }
+
+  div[role="group"][tabindex] {
+    height: inherit;
+    background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+  }
+  #header {
+    background: transparent;
+  }
   html {
     font-family: ${props => props.theme.fontFamily.sansSerif};
     font-size: ${props => props.theme.baseFontSize};
     height: 100%;
-    overflow: scroll;
+    overflow: hidden;
     h1 {
       font-size: 3.052rem;
     }
@@ -211,8 +223,10 @@ const NavButton = styled.button`
 `;
 
 const Footer = styled.footer`
+  position: fixed;
+  bottom: 0;
   text-align: center;
-  color: black;
+  color: white;
   padding: 10px;
   width: 100%;
   span {
@@ -260,7 +274,6 @@ const Layout = ({ children, customSEO }) => {
         {children}
         <Footer>
           <span>&copy; 2019 by Danny Phillips. All rights reserved.</span>
-          <span> [Last build: {buildTime}]</span>
         </Footer>
       </Fragment>
     </ThemeProvider>
