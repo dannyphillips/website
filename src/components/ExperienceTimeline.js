@@ -149,7 +149,7 @@ const ExperienceTimeline = () => {
       <VerticalTimelineElement
         className="vertical-timeline-element--education"
         date="Jan 2010 - March 2013"
-        iconStyle={{ background: "rgb(233, 30, 99)", color: "#fff" }}
+        iconStyle={{ background: "rgb(33, 150, 243)", color: "#fff" }}
         icon={<Work />}
       >
         <Experience

@@ -1,13 +1,10 @@
 import React from 'react'
-import { graphql } from 'gatsby'
 
-import { Layout, Wrapper, Home } from '../components'
+import { Layout, Maintenance } from '../components'
 
 const ProjectsPage = () => (
   <Layout>
-    <Wrapper>
-      <Home />
-    </Wrapper>
+    <Maintenance />
   </Layout>
 )
 
