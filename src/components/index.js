@@ -1,5 +1,4 @@
 import Article from './Article'
-import Button from './Button'
 import Header from './Header'
 import Home from './Home'
 import HomeLayout from './HomeLayout'
@@ -10,4 +9,4 @@ import SEO from './SEO'
 import Subline from './Subline'
 import Wrapper from './Wrapper'
 
-export { Article, Button, Header, Home, HomeLayout, Layout, PrevNext, SectionTitle, SEO, Subline, Wrapper }
+export { Article, Header, Home, HomeLayout, Layout, PrevNext, SectionTitle, SEO, Subline, Wrapper }
