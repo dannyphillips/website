@@ -199,6 +199,7 @@ const GlobalStyle = createGlobalStyle`
   [hidden] {
     display: none !important;
   }
+  button:focus { outline: none; }
 `;
 
 const Header = styled.div`

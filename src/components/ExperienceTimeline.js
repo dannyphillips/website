@@ -110,8 +110,8 @@ const ExperienceTimeline = () => {
       >
         <Experience
           logo={ucsb}
-          title="B.S. Mechanical Engineering"
-          company="University of California, Santa Barbara"
+          title="B.S. Mech. Engineering"
+          company="UCSB"
           location="Santa Barbara, CA"
           description="Creative Direction, User Experience, Visual Design, Project Management,
       Team Leading"

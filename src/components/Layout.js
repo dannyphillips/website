@@ -34,7 +34,7 @@ const GlobalStyle = createGlobalStyle`
       font-size: 2.441rem;
     }
     h3 {
-      font-size: 1.953rem;
+      font-size: 1.903rem;
     }
     h4 {
       font-size: 1.563rem;
@@ -187,6 +187,7 @@ const GlobalStyle = createGlobalStyle`
   [hidden] {
     display: none !important;
   }
+  button:focus { outline: none; }
 `;
 
 const Header = styled.div`

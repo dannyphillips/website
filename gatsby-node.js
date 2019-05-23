@@ -76,7 +76,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
   const tagSet = new Set()
 
-  _.each(posts, edge => {
+  posts.each(edge => {
     if (_.get(edge, 'node.frontmatter.tags')) {
       edge.node.frontmatter.tags.forEach(cat => {
         tagSet.add(cat)
