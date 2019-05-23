@@ -1,5 +1,5 @@
 import React from 'react'
-
+import { graphql } from "gatsby";
 import { Layout, Maintenance } from '../components'
 
 const ProjectsPage = () => (
