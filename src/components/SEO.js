@@ -145,7 +145,7 @@ const SEO = props => {
       <meta name="description" content={description} />
       <meta name="image" content={image} />
       <meta name="danny-phillips" content="Danny Phillips" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
       <meta property="og:locale" content={config.ogLanguage} />
       <meta property="og:site_name" content={config.ogSiteName ? config.ogSiteName : ''} />
       <meta property="og:url" content={URL} />
