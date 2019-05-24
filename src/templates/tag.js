@@ -1,11 +1,18 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import Helmet from 'react-helmet'
-import { Link, graphql } from 'gatsby'
-import styled from 'styled-components'
+import React from "react";
+import PropTypes from "prop-types";
+import Helmet from "react-helmet";
+import { Link, graphql } from "gatsby";
+import styled from "styled-components";
 
-import { Layout, Wrapper, Header, Subline, Article, SectionTitle } from '../components'
-import config from '../../config'
+import {
+  Layout,
+  Wrapper,
+  Header,
+  Subline,
+  Article,
+  SectionTitle
+} from "../components";
+import config from "../../config";
 
 const Content = styled.div`
   grid-column: 2;
@@ -21,11 +28,13 @@ const Content = styled.div`
   @media (max-width: ${props => props.theme.breakpoints.phone}) {
     padding: 2rem 1.5rem;
   }
-`
+`;
 
 const Tag = ({ pageContext: { tag }, data: { allMdx } }) => {
-  const { edges, totalCount } = allMdx
-  const subline = `${totalCount} post${totalCount === 1 ? '' : 's'} tagged with "${tag}"`
+  const { edges, totalCount } = allMdx;
+  const subline = `${totalCount} post${
+    totalCount === 1 ? "" : "s"
+  } tagged with "${tag}"`;
 
   return (
     <Layout>
@@ -53,26 +62,29 @@ const Tag = ({ pageContext: { tag }, data: { allMdx } }) => {
         </Content>
       </Wrapper>
     </Layout>
-  )
-}
+  );
+};
 
-export default Tag
+export default Tag;
 
 Tag.propTypes = {
   pageContext: PropTypes.shape({
-    tag: PropTypes.string.isRequired,
+    tag: PropTypes.string.isRequired
   }).isRequired,
   data: PropTypes.shape({
     allMdx: PropTypes.shape({
       edges: PropTypes.array.isRequired,
-      totalCount: PropTypes.number.isRequired,
-    }),
-  }).isRequired,
-}
+      totalCount: PropTypes.number.isRequired
+    })
+  }).isRequired
+};
 
-export const postQuery = graphql`
+export const tagQuery = graphql`
   query tagPage($tag: String!) {
-    allMdx(sort: { fields: [frontmatter___date], order: DESC }, filter: { frontmatter: { tags: { eq: $tag } } }) {
+    allMdx(
+      sort: { fields: [frontmatter___date], order: DESC }
+      filter: { frontmatter: { tags: { eq: $tag } } }
+    ) {
       totalCount
       edges {
         node {
@@ -90,4 +102,4 @@ export const postQuery = graphql`
       }
     }
   }
-`
+`;
