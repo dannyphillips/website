@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import styled from 'styled-components'
 
-import { Layout, Article, Wrapper, SectionTitle } from '../components'
+import { Layout, BlogPostTile, Wrapper, SectionTitle } from '../components'
 
 const Content = styled.div`
   grid-column: 2;
@@ -55,7 +55,7 @@ const Blog = ({
       <Content>
         <SectionTitle>Latest stories</SectionTitle>
         {postEdges.map(post => (
-          <Article
+          <BlogPostTile
             title={post.node.frontmatter.title}
             date={post.node.frontmatter.date}
             excerpt={post.node.excerpt}

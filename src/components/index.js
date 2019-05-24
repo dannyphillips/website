@@ -1,4 +1,5 @@
-import Article from "./Article";
+import ProjectTile from "./ProjectTile";
+import BlogPostTile from "./BlogPostTile";
 import ExperienceTimeline from "./ExperienceTimeline";
 import Header from "./Header";
 import Home from "./Home";
@@ -12,7 +13,8 @@ import Subline from "./Subline";
 import Wrapper from "./Wrapper";
 
 export {
-  Article,
+  BlogPostTile,
+  ProjectTile,
   ExperienceTimeline,
   Header,
   Home,

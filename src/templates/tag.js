@@ -9,7 +9,7 @@ import {
   Wrapper,
   Header,
   Subline,
-  Article,
+  BlogPostTile,
   SectionTitle
 } from "../components";
 import config from "../../config";
@@ -49,7 +49,7 @@ const Tag = ({ pageContext: { tag }, data: { allMdx } }) => {
             {subline} (See <Link to="/tags">all tags</Link>)
           </Subline>
           {edges.map(post => (
-            <Article
+            <BlogPostTile
               title={post.node.frontmatter.title}
               date={post.node.frontmatter.date}
               excerpt={post.node.excerpt}

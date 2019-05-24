@@ -45,15 +45,16 @@ const Excerpt = styled.p`
   margin-bottom: 1rem;
 `
 
-const Article = ({ title, date, excerpt, slug, timeToRead, tags }) => {
+const ProjectTile = ({ logo, title, date, excerpt, slug, timeToRead, tags }) => {
   const firstChar = title.charAt(0)
-
+  debugger;
   return (
     <Post>
       <Title>
         <Initiale>{firstChar}</Initiale>
         <Link to={slug}>{title}</Link>
       </Title>
+      <img src={logo} alt="logo" />
       <Subline>
         {date} &mdash; {timeToRead} Min Read &mdash; In{' '}
         {tags.map((cat, i) => (
@@ -68,9 +69,9 @@ const Article = ({ title, date, excerpt, slug, timeToRead, tags }) => {
   )
 }
 
-export default Article
+export default ProjectTile
 
-Article.propTypes = {
+ProjectTile.propTypes = {
   title: PropTypes.string.isRequired,
   date: PropTypes.string.isRequired,
   excerpt: PropTypes.string.isRequired,

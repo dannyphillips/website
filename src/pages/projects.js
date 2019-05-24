@@ -1,9 +1,10 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { graphql } from 'gatsby'
-import styled from 'styled-components'
+import React from "react";
+import PropTypes from "prop-types";
+import { graphql } from "gatsby";
+import styled from "styled-components";
+import defaultLogo from '../logo.png'
 
-import { Layout, Article, Wrapper, SectionTitle } from '../components'
+import { Layout, ProjectTile, Wrapper, SectionTitle } from "../components";
 
 const Content = styled.div`
   grid-column: 2;
@@ -17,7 +18,7 @@ const Content = styled.div`
     padding: 2rem 1.5rem;
   }
   overflow: hidden;
-`
+`;
 
 const Hero = styled.div`
   grid-column: 2;
@@ -39,12 +40,13 @@ const Hero = styled.div`
       font-size: 1.25rem;
     }
   }
-`
+`;
 
 const ProjectsPage = ({
   data: {
-    allMdx: { edges: postEdges },
-  },
+    allMdx: { edges: projects },
+    allFile: { edges: logos }
+  }
 }) => (
   <Layout>
     <Wrapper>
@@ -54,34 +56,56 @@ const ProjectsPage = ({
       </Hero>
       <Content>
         <SectionTitle>Latest stories</SectionTitle>
-        {postEdges.map(post => (
-          <Article
-            title={post.node.frontmatter.title}
-            date={post.node.frontmatter.date}
-            excerpt={post.node.excerpt}
-            timeToRead={post.node.timeToRead}
-            slug={post.node.fields.slug}
-            tags={post.node.frontmatter.tags}
-            key={post.node.fields.slug}
-          />
-        ))}
+        {projects.map(project => {
+          let projectLogo = logos.find(logo =>
+                project.node.fields.slug.includes(logo.node.relativeDirectory)
+              );
+          return (<ProjectTile
+            logo={projectLogo ? projectLogo.node.publicURL : defaultLogo}
+            title={project.node.frontmatter.title}
+            date={project.node.frontmatter.date}
+            excerpt={project.node.excerpt}
+            timeToRead={project.node.timeToRead}
+            slug={project.node.fields.slug}
+            tags={project.node.frontmatter.tags}
+            key={project.node.fields.slug}
+          />)
+        }
+        )}
       </Content>
     </Wrapper>
   </Layout>
-)
+);
 
 ProjectsPage.propTypes = {
   data: PropTypes.shape({
     allMdx: PropTypes.shape({
-      edges: PropTypes.array.isRequired,
+      edges: PropTypes.array.isRequired
     }),
-  }).isRequired,
-}
+    allFiles: PropTypes.shape({
+      edges: PropTypes.array.isRequired
+    })
+  }).isRequired
+};
 
-export default ProjectsPage
+export default ProjectsPage;
 
 export const ProjectsQuery = graphql`
   query ProjectsQuery {
+    allFile(
+      filter: {
+        name: { regex: "/logo/" }
+        extension: { regex: "/png|jpg/" }
+        absolutePath: { regex: "/projects/" }
+      }
+    ) {
+      edges {
+        node {
+          publicURL
+          relativeDirectory
+        }
+      }
+    }
     allMdx(
       sort: { fields: [frontmatter___date], order: DESC }
       filter: { fileAbsolutePath: { regex: "/projects/" } }
