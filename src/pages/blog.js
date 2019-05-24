@@ -82,7 +82,10 @@ Blog.propTypes = {
 
 export const BlogQuery = graphql`
   query BlogQuery {
-    allMdx(sort: { fields: [frontmatter___date], order: DESC }) {
+    allMdx(
+      sort: { fields: [frontmatter___date], order: DESC }
+      filter: { fileAbsolutePath: { regex: "/blog/" } }
+    ) {
       edges {
         node {
           fields {
@@ -99,4 +102,4 @@ export const BlogQuery = graphql`
       }
     }
   }
-`
+`;

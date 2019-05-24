@@ -35,6 +35,7 @@ exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
 
   const postTemplate = require.resolve('./src/templates/post.js')
+  const projectTemplate = require.resolve('./src/templates/project.js')
   const tagTemplate = require.resolve('./src/templates/tag.js')
 
   const result = await wrapper(
@@ -76,7 +77,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
   const tagSet = new Set()
 
-  posts.each(edge => {
+  posts.forEach(edge => {
     if (_.get(edge, 'node.frontmatter.tags')) {
       edge.node.frontmatter.tags.forEach(cat => {
         tagSet.add(cat)
