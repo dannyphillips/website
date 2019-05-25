@@ -17,11 +17,15 @@ const AppCard = styled(Card)`
   margin: 20px;
   padding: 10px;
   width: 400px;
+  border-radius: 40px !important;
 `;
 const Cover = styled(CardMedia)`
   width: 150px;
   height: 150px;
   object-fit: cover;
+  border-radius: 32px;
+  border: solid lightgrey 1px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 `;
 const Details = styled(CardContent)`
 `;
