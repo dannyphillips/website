@@ -19,6 +19,8 @@ const transitions = {
 
 const fontSize = {
   small: '0.9rem',
+  medium: '1.4rem',
+  large: '1.9rem',
 }
 
 const fontFamily = {

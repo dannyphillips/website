@@ -1,75 +1,59 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import styled from 'styled-components'
-import { Link } from 'gatsby'
-import kebabCase from 'lodash/kebabCase'
+import React from "react";
+import PropTypes from "prop-types";
+import styled from "styled-components";
+import { Link } from "gatsby";
+import kebabCase from "lodash/kebabCase";
+import {
+  Card,
+  CardContent,
+  CardMedia,
+  Chip,
+  IconButton,
+  Typography
+} from "@material-ui/core";
 
-import Subline from './Subline'
-
-const Post = styled.article`
+const AppCard = styled(Card)`
   display: flex;
-  flex-direction: column;
-  margin-top: 3.5rem;
-  margin-bottom: 3.5rem;
+  margin: 20px;
+  padding: 10px;
+  width: 400px;
+`;
+const Cover = styled(CardMedia)`
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+`;
+const Details = styled(CardContent)`
+`;
 
-  @media (max-width: ${props => props.theme.breakpoints.phone}) {
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-  }
-`
+const ProjectTile = ({
+  appIcon,
+  title,
+  date,
+  excerpt,
+  slug,
+  timeToRead,
+  tags
+}) => {
 
-const Title = styled.h2`
-  position: relative;
-  text-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
-  margin-bottom: 0.75rem;
-  a {
-    color: ${props => props.theme.colors.grey.dark};
-    &:hover {
-      color: ${props => props.theme.colors.primaryLight};
-    }
-  }
-`
-
-const Initiale = styled.span`
-  position: absolute;
-  font-size: 7rem;
-  transform: translate(-50%, -50%);
-  opacity: 0.08;
-  user-select: none;
-  z-index: -1;
-`
-
-const Excerpt = styled.p`
-  grid-column: -1 / 1;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-`
-
-const ProjectTile = ({ logo, title, date, excerpt, slug, timeToRead, tags }) => {
-  const firstChar = title.charAt(0)
-  debugger;
   return (
-    <Post>
-      <Title>
-        <Initiale>{firstChar}</Initiale>
-        <Link to={slug}>{title}</Link>
-      </Title>
-      <img src={logo} alt="logo" />
-      <Subline>
-        {date} &mdash; {timeToRead} Min Read &mdash; In{' '}
-        {tags.map((cat, i) => (
-          <React.Fragment key={cat}>
-            {!!i && ', '}
-            <Link to={`/tags/${kebabCase(cat)}`}>{cat}</Link>
-          </React.Fragment>
-        ))}
-      </Subline>
-      <Excerpt>{excerpt}</Excerpt>
-    </Post>
-  )
-}
+    <AppCard>
+      <Cover image={appIcon} title="Live from space album cover" />
+      <Details>
+        <Typography component="h5" variant="h5">
+          {title}
+        </Typography>
+        <Typography variant="subtitle1" color="textSecondary">
+          {tags.map((tag) => (
+            <Chip label={tag} key={tag}/>
+          ))}
+        </Typography>
+      </Details>
+    </AppCard>
+  );
+};
 
-export default ProjectTile
+export default ProjectTile;
 
 ProjectTile.propTypes = {
   title: PropTypes.string.isRequired,
@@ -77,5 +61,5 @@ ProjectTile.propTypes = {
   excerpt: PropTypes.string.isRequired,
   slug: PropTypes.string.isRequired,
   timeToRead: PropTypes.number.isRequired,
-  tags: PropTypes.array.isRequired,
-}
+  tags: PropTypes.array.isRequired
+};
