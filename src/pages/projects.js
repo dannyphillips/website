@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { graphql } from "gatsby";
 import styled from "styled-components";
 import defaultLogo from '../logo.png'
+import appsBackground from '../assets/apps-bg-small.png'
 
 import { Layout, ProjectTile, Wrapper, SectionTitle } from "../components";
 
@@ -21,6 +22,19 @@ const Content = styled.div`
 `;
 
 const Hero = styled.div`
+  background: url(${appsBackground}) repeat 0 0;
+    width: 100%;
+    margin: 0;
+    text-align: center;
+    height: 400px;
+    padding-top: 120px;
+    box-sizing: border-box;
+    animation: slide 30s linear infinite;
+  }
+  @keyframes slide {
+      from { background-position: 0 0; }
+      to { background-position: 0 -400px; }
+  }
   grid-column: 2;
   padding: 3rem 2rem 6rem 2rem;
   text-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
@@ -49,31 +63,27 @@ const ProjectsPage = ({
   }
 }) => (
   <Layout>
-    <Wrapper>
-      <Hero>
-        <h1>Hi.</h1>
-        <p>I'm Danny Phillips. I'm a software developer.</p>
-      </Hero>
-      <Content>
-        <SectionTitle>Latest stories</SectionTitle>
-        {projects.map(project => {
-          let projectLogo = logos.find(logo =>
-                project.node.fields.slug.includes(logo.node.relativeDirectory)
-              );
-          return (<ProjectTile
-            logo={projectLogo ? projectLogo.node.publicURL : defaultLogo}
-            title={project.node.frontmatter.title}
-            date={project.node.frontmatter.date}
-            excerpt={project.node.excerpt}
-            timeToRead={project.node.timeToRead}
-            slug={project.node.fields.slug}
-            tags={project.node.frontmatter.tags}
-            key={project.node.fields.slug}
-          />)
-        }
-        )}
-      </Content>
-    </Wrapper>
+    <Hero>
+    </Hero>
+    <Content>
+      <SectionTitle>My Apps</SectionTitle>
+      {projects.map(project => {
+        let projectLogo = logos.find(logo =>
+              project.node.fields.slug.includes(logo.node.relativeDirectory)
+            );
+        return (<ProjectTile
+          logo={projectLogo ? projectLogo.node.publicURL : defaultLogo}
+          title={project.node.frontmatter.title}
+          date={project.node.frontmatter.date}
+          excerpt={project.node.excerpt}
+          timeToRead={project.node.timeToRead}
+          slug={project.node.fields.slug}
+          tags={project.node.frontmatter.tags}
+          key={project.node.fields.slug}
+        />)
+      }
+      )}
+    </Content>
   </Layout>
 );
 
