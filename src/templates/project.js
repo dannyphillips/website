@@ -107,13 +107,12 @@ export const projectQuery = graphql`
       code {
         body
       }
-      excerpt
       frontmatter {
         title
+        slogan
         date(formatString: "MM/DD/YYYY")
         tags
       }
-      timeToRead
       parent {
         ... on File {
           mtime

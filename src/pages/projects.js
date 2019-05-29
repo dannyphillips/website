@@ -133,11 +133,10 @@ export const ProjectsQuery = graphql`
           }
           frontmatter {
             title
+            slogan
             date(formatString: "MM/DD/YYYY")
             tags
           }
-          excerpt(pruneLength: 200)
-          timeToRead
         }
       }
     }

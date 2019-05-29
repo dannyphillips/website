@@ -8,9 +8,9 @@ import {
   CardContent,
   CardMedia,
   Chip,
-  IconButton,
   Typography
 } from "@material-ui/core";
+import Subline from './Subline'
 
 const AppCard = styled(Card)`
   display: flex;
@@ -33,27 +33,31 @@ const Details = styled(CardContent)`
 const ProjectTile = ({
   appIcon,
   title,
+  slogan,
   date,
-  excerpt,
   slug,
-  timeToRead,
   tags
 }) => {
-
+  debugger;
   return (
-    <AppCard>
-      <Cover image={appIcon} title="Live from space album cover" />
-      <Details>
-        <Typography component="h5" variant="h5">
-          {title}
-        </Typography>
-        <Typography variant="subtitle1" color="textSecondary">
-          {tags.map((tag) => (
-            <Chip label={tag} key={tag}/>
+    <Link to={slug}>
+      <AppCard>
+        <Cover image={appIcon} title="Live from space album cover" />
+        <Details>
+          <Typography component="h5" variant="h5">
+            {title}
+          </Typography>
+          <Subline>
+            {slogan}
+          </Subline>
+          {tags.map(tag => (
+            <Link to={`/tags/${kebabCase(tag)}`}>
+              <Chip label={tag} key={tag} />
+            </Link>
           ))}
-        </Typography>
-      </Details>
-    </AppCard>
+        </Details>
+      </AppCard>
+    </Link>
   );
 };
 
@@ -61,6 +65,7 @@ export default ProjectTile;
 
 ProjectTile.propTypes = {
   title: PropTypes.string.isRequired,
+  slogan: PropTypes.string.isRequired,
   date: PropTypes.string.isRequired,
   excerpt: PropTypes.string.isRequired,
   slug: PropTypes.string.isRequired,
