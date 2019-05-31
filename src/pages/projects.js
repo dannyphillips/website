@@ -26,7 +26,7 @@ const Hero = styled.div`
   width: 100%;
   margin: 0;
   text-align: center;
-  height: 400px;
+  height: 350px;
   padding-top: 120px;
   box-sizing: border-box;
   animation: slide 30s linear infinite;
