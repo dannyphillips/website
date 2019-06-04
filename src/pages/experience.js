@@ -2,6 +2,7 @@ import React from 'react'
 import styled from "styled-components";
 
 import { Layout, ExperienceTimeline } from '../components'
+import { Paper } from '@material-ui/core'
 import bg from '../assets/exp-bg-small.jpg'
 
 const Cover = styled.div`
@@ -46,12 +47,20 @@ const Side = styled.div`
   }
 `;
 
+const Body = styled(Paper)`
+  margin: 40px;
+  padding: 40px;
+  height: 400px;
+`;
+
 const ExperiencePage = () => (
   <Layout>
     <Cover>My Experience</Cover>
     <TwoPanelLayout>
       <Main>
+        <Body>
         Hello
+        </Body>
       </Main>
       <Side>
 
