@@ -13,6 +13,7 @@ import ucsb from "../assets/ucsb.png";
 import ucsb_resnet from "../assets/ucsb_resnet.jpg";
 import eit from "../assets/eit.jpg";
 import westco from "../assets/westco.jpg";
+import "./timeline-overrides.css";
 
 const Logo = styled.img`
   height: 80px;
@@ -41,7 +42,7 @@ const Experience = ({ logo, title, company, location, description }) => (
 
 const ExperienceTimeline = () => {
   return (
-    <VerticalTimeline>
+    <VerticalTimeline layout={'1-column'}>
       <VerticalTimelineElement
         className="vertical-timeline-element--work"
         date="Oct 2017 - present"
