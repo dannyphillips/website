@@ -6,6 +6,7 @@ import SEO from "./SEO";
 import theme from "../../config/theme";
 import logo from "../logo.png";
 import useBuildTime from "../hooks/useBuildTime";
+import Header from './Header'
 
 const GlobalStyle = createGlobalStyle`
   *,
@@ -190,15 +191,15 @@ const GlobalStyle = createGlobalStyle`
   button:focus { outline: none; }
 `;
 
-const Header = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  height: 50px;
-  padding: 10px;
-  background-color: black;
-`;
+// const Header = styled.div`
+//   display: flex;
+//   flex-direction: row;
+//   align-items: center;
+//   justify-content: space-between;
+//   height: 50px;
+//   padding: 10px;
+//   background-color: black;
+// `;
 
 const NavButton = styled.button`
   color: white;

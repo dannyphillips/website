@@ -2,7 +2,7 @@ import React from 'react'
 import styled from "styled-components";
 
 import { Layout, ExperienceTimeline } from '../components'
-import bg from '../assets/apps-bg-small.png'
+import bg from '../assets/exp-bg-small.jpg'
 
 const Cover = styled.img`
   width: 100%;
