@@ -57,11 +57,11 @@ const ExperiencePage = () => (
   <Layout>
     <Cover>My Experience</Cover>
     <TwoPanelLayout>
-      <Main>
+      {/* <Main>
         <Body>
         Hello
         </Body>
-      </Main>
+      </Main> */}
       <Side>
 
     <ExperienceTimeline />

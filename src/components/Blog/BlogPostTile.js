@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { Link } from 'gatsby'
 import kebabCase from 'lodash/kebabCase'
 
-import Subline from './Subline'
+import Subline from '../_shared/Subline'
 
 const Post = styled.article`
   display: flex;

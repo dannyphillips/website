@@ -2,10 +2,9 @@ import React, { Fragment } from "react";
 import PropTypes from "prop-types";
 import styled, { ThemeProvider, createGlobalStyle } from "styled-components";
 import Navigation from './Navigation/Navigation'
-import SEO from "./SEO";
+import SEO from "./_shared/SEO";
 import theme from "../../config/theme";
 import useBuildTime from "../hooks/useBuildTime";
-// import Header from './Header'
 
 const GlobalStyle = createGlobalStyle`
   *,

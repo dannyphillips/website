@@ -6,13 +6,15 @@ import {
 import "react-vertical-timeline-component/style.min.css";
 import { Work, School, Star } from "@material-ui/icons";
 import styled from "styled-components";
-import kollabra from "../assets/kollabra.png";
-import lab_knights from "../assets/lab_knights.jpg";
-import procore from "../assets/procore.png";
-import ucsb from "../assets/ucsb.png";
-import ucsb_resnet from "../assets/ucsb_resnet.jpg";
-import eit from "../assets/eit.jpg";
-import westco from "../assets/westco.jpg";
+
+import { Flex } from "../_shared/Flex";
+import kollabra from "../../assets/kollabra.png";
+import lab_knights from "../../assets/lab_knights.jpg";
+import procore from "../../assets/procore.png";
+import ucsb from "../../assets/ucsb.png";
+import ucsb_resnet from "../../assets/ucsb_resnet.jpg";
+import eit from "../../assets/eit.jpg";
+import westco from "../../assets/westco.jpg";
 import "./timeline-overrides.css";
 
 const Logo = styled.img`
@@ -21,14 +23,10 @@ const Logo = styled.img`
   object-fit: contain;
   padding-right: 20px;
 `;
-const Flex = styled.div`
-  display: flex;
-  flex-direction: row;
-`;
 
 const Experience = ({ logo, title, company, location, description }) => (
   <Fragment>
-    <Flex>
+    <Flex justify="flex-start">
       <Logo src={logo} alt="logo" />
       <div>
         <h3 className="vertical-timeline-element-title">{title}</h3>
@@ -42,7 +40,7 @@ const Experience = ({ logo, title, company, location, description }) => (
 
 const ExperienceTimeline = () => {
   return (
-    <VerticalTimeline layout={'1-column'}>
+    <VerticalTimeline>
       <VerticalTimelineElement
         className="vertical-timeline-element--work"
         date="Oct 2017 - present"

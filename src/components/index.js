@@ -1,17 +1,17 @@
-import BlogPostTile from "./BlogPostTile";
-import ExperienceTimeline from "./ExperienceTimeline";
-import Header from "./Header";
-import Home from "./Home";
-import HomeLayout from "./HomeLayout";
+import BlogPostTile from "./Blog/BlogPostTile";
+import ExperienceTimeline from "./Experience/ExperienceTimeline";
+import Header from "./_shared/Header";
+import Home from "./Home/Home";
+import HomeLayout from "./Home/HomeLayout";
 import Layout from "./Layout";
-import Maintenance from "./Maintenance";
-import PrevNext from "./PrevNext";
-import ProjectTile from "./ProjectTile";
-import ReadingList from "./ReadingList";
-import SectionTitle from "./SectionTitle";
-import SEO from "./SEO";
-import Subline from "./Subline";
-import Wrapper from "./Wrapper";
+import Maintenance from "./_shared/Maintenance";
+import PrevNext from "./_shared/PrevNext";
+import ProjectTile from "./Projects/ProjectTile";
+import ReadingList from "./About/ReadingList";
+import SectionTitle from "./_shared/SectionTitle";
+import SEO from "./_shared/SEO";
+import Subline from "./_shared/Subline";
+import Wrapper from "./Navigation/Wrapper";
 
 export {
   BlogPostTile,

@@ -10,7 +10,7 @@ import {
   Chip,
   Typography
 } from "@material-ui/core";
-import Subline from './Subline'
+import Subline from '../_shared/Subline'
 
 const AppCard = styled(Card)`
   display: flex;
@@ -38,7 +38,6 @@ const ProjectTile = ({
   slug,
   tags
 }) => {
-  debugger;
   return (
     <Link to={slug}>
       <AppCard>

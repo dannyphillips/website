@@ -2,7 +2,6 @@ import React from "react";
 import {
   IconButton,
   List,
-  Divider,
   ListItem,
   ListItemText,
   SwipeableDrawer
@@ -20,32 +19,35 @@ const Header = styled.div`
   height: 50px;
   padding: 10px;
   background-color: black;
+`;
 
-  & > .desktop {
-    display: none;
-    flex-flow: row nowrap;
-    align-items: center;
-    white-space: nowrap;
-  }
+const DesktopNav = styled.div`
+  display: none;
+  flex-flow: row nowrap;
+  align-items: center;
+  white-space: nowrap;
 
   @media (min-width: ${props => props.theme.breakpoints.tablet}) {
-    & > .desktop {
-      display: flex;
-    }
-    & > .mobile {
-      display: none;
-    }
+    display: flex;
   }
+
   @media (max-width: ${props => props.theme.breakpoints.tablet}) {
-    & > .desktop {
-      position: fixed;
-      top: 64px;
-      left: 0;
-      width: 100%;
-      overflow-y: hidden;
-      overflow-x: auto;
-      background-color: palette(white);
-    }
+    position: fixed;
+    top: 64px;
+    left: 0;
+    width: 100%;
+    overflow-y: hidden;
+    overflow-x: auto;
+    background-color: palette(white);
+  }
+`;
+
+const MobileNav = styled.div`
+  & > button {
+    color: #fff;
+  }
+  @media (min-width: ${props => props.theme.breakpoints.tablet}) {
+    display: none;
   }
 `;
 
@@ -81,18 +83,17 @@ class Navigation extends React.Component {
 
   render() {
     const { open } = this.state;
-    const { userName } = this.props;
     return (
       <Header>
-          <Link to="/">
-            <LinkContainer>
-              <NavButton>
-                <img alt="logo" src={logo} height={40} />
-              </NavButton>
-              <NavButton>Danny Phillips</NavButton>
-            </LinkContainer>
-          </Link>
-          <div className="desktop">
+        <Link to="/">
+          <LinkContainer>
+            <NavButton>
+              <img alt="logo" src={logo} height={40} />
+            </NavButton>
+            <NavButton>Danny Phillips</NavButton>
+          </LinkContainer>
+        </Link>
+        <DesktopNav>
           <LinkContainer>
             <Link to="/about">
               <NavButton>About</NavButton>
@@ -107,8 +108,8 @@ class Navigation extends React.Component {
               <NavButton>Blog</NavButton>
             </Link>
           </LinkContainer>
-        </div>
-        <div className="mobile">
+        </DesktopNav>
+        <MobileNav>
           <IconButton
             aria-owns={open ? "menu-appbar" : undefined}
             aria-haspopup="true"
@@ -146,7 +147,7 @@ class Navigation extends React.Component {
               </a>
             </List>
           </SwipeableDrawer>
-        </div>
+        </MobileNav>
       </Header>
     );
   }
