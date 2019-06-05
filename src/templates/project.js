@@ -5,8 +5,8 @@ import styled from 'styled-components'
 import kebabCase from 'lodash/kebabCase'
 import MDXRenderer from 'gatsby-mdx/mdx-renderer'
 
-import { Layout, Wrapper, Header, Subline, SEO, PrevNext } from '../components'
-import config from '../../config'
+import { Layout, Wrapper, Subline, SEO, PrevNext } from '../components'
+import ProjectHeader from '../components/Projects/ProjectHeader'
 
 const Content = styled.article`
   grid-column: 2;
@@ -57,9 +57,9 @@ const Project = ({ pageContext: { slug, prev, next }, data: { mdx: projectNode }
     <Layout customSEO>
       <Wrapper>
         <SEO projectPath={slug} projectNode={projectNode} article />
-        <Header>
-          <Link to="/">{config.siteTitle}</Link>
-        </Header>
+        <ProjectHeader>
+          <Link to="/projects">Back to Projects</Link>
+        </ProjectHeader>
         <Content>
           <Title>{project.title}</Title>
           <Subline>

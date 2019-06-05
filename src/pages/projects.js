@@ -21,12 +21,12 @@ const Content = styled.div`
   overflow: hidden;
 `;
 
-const Hero = styled.div`
+const Header = styled.div`
   background: url(${appsBackground}) repeat 0 0;
   width: 100%;
   margin: 0;
   text-align: center;
-  height: 350px;
+  height: 250px;
   padding-top: 120px;
   box-sizing: border-box;
   animation: slide 30s linear infinite;
@@ -67,8 +67,7 @@ const ProjectsPage = ({
   }
 }) => (
   <Layout>
-    <Hero>
-    </Hero>
+    <Header/>
     <Content>
       <SectionTitle>My Apps</SectionTitle>
       <AppContainer>

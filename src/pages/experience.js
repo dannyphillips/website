@@ -2,7 +2,7 @@ import React from 'react'
 import styled from "styled-components";
 
 import { Layout, ExperienceTimeline } from '../components'
-import { Paper } from '@material-ui/core'
+// import { Paper } from '@material-ui/core'
 import bg from '../assets/exp-bg-small.jpg'
 
 const Cover = styled.div`
@@ -32,12 +32,12 @@ const TwoPanelLayout = styled.div`
     flex-direction: column;
   }
 `;
-const Main = styled.div`
-  flex: 2;
-  @media (max-width: ${props => props.theme.breakpoints.tablet}) {
-    width: 100%;
-  }
-`;
+// const Main = styled.div`
+//   flex: 2;
+//   @media (max-width: ${props => props.theme.breakpoints.tablet}) {
+//     width: 100%;
+//   }
+// `;
 
 const Side = styled.div`
   flex: 1;
@@ -47,11 +47,11 @@ const Side = styled.div`
   }
 `;
 
-const Body = styled(Paper)`
-  margin: 40px;
-  padding: 40px;
-  height: 400px;
-`;
+// const Body = styled(Paper)`
+//   margin: 40px;
+//   padding: 40px;
+//   height: 400px;
+// `;
 
 const ExperiencePage = () => (
   <Layout>
