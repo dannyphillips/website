@@ -1,12 +1,12 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { Link, graphql } from 'gatsby'
-import styled from 'styled-components'
-import kebabCase from 'lodash/kebabCase'
-import MDXRenderer from 'gatsby-mdx/mdx-renderer'
+import React from "react";
+import PropTypes from "prop-types";
+import { Link, graphql } from "gatsby";
+import styled from "styled-components";
+import kebabCase from "lodash/kebabCase";
+import MDXRenderer from "gatsby-mdx/mdx-renderer";
 
-import { Layout, Wrapper, Header, Subline, SEO, PrevNext } from '../components'
-import config from '../../config'
+import { Layout, Wrapper, Header, Subline, SEO, PrevNext } from "../components";
+import config from "../../config";
 
 const Content = styled.article`
   grid-column: 2;
@@ -40,18 +40,22 @@ const Content = styled.article`
     margin-bottom: 1rem;
     font-size: 16px;
   }
-`
+`;
 
 const Title = styled.h1`
   margin-bottom: 1rem;
-`
+`;
 
 const PostContent = styled.div`
   margin-top: 4rem;
-`
+`;
 
-const Post = ({ pageContext: { slug, prev, next }, data: { mdx: postNode } }) => {
-  const post = postNode.frontmatter
+const Post = ({
+  pageContext: { slug, prev, next },
+  data: { mdx: postNode }
+}) => {
+  debugger;
+  const post = postNode.frontmatter;
 
   return (
     <Layout customSEO>
@@ -60,13 +64,14 @@ const Post = ({ pageContext: { slug, prev, next }, data: { mdx: postNode } }) =>
         <Header>
           <Link to="/">{config.siteTitle}</Link>
         </Header>
+        This is a blog post page
         <Content>
           <Title>{post.title}</Title>
           <Subline>
-            {post.date} &mdash; {postNode.timeToRead} Min Read &mdash; In{' '}
+            {post.date} &mdash; {postNode.timeToRead} Min Read &mdash; In{" "}
             {post.tags.map((cat, i) => (
               <React.Fragment key={cat}>
-                {!!i && ', '}
+                {!!i && ", "}
                 <Link to={`/tags/${kebabCase(cat)}`}>{cat}</Link>
               </React.Fragment>
             ))}
@@ -78,32 +83,35 @@ const Post = ({ pageContext: { slug, prev, next }, data: { mdx: postNode } }) =>
         </Content>
       </Wrapper>
     </Layout>
-  )
-}
+  );
+};
 
-export default Post
+export default Post;
 
 Post.propTypes = {
   pageContext: PropTypes.shape({
     slug: PropTypes.string.isRequired,
     next: PropTypes.object,
-    prev: PropTypes.object,
+    prev: PropTypes.object
   }),
   data: PropTypes.shape({
-    mdx: PropTypes.object.isRequired,
-  }).isRequired,
-}
+    mdx: PropTypes.object.isRequired
+  }).isRequired
+};
 
 Post.defaultProps = {
   pageContext: PropTypes.shape({
     next: null,
-    prev: null,
-  }),
-}
+    prev: null
+  })
+};
 
 export const postQuery = graphql`
   query postBySlug($slug: String!) {
-    mdx(fields: { slug: { eq: $slug } }) {
+    mdx(
+      fields: { slug: { eq: $slug } }
+      fileAbsolutePath: { regex: "/blog/" }
+    ) {
       code {
         body
       }
@@ -122,4 +130,4 @@ export const postQuery = graphql`
       }
     }
   }
-`
+`;

@@ -34,11 +34,30 @@ exports.onCreateNode = ({ node, actions }) => {
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
 
-  const postTemplate = require.resolve('./src/templates/post.js')
+  const blogTemplate = require.resolve('./src/templates/blog.js')
   const projectTemplate = require.resolve('./src/templates/project.js')
   const tagTemplate = require.resolve('./src/templates/tag.js')
 
-  const result = await wrapper(
+  const blogResults = await wrapper(
+    graphql(`
+      {
+        allMdx(sort: { fields: [frontmatter___date], order: DESC }) {
+          edges {
+            node {
+              fields {
+                slug
+              }
+              frontmatter {
+                title
+                tags
+              }
+            }
+          }
+        }
+      }
+    `)
+  )
+  const projectResults = await wrapper(
     graphql(`
       {
         allMdx(sort: { fields: [frontmatter___date], order: DESC }) {
@@ -58,15 +77,16 @@ exports.createPages = async ({ graphql, actions }) => {
     `)
   )
 
-  const posts = result.data.allMdx.edges
+  const blogs = blogResults.data.allMdx.edges
+  const projects = projectResults.data.allMdx.edges
 
-  posts.forEach((edge, index) => {
-    const next = index === 0 ? null : posts[index - 1].node
-    const prev = index === posts.length - 1 ? null : posts[index + 1].node
+  blogs.forEach((edge, index) => {
+    const next = index === 0 ? null : blogs[index - 1].node
+    const prev = index === blogs.length - 1 ? null : blogs[index + 1].node
 
     createPage({
       path: edge.node.fields.slug,
-      component: postTemplate,
+      component: blogTemplate,
       context: {
         slug: edge.node.fields.slug,
         prev,
@@ -75,9 +95,31 @@ exports.createPages = async ({ graphql, actions }) => {
     })
   })
 
+  projects.forEach((edge, index) => {
+    const next = index === 0 ? null : projects[index - 1].node
+    const prev = index === projects.length - 1 ? null : projects[index + 1].node
+
+    createPage({
+      path: edge.node.fields.slug,
+      component: projectTemplate,
+      context: {
+        slug: edge.node.fields.project,
+        prev,
+        next,
+      },
+    })
+  })
+
   const tagSet = new Set()
 
-  posts.forEach(edge => {
+  blogs.forEach(edge => {
+    if (_.get(edge, 'node.frontmatter.tags')) {
+      edge.node.frontmatter.tags.forEach(cat => {
+        tagSet.add(cat)
+      })
+    }
+  })
+  projects.forEach(edge => {
     if (_.get(edge, 'node.frontmatter.tags')) {
       edge.node.frontmatter.tags.forEach(cat => {
         tagSet.add(cat)
