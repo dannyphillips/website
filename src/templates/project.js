@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Link, graphql } from "gatsby";
+import { Link } from "gatsby";
 import styled from "styled-components";
 import kebabCase from "lodash/kebabCase";
 import MDXRenderer from "gatsby-mdx/mdx-renderer";
@@ -60,7 +60,7 @@ const Project = ({
     <Layout customSEO>
       Thiss is a project page
       <Wrapper>
-        <SEO projectPath={slug} projectNode={projectNode} article />
+        <SEO postPath={slug} postNode={projectNode} article />
         <ProjectHeader>
           <Link to="/projects">Back to Projects</Link>
         </ProjectHeader>

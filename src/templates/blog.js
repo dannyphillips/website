@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Link, graphql } from "gatsby";
+import { Link } from "gatsby";
 import styled from "styled-components";
 import kebabCase from "lodash/kebabCase";
 import MDXRenderer from "gatsby-mdx/mdx-renderer";
@@ -46,39 +46,38 @@ const Title = styled.h1`
   margin-bottom: 1rem;
 `;
 
-const PostContent = styled.div`
+const BlogPostContent = styled.div`
   margin-top: 4rem;
 `;
 
-const Post = ({
+const Blog = ({
   pageContext: { slug, prev, next },
-  data: { mdx: postNode }
+  data: { mdx: blogNode }
 }) => {
-  debugger;
-  const post = postNode.frontmatter;
+  const blog = blogNode.frontmatter;
 
   return (
     <Layout customSEO>
       <Wrapper>
-        <SEO postPath={slug} postNode={postNode} article />
+        <SEO postPath={slug} postNode={blogNode} article />
         <Header>
           <Link to="/">{config.siteTitle}</Link>
         </Header>
         This is a blog post page
         <Content>
-          <Title>{post.title}</Title>
+          <Title>{blog.title}</Title>
           <Subline>
-            {post.date} &mdash; {postNode.timeToRead} Min Read &mdash; In{" "}
-            {post.tags.map((cat, i) => (
+            {blog.date} &mdash; {blogNode.timeToRead} Min Read &mdash; In{" "}
+            {blog.tags.map((cat, i) => (
               <React.Fragment key={cat}>
                 {!!i && ", "}
                 <Link to={`/tags/${kebabCase(cat)}`}>{cat}</Link>
               </React.Fragment>
             ))}
           </Subline>
-          <PostContent>
-            <MDXRenderer>{postNode.code.body}</MDXRenderer>
-          </PostContent>
+          <BlogPostContent>
+            <MDXRenderer>{blogNode.code.body}</MDXRenderer>
+          </BlogPostContent>
           <PrevNext prev={prev} next={next} />
         </Content>
       </Wrapper>
@@ -86,9 +85,9 @@ const Post = ({
   );
 };
 
-export default Post;
+export default Blog;
 
-Post.propTypes = {
+Blog.propTypes = {
   pageContext: PropTypes.shape({
     slug: PropTypes.string.isRequired,
     next: PropTypes.object,
@@ -99,7 +98,7 @@ Post.propTypes = {
   }).isRequired
 };
 
-Post.defaultProps = {
+Blog.defaultProps = {
   pageContext: PropTypes.shape({
     next: null,
     prev: null
