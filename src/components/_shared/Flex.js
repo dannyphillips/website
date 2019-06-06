@@ -5,4 +5,5 @@ export const Flex = styled.div`
   flex-direction: ${props => (props.direction ? props.direction : "row")};
   justify-content: ${props => (props.justify ? props.justify : "center")};
   align-items: ${props => (props.align ? props.align : "center")};
+  height: 100%;
 `;

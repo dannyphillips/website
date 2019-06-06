@@ -78,9 +78,7 @@ const ProjectsPage = ({
           return (<ProjectTile
             appIcon={projectLogo ? projectLogo.node.publicURL : defaultLogo}
             title={project.node.frontmatter.title}
-            date={project.node.frontmatter.date}
-            excerpt={project.node.excerpt}
-            timeToRead={project.node.timeToRead}
+            slogan={project.node.frontmatter.slogan}
             slug={project.node.fields.slug}
             tags={project.node.frontmatter.tags}
             key={project.node.fields.slug}
