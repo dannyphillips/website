@@ -37,6 +37,7 @@ exports.createPages = async ({ graphql, actions }) => {
   const blogTemplate = require.resolve("./src/templates/blog.js");
   const projectTemplate = require.resolve("./src/templates/project.js");
   const tagTemplate = require.resolve("./src/templates/tag.js");
+  const techTemplate = require.resolve("./src/templates/tech.js");
 
   const blogResults = await wrapper(
     graphql(`
@@ -75,6 +76,7 @@ exports.createPages = async ({ graphql, actions }) => {
               frontmatter {
                 title
                 tags
+                techs
               }
             }
           }
@@ -140,6 +142,27 @@ exports.createPages = async ({ graphql, actions }) => {
       component: tagTemplate,
       context: {
         tag
+      }
+    });
+  });
+  const techSet = new Set();
+
+  projects.map(edge => {
+    if (_.get(edge, "node.frontmatter.techs")) {
+      edge.node.frontmatter.techSet.forEach(tech => {
+        techSet.add(tech);
+      });
+    }
+  });
+
+  const techs = Array.from(techSet);
+
+  techs.map(tech => {
+    createPage({
+      path: `/techs/${_.kebabCase(tech)}`,
+      component: techTemplate,
+      context: {
+        tech
       }
     });
   });

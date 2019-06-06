@@ -3,9 +3,12 @@ import PropTypes from "prop-types";
 import { Link, graphql } from "gatsby";
 import styled from "styled-components";
 import MDXRenderer from "gatsby-mdx/mdx-renderer";
+import { Chip } from "@material-ui/core";
 
 import { Layout, Wrapper, SEO, PrevNext } from "../components";
 import ProjectHeader from "../components/Projects/ProjectHeader";
+import source from '../assets/source-code.png'
+import demo from '../assets/demo.png'
 
 const Title = styled.h1`
   margin-bottom: 1rem;
@@ -28,13 +31,15 @@ const Content = styled.div`
   }
   overflow: hidden;
 `;
+const Icon = styled.img`
+  width: 40px;
+`;
 
 const Project = ({
   pageContext: { slug, prev, next },
   data: { mdx: projectNode }
 }) => {
   const project = projectNode.frontmatter;
-
   return (
     <Layout customSEO>
       <Wrapper>
@@ -44,6 +49,20 @@ const Project = ({
         </ProjectHeader>
         <Content>
           <Title>{project.title}</Title>
+          <div>{project.slogan}</div>
+          <Link to={project.source}>Source Code: <Icon src={source} alt="source"/></Link>
+          <Link to={project.demo}>Demo: <Icon src={demo} alt="demo"/></Link>
+          <div>
+            Tech: {project.techs.map(tech => (
+              <Chip label={tech} />
+            ))}
+          </div>
+
+          <div>
+            Tags: {project.tags.map(tag => (
+              <Chip label={tag} />
+            ))}
+          </div>
           <ProjectContent>
             <MDXRenderer>{projectNode.code.body}</MDXRenderer>
           </ProjectContent>
@@ -87,6 +106,9 @@ export const projectQuery = graphql`
         title
         slogan
         date(formatString: "MM/DD/YYYY")
+        source
+        demo
+        techs
         tags
       }
       parent {
