@@ -1,9 +1,9 @@
 import React from "react";
 
 class ReadingList extends React.Component {
-  constructor(props) {
-    super(props);
-  }
+  // constructor(props) {
+  //   super(props);
+  // }
 
   componentDidMount() {
     const script = document.createElement("script");

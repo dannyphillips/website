@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { Link } from 'gatsby'
 import kebabCase from 'lodash/kebabCase'
 
-import Subline from './Subline'
+import { Subline } from '../../components'
 
 const Post = styled.article`
   display: flex;
@@ -52,7 +52,7 @@ const BlogPostTile = ({ title, date, excerpt, slug, timeToRead, tags }) => {
     <Post>
       <Title>
         <Initiale>{firstChar}</Initiale>
-        <Link to={slug}>{title}</Link>
+        <Link to={`/blog${slug}`}>{title}</Link>
       </Title>
       <Subline>
         {date} &mdash; {timeToRead} Min Read &mdash; In{' '}

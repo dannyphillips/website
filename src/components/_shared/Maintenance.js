@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import construction from '../assets/under_construction.png'
+import construction from '../../assets/under_construction.png'
 
 const Container = styled.div`
   display: flex;

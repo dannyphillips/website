@@ -21,12 +21,12 @@ const Content = styled.div`
   overflow: hidden;
 `;
 
-const Hero = styled.div`
+const Header = styled.div`
   background: url(${appsBackground}) repeat 0 0;
   width: 100%;
   margin: 0;
   text-align: center;
-  height: 400px;
+  height: 250px;
   padding-top: 120px;
   box-sizing: border-box;
   animation: slide 30s linear infinite;
@@ -67,8 +67,7 @@ const ProjectsPage = ({
   }
 }) => (
   <Layout>
-    <Hero>
-    </Hero>
+    <Header/>
     <Content>
       <SectionTitle>My Apps</SectionTitle>
       <AppContainer>
@@ -79,9 +78,7 @@ const ProjectsPage = ({
           return (<ProjectTile
             appIcon={projectLogo ? projectLogo.node.publicURL : defaultLogo}
             title={project.node.frontmatter.title}
-            date={project.node.frontmatter.date}
-            excerpt={project.node.excerpt}
-            timeToRead={project.node.timeToRead}
+            slogan={project.node.frontmatter.slogan}
             slug={project.node.fields.slug}
             tags={project.node.frontmatter.tags}
             key={project.node.fields.slug}
@@ -133,11 +130,10 @@ export const ProjectsQuery = graphql`
           }
           frontmatter {
             title
+            slogan
             date(formatString: "MM/DD/YYYY")
             tags
           }
-          excerpt(pruneLength: 200)
-          timeToRead
         }
       }
     }
