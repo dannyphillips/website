@@ -3,14 +3,13 @@ import PropTypes from "prop-types";
 import styled from "styled-components";
 import { Link } from "gatsby";
 import kebabCase from "lodash/kebabCase";
-import { Flex } from "../_shared/Flex";
+import { Flex, Subline } from "../../components";
 import {
   Card,
   CardMedia,
   Chip,
   Typography
 } from "@material-ui/core";
-import Subline from "../_shared/Subline";
 
 const AppCard = styled(Card)`
   display: flex;

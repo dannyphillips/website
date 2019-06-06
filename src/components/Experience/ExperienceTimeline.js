@@ -7,7 +7,7 @@ import "react-vertical-timeline-component/style.min.css";
 import { Work, School, Star } from "@material-ui/icons";
 import styled from "styled-components";
 
-import { Flex } from "../_shared/Flex";
+import { Flex } from "../../components";
 import kollabra from "../../assets/kollabra.png";
 import lab_knights from "../../assets/lab_knights.jpg";
 import procore from "../../assets/procore.png";
