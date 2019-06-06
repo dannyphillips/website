@@ -90,7 +90,7 @@ exports.createPages = async ({ graphql, actions }) => {
     const prev = index === blogs.length - 1 ? null : blogs[index + 1].node;
 
     createPage({
-      path: `/blog/${edge.node.fields.slug}`,
+      path: `/blog${edge.node.fields.slug}`,
       component: blogTemplate,
       context: {
         slug: edge.node.fields.slug,
@@ -105,7 +105,7 @@ exports.createPages = async ({ graphql, actions }) => {
     const prev =
       index === projects.length - 1 ? null : projects[index + 1].node;
     createPage({
-      path: `/projects/${edge.node.fields.slug}`,
+      path: `/projects${edge.node.fields.slug}`,
       component: projectTemplate,
       context: {
         slug: edge.node.fields.slug,

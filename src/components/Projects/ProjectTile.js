@@ -34,12 +34,11 @@ const ProjectTile = ({
   appIcon,
   title,
   slogan,
-  date,
   slug,
   tags
 }) => {
   return (
-    <Link to={slug}>
+    <Link to={`/projects${slug}`}>
       <AppCard>
         <Cover image={appIcon} title="Live from space album cover" />
         <Details>
@@ -65,7 +64,6 @@ export default ProjectTile;
 ProjectTile.propTypes = {
   title: PropTypes.string.isRequired,
   slogan: PropTypes.string.isRequired,
-  date: PropTypes.string.isRequired,
   excerpt: PropTypes.string.isRequired,
   slug: PropTypes.string.isRequired,
   timeToRead: PropTypes.number.isRequired,

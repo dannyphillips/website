@@ -52,7 +52,7 @@ const BlogPostTile = ({ title, date, excerpt, slug, timeToRead, tags }) => {
     <Post>
       <Title>
         <Initiale>{firstChar}</Initiale>
-        <Link to={slug}>{title}</Link>
+        <Link to={`/blog${slug}`}>{title}</Link>
       </Title>
       <Subline>
         {date} &mdash; {timeToRead} Min Read &mdash; In{' '}
