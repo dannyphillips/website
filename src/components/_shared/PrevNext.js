@@ -32,19 +32,19 @@ const Next = styled.div`
   }
 `
 
-const PrevNext = ({ next, prev }) => (
+const PrevNext = ({ next, prev, prefix }) => (
   <Wrapper>
     {prev && (
       <Prev>
         <span>Previous</span>
-        <Link to={prev.fields.slug}>{prev.frontmatter.title}</Link>
+        <Link to={`${prefix}${prev.fields.slug}`}>{prev.frontmatter.title}</Link>
       </Prev>
     )}
 
     {next && (
       <Next>
         <span>Next</span>
-        <Link to={next.fields.slug}>{next.frontmatter.title}</Link>
+        <Link to={`${prefix}${next.fields.slug}`}>{next.frontmatter.title}</Link>
       </Next>
     )}
   </Wrapper>
@@ -55,9 +55,11 @@ export default PrevNext
 PrevNext.propTypes = {
   next: PropTypes.object,
   prev: PropTypes.object,
+  prefix: PropTypes.string
 }
 
 PrevNext.defaultProps = {
   next: null,
   prev: null,
+  prefix: null,
 }

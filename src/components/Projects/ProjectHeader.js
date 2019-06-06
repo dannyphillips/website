@@ -9,8 +9,10 @@ const Wrapper = styled.header`
     ${props => darken(0.1, props.theme.colors.primary)},
     ${props => lighten(0.1, props.theme.colors.primary)}
   );
-  width: 100%;
-  height: 100px;
+  grid-column: 1 / -1;
+  margin-left: -1rem;
+  margin-right: -1rem;
+  padding: 2rem 2rem 5rem 2rem;
   box-shadow: inset 0px -10px 30px 0px rgba(0, 0, 0, 0.1);
 `;
 

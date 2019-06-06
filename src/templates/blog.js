@@ -63,7 +63,6 @@ const Blog = ({
         <Header>
           <Link to="/">{config.siteTitle}</Link>
         </Header>
-        This is a blog post page
         <Content>
           <Title>{blog.title}</Title>
           <Subline>
@@ -78,7 +77,7 @@ const Blog = ({
           <BlogPostContent>
             <MDXRenderer>{blogNode.code.body}</MDXRenderer>
           </BlogPostContent>
-          <PrevNext prev={prev} next={next} />
+          <PrevNext prefix={`/blog`} prev={prev} next={next} />
         </Content>
       </Wrapper>
     </Layout>

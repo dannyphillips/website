@@ -15,6 +15,20 @@ const ProjectContent = styled.div`
   margin-top: 4rem;
 `;
 
+const Content = styled.div`
+  grid-column: 2;
+  box-shadow: 0 4px 120px rgba(0, 0, 0, 0.1);
+  border-radius: 1rem;
+  padding: 3rem 6rem;
+  @media (max-width: ${props => props.theme.breakpoints.tablet}) {
+    padding: 3rem 2rem;
+  }
+  @media (max-width: ${props => props.theme.breakpoints.phone}) {
+    padding: 2rem 1.5rem;
+  }
+  overflow: hidden;
+`;
+
 const Project = ({
   pageContext: { slug, prev, next },
   data: { mdx: projectNode }
@@ -28,11 +42,13 @@ const Project = ({
         <ProjectHeader>
           <Link to="/projects">Back to Projects</Link>
         </ProjectHeader>
-        <Title>{project.title}</Title>
-        <ProjectContent>
-          <MDXRenderer>{projectNode.code.body}</MDXRenderer>
-        </ProjectContent>
-        <PrevNext prev={prev} next={next} />
+        <Content>
+          <Title>{project.title}</Title>
+          <ProjectContent>
+            <MDXRenderer>{projectNode.code.body}</MDXRenderer>
+          </ProjectContent>
+          <PrevNext prefix={`/projects`} prev={prev} next={next} />
+        </Content>
       </Wrapper>
     </Layout>
   );
