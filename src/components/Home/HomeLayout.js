@@ -2,10 +2,10 @@ import React, { Fragment } from "react";
 import PropTypes from "prop-types";
 import styled, { ThemeProvider, createGlobalStyle } from "styled-components";
 import { Link } from "gatsby";
-import SEO from "./SEO";
-import theme from "../../config/theme";
-import logo from "../logo.png";
-import useBuildTime from "../hooks/useBuildTime";
+import { SEO } from "../../components";
+import theme from "../../../config/theme";
+import logo from "../../logo.png";
+import useBuildTime from "../../hooks/useBuildTime";
 
 const GlobalStyle = createGlobalStyle`
   *,

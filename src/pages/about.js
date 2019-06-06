@@ -1,7 +1,8 @@
 import React from 'react'
-import Helmet from "react-helmet";
+// import Helmet from "react-helmet";
 
-import { Layout, ReadingList } from '../components'
+import { Layout } from '../components'
+// import { ReadingList } from '../components'
 
 const AboutPage = () => (
   <Layout>

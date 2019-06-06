@@ -1,0 +1,9 @@
+.vertical-timeline {
+  margin: 0 auto;
+}
+.vertical-timeline::before {
+  bottom: 55px;
+}
+.vertical-timeline.vertical-timeline--two-columns {
+  margin-top: 0px;
+}

@@ -1,10 +1,9 @@
 import React, { Fragment } from "react";
 import PropTypes from "prop-types";
 import styled, { ThemeProvider, createGlobalStyle } from "styled-components";
-import { Link } from "gatsby";
-import SEO from "./SEO";
+import Navigation from './Navigation/Navigation'
+import { SEO } from "../components";
 import theme from "../../config/theme";
-import logo from "../logo.png";
 import useBuildTime from "../hooks/useBuildTime";
 
 const GlobalStyle = createGlobalStyle`
@@ -190,27 +189,6 @@ const GlobalStyle = createGlobalStyle`
   button:focus { outline: none; }
 `;
 
-const Header = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  height: 50px;
-  padding: 10px;
-  background-color: black;
-`;
-
-const NavButton = styled.button`
-  color: white;
-  background: none;
-  border: none;
-  padding: 20px;
-  font-size: 20px;
-  &:hover {
-    cursor: pointer;
-  }
-`;
-
 const Footer = styled.footer`
   text-align: center;
   color: black;
@@ -221,11 +199,6 @@ const Footer = styled.footer`
   }
 `;
 
-const LinkContainer = styled.div`
-  display: flex;
-  justify-content: space-between;
-`;
-
 const Layout = ({ children, customSEO }) => {
   const buildTime = useBuildTime();
 
@@ -234,30 +207,7 @@ const Layout = ({ children, customSEO }) => {
       <Fragment>
         {!customSEO && <SEO buildTime={buildTime} />}
         <GlobalStyle />
-        <Header id="header">
-          <Link to="/">
-            <LinkContainer>
-              <NavButton>
-                <img alt="logo" src={logo} height={40} />
-              </NavButton>
-              <NavButton>Danny Phillips</NavButton>
-            </LinkContainer>
-          </Link>
-          <LinkContainer>
-            <Link to="/about">
-              <NavButton>About</NavButton>
-            </Link>
-            <Link to="/experience">
-              <NavButton>Experience</NavButton>
-            </Link>
-            <Link to="/projects">
-              <NavButton>Projects</NavButton>
-            </Link>
-            <Link to="/blog">
-              <NavButton>Blog</NavButton>
-            </Link>
-          </LinkContainer>
-        </Header>
+        <Navigation id="header"/>
         {children}
         <Footer>
           <span>&copy; 2019 by Danny Phillips. All rights reserved.</span>

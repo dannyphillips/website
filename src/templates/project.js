@@ -1,119 +1,116 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { Link, graphql } from 'gatsby'
-import styled from 'styled-components'
-import kebabCase from 'lodash/kebabCase'
-import MDXRenderer from 'gatsby-mdx/mdx-renderer'
+import React from "react";
+import PropTypes from "prop-types";
+import { Link, graphql } from "gatsby";
+import styled from "styled-components";
+import MDXRenderer from "gatsby-mdx/mdx-renderer";
+import { Chip } from "@material-ui/core";
 
-import { Layout, Wrapper, Header, Subline, SEO, PrevNext } from '../components'
-import config from '../../config'
+import { Layout, Wrapper, SEO, PrevNext } from "../components";
+import ProjectHeader from "../components/Projects/ProjectHeader";
+import source from '../assets/source-code.png'
+import demo from '../assets/demo.png'
 
-const Content = styled.article`
+const Title = styled.h1`
+  margin-bottom: 1rem;
+`;
+
+const ProjectContent = styled.div`
+  margin-top: 4rem;
+`;
+
+const Content = styled.div`
   grid-column: 2;
   box-shadow: 0 4px 120px rgba(0, 0, 0, 0.1);
-  max-width: 1000px;
   border-radius: 1rem;
-  padding: 2rem 4.5rem;
-  background-color: ${props => props.theme.colors.bg};
-  z-index: 9000;
-  margin-top: -3rem;
+  padding: 3rem 6rem;
   @media (max-width: ${props => props.theme.breakpoints.tablet}) {
-    padding: 3rem 3rem;
+    padding: 3rem 2rem;
   }
   @media (max-width: ${props => props.theme.breakpoints.phone}) {
     padding: 2rem 1.5rem;
   }
-  p {
-    font-size: 1.1rem;
-    letter-spacing: -0.003em;
-    line-height: 1.58;
-    --baseline-multiplier: 0.179;
-    --x-height-multiplier: 0.35;
-    @media (max-width: ${props => props.theme.breakpoints.phone}) {
-      font-size: 1rem;
-    }
-  }
+  overflow: hidden;
+`;
+const Icon = styled.img`
+  width: 40px;
+`;
 
-  .prism-code {
-    padding: 0.75rem;
-    border-radius: 5px;
-    margin-bottom: 1rem;
-    font-size: 16px;
-  }
-`
-
-const Title = styled.h1`
-  margin-bottom: 1rem;
-`
-
-const ProjectContent = styled.div`
-  margin-top: 4rem;
-`
-
-const Project = ({ pageContext: { slug, prev, next }, data: { mdx: projectNode } }) => {
-  const project = projectNode.frontmatter
-
+const Project = ({
+  pageContext: { slug, prev, next },
+  data: { mdx: projectNode }
+}) => {
+  const project = projectNode.frontmatter;
   return (
     <Layout customSEO>
       <Wrapper>
-        <SEO projectPath={slug} projectNode={projectNode} article />
-        <Header>
-          <Link to="/">{config.siteTitle}</Link>
-        </Header>
+        <SEO postPath={slug} postNode={projectNode} article />
+        <ProjectHeader>
+          <Link to="/projects">Back to Projects</Link>
+        </ProjectHeader>
         <Content>
           <Title>{project.title}</Title>
-          <Subline>
-            {project.date} &mdash; {projectNode.timeToRead} Min Read &mdash; In{' '}
-            {project.tags.map((cat, i) => (
-              <React.Fragment key={cat}>
-                {!!i && ', '}
-                <Link to={`/tags/${kebabCase(cat)}`}>{cat}</Link>
-              </React.Fragment>
+          <div>{project.slogan}</div>
+          <Link to={project.source}>Source Code: <Icon src={source} alt="source"/></Link>
+          <Link to={project.demo}>Demo: <Icon src={demo} alt="demo"/></Link>
+          <div>
+            Tech: {project.techs.map(tech => (
+              <Chip label={tech} />
             ))}
-          </Subline>
+          </div>
+
+          <div>
+            Tags: {project.tags.map(tag => (
+              <Chip label={tag} />
+            ))}
+          </div>
           <ProjectContent>
             <MDXRenderer>{projectNode.code.body}</MDXRenderer>
           </ProjectContent>
-          <PrevNext prev={prev} next={next} />
+          <PrevNext prefix={`/projects`} prev={prev} next={next} />
         </Content>
       </Wrapper>
     </Layout>
-  )
-}
+  );
+};
 
-export default Project
+export default Project;
 
 Project.propTypes = {
   pageContext: PropTypes.shape({
     slug: PropTypes.string.isRequired,
     next: PropTypes.object,
-    prev: PropTypes.object,
+    prev: PropTypes.object
   }),
   data: PropTypes.shape({
-    mdx: PropTypes.object.isRequired,
-  }).isRequired,
-}
+    mdx: PropTypes.object.isRequired
+  }).isRequired
+};
 
 Project.defaultProps = {
   pageContext: PropTypes.shape({
     next: null,
-    prev: null,
-  }),
-}
+    prev: null
+  })
+};
 
 export const projectQuery = graphql`
   query projectBySlug($slug: String!) {
-    mdx(fields: { slug: { eq: $slug } }) {
+    mdx(
+      fields: { slug: { eq: $slug } }
+      fileAbsolutePath: { regex: "/projects/" }
+    ) {
       code {
         body
       }
-      excerpt
       frontmatter {
         title
+        slogan
         date(formatString: "MM/DD/YYYY")
+        source
+        demo
+        techs
         tags
       }
-      timeToRead
       parent {
         ... on File {
           mtime
@@ -122,4 +119,4 @@ export const projectQuery = graphql`
       }
     }
   }
-`
+`;
