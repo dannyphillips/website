@@ -5,8 +5,7 @@ import styled from "styled-components";
 import MDXRenderer from "gatsby-mdx/mdx-renderer";
 import { Chip } from "@material-ui/core";
 
-import { Layout, Wrapper, SEO, PrevNext } from "../components";
-import ProjectHeader from "../components/Projects/ProjectHeader";
+import { Cover, Layout, Wrapper, SEO, PrevNext } from "../components";
 import source from '../assets/source-code.png'
 import demo from '../assets/demo.png'
 
@@ -44,9 +43,9 @@ const Project = ({
     <Layout customSEO>
       <Wrapper>
         <SEO postPath={slug} postNode={projectNode} article />
-        <ProjectHeader>
+        <Cover>
           <Link to="/projects">Back to Projects</Link>
-        </ProjectHeader>
+        </Cover>
         <Content>
           <Title>{project.title}</Title>
           <div>{project.slogan}</div>

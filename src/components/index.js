@@ -2,7 +2,7 @@ import BlogPostTile from "./Blog/BlogPostTile";
 import ExperienceTimeline from "./Experience/ExperienceTimeline";
 import Flex from './_shared/Flex'
 import Code from './_shared/Code'
-import Header from "./_shared/Header";
+import Cover from './_shared/Cover'
 import Home from "./Home/Home";
 import HomeLayout from "./Home/HomeLayout";
 import Layout from "./Layout";
@@ -18,9 +18,9 @@ import Wrapper from "./Navigation/Wrapper";
 export {
   BlogPostTile,
   Code,
+  Cover,
   ExperienceTimeline,
   Flex,
-  Header,
   Home,
   HomeLayout,
   Layout,

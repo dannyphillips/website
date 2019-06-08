@@ -1,26 +1,8 @@
 import React from 'react'
 import styled from "styled-components";
 
-import { Layout, ExperienceTimeline } from '../components'
+import { Cover, Layout, ExperienceTimeline } from '../components'
 // import { Paper } from '@material-ui/core'
-import bg from '../assets/exp-bg-small.jpg'
-
-const Cover = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 72px;
-  font-weight: bold;
-  color: black;
-  background-image: url(${bg});
-  width: 100%;
-  height: 250px;
-  object-fit: cover;
-  @media only screen and (max-width: 1169px) {
-    font-size: 48px;
-    height: 150px;
-  }
-`;
 
 const TwoPanelLayout = styled.div`
   display: flex;

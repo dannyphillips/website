@@ -7,7 +7,7 @@ import styled from "styled-components";
 import {
   Layout,
   Wrapper,
-  Header,
+  Cover,
   Subline,
   BlogPostTile,
   SectionTitle
@@ -40,9 +40,9 @@ const Tech = ({ pageContext: { tech }, data: { allMdx } }) => {
     <Layout>
       <Wrapper>
         <Helmet title={`tech: ${tech} | ${config.siteTitle}`} />
-        <Header>
+        <Cover>
           <Link to="/">{config.siteTitle}</Link>
-        </Header>
+        </Cover>
         <Content>
           <SectionTitle>tech &ndash; {tech}</SectionTitle>
           <Subline sectionTitle>

@@ -5,7 +5,7 @@ import styled from "styled-components";
 import kebabCase from "lodash/kebabCase";
 import MDXRenderer from "gatsby-mdx/mdx-renderer";
 
-import { Layout, Wrapper, Header, Subline, SEO, PrevNext } from "../components";
+import { Layout, Wrapper, Cover, Subline, SEO, PrevNext } from "../components";
 import config from "../../config";
 
 const Content = styled.article`
@@ -60,9 +60,9 @@ const Blog = ({
     <Layout customSEO>
       <Wrapper>
         <SEO postPath={slug} postNode={blogNode} article />
-        <Header>
+        <Cover>
           <Link to="/">{config.siteTitle}</Link>
-        </Header>
+        </Cover>
         <Content>
           <Title>{blog.title}</Title>
           <Subline>
