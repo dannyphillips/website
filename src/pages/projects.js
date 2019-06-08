@@ -5,7 +5,7 @@ import styled from "styled-components";
 import defaultLogo from "../logo.png";
 import appsBackground from "../assets/apps-bg-small.png";
 
-import { Cover, Flex, Layout, ProjectTile } from "../components";
+import { Cover, SectionTitle, Flex, Layout, ProjectTile } from "../components";
 
 const AppsCover = styled(Cover)`
   background: url(${appsBackground}) repeat 0 0;
@@ -18,10 +18,9 @@ const AppsCover = styled(Cover)`
       background-position: 0 -400px;
     }
   }
-  margin-bottom: 40px;
 `;
-const AppsContainer = styled(Flex)`
-  margin-top: 40px;
+const Title = styled(SectionTitle)`
+  margin: 40px;
 `;
 
 const ProjectsPage = ({
@@ -31,8 +30,9 @@ const ProjectsPage = ({
   }
 }) => (
   <Layout>
-    <AppsCover>My Apps</AppsCover>
-    <AppsContainer>
+    <AppsCover/>
+    <Title>My Apps</Title>
+    <Flex>
       {projects.map(project => {
         let projectLogo = logos.find(logo =>
           project.node.fields.slug.includes(logo.node.relativeDirectory)
@@ -48,7 +48,7 @@ const ProjectsPage = ({
           />
         );
       })}
-    </AppsContainer>
+    </Flex>
   </Layout>
 );
 
@@ -82,7 +82,7 @@ export const ProjectsQuery = graphql`
       }
     }
     allMdx(
-      sort: { fields: [frontmatter___date], order: DESC }
+      sort: { fields: [frontmatter___title], order: ASC }
       filter: { fileAbsolutePath: { regex: "/projects/" } }
     ) {
       edges {

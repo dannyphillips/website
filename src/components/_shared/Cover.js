@@ -21,8 +21,8 @@ const CoverPhoto = styled.div`
   }
 `;
 
-const Cover = ({children}) => (
-  <CoverPhoto>{children}</CoverPhoto>
+const Cover = ({children, ...rest}) => (
+  <CoverPhoto {...rest}>{children}</CoverPhoto>
 )
 
 export default Cover
