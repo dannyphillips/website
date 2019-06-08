@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
-import { Link } from "gatsby";
+import { Link } from "gatsby-plugin-modal-routing";
 import kebabCase from "lodash/kebabCase";
 import { Flex, Subline } from "../../components";
 import {
@@ -38,12 +38,12 @@ const Details = styled.div`
 const ProjectTile = ({ appIcon, title, slogan, slug, tags }) => {
   return (
     <AppCard>
-      <Link to={`/projects${slug}`}>
+      <Link to={`/projects${slug}`} asModal>
         <Cover image={appIcon} title="Live from space album cover" />
       </Link>
       <Details>
         <Flex direction="column" justify="space-around" align="flex-start">
-          <Link to={`/projects${slug}`}>
+          <Link to={`/projects${slug}`} asModal>
             <Typography component="h5" variant="h5">
               {title}
             </Typography>
