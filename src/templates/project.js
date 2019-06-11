@@ -29,15 +29,18 @@ const Content = styled.div`
   @media (max-width: ${props => props.theme.breakpoints.phone}) {
     padding: 2rem 1.5rem;
   }
+<<<<<<< Updated upstream
   overflow: hidden;
+=======
+>>>>>>> Stashed changes
 `;
 const Icon = styled.img`
   width: 40px;
 `;
 
 const Project = ({
-  pageContext: { slug, prev, next },
-  data: { mdx: projectNode }
+  pageContext: { slug, dir, prev, next },
+  data: { mdx: projectNode, file: publicURL }
 }) => {
   const project = projectNode.frontmatter;
   return (
@@ -50,17 +53,37 @@ const Project = ({
         <Content>
           <Title>{project.title}</Title>
           <div>{project.slogan}</div>
+<<<<<<< Updated upstream
           <Link to={project.source}>Source Code: <Icon src={source} alt="source"/></Link>
           <Link to={project.demo}>Demo: <Icon src={demo} alt="demo"/></Link>
           <div>
             Tech: {project.techs.map(tech => (
               <Chip label={tech} />
+=======
+          <img src={publicURL.publicURL} alt="logo" />
+          <a href={project.source}>
+            Source Code: <Icon src={source} alt="source" />
+          </a>
+          <a href={project.demo}>
+            Demo: <Icon src={demo} alt="demo" />
+          </a>
+          <div>
+            Tech:{" "}
+            {project.techs.map(tech => (
+              <Chip label={tech} key={tech} />
+>>>>>>> Stashed changes
             ))}
           </div>
 
           <div>
+<<<<<<< Updated upstream
             Tags: {project.tags.map(tag => (
               <Chip label={tag} />
+=======
+            Tags:{" "}
+            {project.tags.map(tag => (
+              <Chip label={tag} key={tag} />
+>>>>>>> Stashed changes
             ))}
           </div>
           <ProjectContent>
@@ -94,7 +117,10 @@ Project.defaultProps = {
 };
 
 export const projectQuery = graphql`
-  query projectBySlug($slug: String!) {
+  query projectBySlug($slug: String!, $dir: String!) {
+    file(relativeDirectory: { glob: $dir }, name: { in: "logo" }) {
+      publicURL
+    }
     mdx(
       fields: { slug: { eq: $slug } }
       fileAbsolutePath: { regex: "/projects/" }
