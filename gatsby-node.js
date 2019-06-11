@@ -149,7 +149,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
   projects.map(edge => {
     if (_.get(edge, "node.frontmatter.techs")) {
-      edge.node.frontmatter.techSet.forEach(tech => {
+      edge.node.frontmatter.techs.forEach(tech => {
         techSet.add(tech);
       });
     }
