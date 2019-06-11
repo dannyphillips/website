@@ -55,7 +55,7 @@ const Tech = ({ pageContext: { tech }, data: { allMdx } }) => {
               excerpt={post.node.excerpt}
               timeToRead={post.node.timeToRead}
               slug={post.node.fields.slug}
-              tags={post.node.frontmatter.tags}
+              tags={post.node.frontmatter.techs}
               key={post.node.fields.slug}
             />
           ))}
