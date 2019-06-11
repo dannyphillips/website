@@ -5,7 +5,7 @@ import { Link, graphql } from 'gatsby'
 import styled from 'styled-components'
 import kebabCase from 'lodash/kebabCase'
 
-import { Layout, Wrapper, SectionTitle } from '../components'
+import { Layout, Cover, Wrapper, SectionTitle } from '../components'
 import config from '../../config'
 
 const Content = styled.div`
@@ -36,10 +36,11 @@ const TechsPage = ({
   },
 }) => (
   <Layout>
+    <Cover/>
     <Wrapper>
-      <Helmet title={`techs | ${config.siteTitle}`} />
+      <Helmet title={`Technologies | ${config.siteTitle}`} />
       <Content>
-        <SectionTitle>techs</SectionTitle>
+        <SectionTitle>Technologies</SectionTitle>
         {group.map(tech => (
           <Title key={tech.fieldValue}>
             <Link to={`/techs/${kebabCase(tech.fieldValue)}`}>{tech.fieldValue}</Link> ({tech.totalCount})

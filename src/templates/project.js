@@ -6,8 +6,8 @@ import MDXRenderer from "gatsby-mdx/mdx-renderer";
 import { Chip } from "@material-ui/core";
 
 import { Cover, Layout, Wrapper, SEO, PrevNext } from "../components";
-import source from '../assets/source-code.png'
-import demo from '../assets/demo.png'
+import source from "../assets/source-code.png";
+import demo from "../assets/demo.png";
 
 const Title = styled.h1`
   margin-bottom: 1rem;
@@ -41,24 +41,30 @@ const Project = ({
   const project = projectNode.frontmatter;
   return (
     <Layout customSEO>
+      <Cover>
+        <Link to="/projects">Back to Projects</Link>
+      </Cover>
       <Wrapper>
         <SEO postPath={slug} postNode={projectNode} article />
-        <Cover>
-          <Link to="/projects">Back to Projects</Link>
-        </Cover>
         <Content>
           <Title>{project.title}</Title>
           <div>{project.slogan}</div>
-          <Link to={project.source}>Source Code: <Icon src={source} alt="source"/></Link>
-          <Link to={project.demo}>Demo: <Icon src={demo} alt="demo"/></Link>
+          <Link to={project.source}>
+            Source Code: <Icon src={source} alt="source" />
+          </Link>
+          <Link to={project.demo}>
+            Demo: <Icon src={demo} alt="demo" />
+          </Link>
           <div>
-            Tech: {project.techs.map(tech => (
+            Tech:{" "}
+            {project.techs.map(tech => (
               <Chip label={tech} />
             ))}
           </div>
 
           <div>
-            Tags: {project.tags.map(tag => (
+            Tags:{" "}
+            {project.tags.map(tag => (
               <Chip label={tag} />
             ))}
           </div>

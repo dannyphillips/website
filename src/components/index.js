@@ -1,8 +1,9 @@
 import BlogPostTile from "./Blog/BlogPostTile";
-import ExperienceTimeline from "./Experience/ExperienceTimeline";
-import Flex from './_shared/Flex'
+import Breadcrumbs from './_shared/Breadcrumbs'
 import Code from './_shared/Code'
 import Cover from './_shared/Cover'
+import ExperienceTimeline from "./Experience/ExperienceTimeline";
+import Flex from './_shared/Flex'
 import Home from "./Home/Home";
 import HomeLayout from "./Home/HomeLayout";
 import Layout from "./Layout";
@@ -17,6 +18,7 @@ import Wrapper from "./Navigation/Wrapper";
 
 export {
   BlogPostTile,
+  Breadcrumbs,
   Code,
   Cover,
   ExperienceTimeline,

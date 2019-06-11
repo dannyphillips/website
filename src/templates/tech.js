@@ -38,11 +38,11 @@ const Tech = ({ pageContext: { tech }, data: { allMdx } }) => {
 
   return (
     <Layout>
+      <Cover>
+        <Link to="/">{config.siteTitle}</Link>
+      </Cover>
       <Wrapper>
         <Helmet title={`tech: ${tech} | ${config.siteTitle}`} />
-        <Cover>
-          <Link to="/">{config.siteTitle}</Link>
-        </Cover>
         <Content>
           <SectionTitle>tech &ndash; {tech}</SectionTitle>
           <Subline sectionTitle>

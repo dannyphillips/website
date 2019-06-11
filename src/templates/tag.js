@@ -38,11 +38,11 @@ const Tag = ({ pageContext: { tag }, data: { allMdx } }) => {
 
   return (
     <Layout>
+      <Cover>
+        <Link to="/">{config.siteTitle}</Link>
+      </Cover>
       <Wrapper>
         <Helmet title={`tag: ${tag} | ${config.siteTitle}`} />
-        <Cover>
-          <Link to="/">{config.siteTitle}</Link>
-        </Cover>
         <Content>
           <SectionTitle>tag &ndash; {tag}</SectionTitle>
           <Subline sectionTitle>

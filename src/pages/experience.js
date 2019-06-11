@@ -1,7 +1,7 @@
-import React from 'react'
+import React from "react";
 import styled from "styled-components";
 
-import { Cover, Layout, ExperienceTimeline } from '../components'
+import { Cover, Layout, ExperienceTimeline } from "../components";
 // import { Paper } from '@material-ui/core'
 
 const TwoPanelLayout = styled.div`
@@ -45,11 +45,10 @@ const ExperiencePage = () => (
         </Body>
       </Main> */}
       <Side>
-
-    <ExperienceTimeline />
+        <ExperienceTimeline />
       </Side>
     </TwoPanelLayout>
   </Layout>
-)
+);
 
-export default ExperiencePage
+export default ExperiencePage;
