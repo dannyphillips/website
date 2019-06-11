@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import RandomColor from 'randomColor';
+import RandomColor from 'randomcolor';
 
 import bg from "../../assets/exp-bg-small.jpg";
 
@@ -16,7 +16,7 @@ const CoverPhoto = styled.div`
   font-size: 72px;
   font-weight: bold;
   color: black;
-  background: url (${bg}) center;
+  background: url(${bg}) center;
   background-size: cover;
   width: 100%;
   height: 250px;
