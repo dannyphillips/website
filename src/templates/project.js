@@ -5,7 +5,7 @@ import styled from "styled-components";
 import MDXRenderer from "gatsby-mdx/mdx-renderer";
 import { Chip } from "@material-ui/core";
 
-import { Layout, Wrapper, SEO, PrevNext } from "../components";
+import { ModalLayout, Wrapper, SEO, PrevNext } from "../components";
 import ProjectHeader from "../components/Projects/ProjectHeader";
 import source from '../assets/source-code.png'
 import demo from '../assets/demo.png'
@@ -41,7 +41,7 @@ const Project = ({
 }) => {
   const project = projectNode.frontmatter;
   return (
-    <Layout customSEO>
+    <ModalLayout>
       <Wrapper>
         <SEO postPath={slug} postNode={projectNode} article />
         <ProjectHeader>
@@ -69,7 +69,7 @@ const Project = ({
           <PrevNext prefix={`/projects`} prev={prev} next={next} />
         </Content>
       </Wrapper>
-    </Layout>
+    </ModalLayout>
   );
 };
 
