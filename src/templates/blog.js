@@ -5,8 +5,14 @@ import styled from "styled-components";
 import kebabCase from "lodash/kebabCase";
 import MDXRenderer from "gatsby-mdx/mdx-renderer";
 
-import { Layout, Wrapper, Breadcrumbs, Subline, SEO, PrevNext } from "../components";
-import config from "../../config";
+import {
+  Cover,
+  Layout,
+  PrevNext,
+  SEO,
+  Subline,
+  Wrapper,
+} from "../components";
 
 const Content = styled.article`
   grid-column: 2;
@@ -58,9 +64,7 @@ const Blog = ({
 
   return (
     <Layout customSEO>
-      <Breadcrumbs>
-        <Link to="/">{config.siteTitle}</Link>
-      </Breadcrumbs>
+      <Cover condensed/>
       <Wrapper>
         <SEO postPath={slug} postNode={blogNode} article />
         <Content>

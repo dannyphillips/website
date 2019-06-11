@@ -36,7 +36,7 @@ const TechsPage = ({
   },
 }) => (
   <Layout>
-    <Cover/>
+    <Cover condensed/>
     <Wrapper>
       <Helmet title={`Technologies | ${config.siteTitle}`} />
       <Content>

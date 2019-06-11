@@ -1,4 +1,4 @@
-import { lighten } from 'polished'
+import { lighten } from "polished";
 
 const colors = {
   primary: "#14a8e3", // Color for buttons or links
@@ -14,24 +14,24 @@ const colors = {
 };
 
 const transitions = {
-  normal: '0.5s',
-}
+  normal: "0.5s"
+};
 
 const fontSize = {
-  small: '0.9rem',
-  medium: '1.4rem',
-  large: '1.9rem',
-}
+  small: "0.9rem",
+  medium: "1.4rem",
+  large: "1.9rem"
+};
 
 const fontFamily = {
   serif: `'Bitter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', serif`,
-  sansSerif: `'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif`,
-}
+  sansSerif: `'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif`
+};
 
 const breakpoints = {
-  tablet: '1200px',
-  phone: '600px',
-}
+  tablet: "1200px",
+  phone: "600px"
+};
 
 const theme = {
   colors,
@@ -39,8 +39,8 @@ const theme = {
   fontSize,
   breakpoints,
   fontFamily,
-  maxWidth: '1000px',
-  baseFontSize: '18px',
-}
+  maxWidth: "1000px",
+  baseFontSize: "18px"
+};
 
-export default theme
+export default theme;

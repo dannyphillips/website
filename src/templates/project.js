@@ -20,16 +20,18 @@ const ProjectContent = styled.div`
 const Content = styled.div`
   grid-column: 2;
   box-shadow: 0 4px 120px rgba(0, 0, 0, 0.1);
+  max-width: 1000px;
   border-radius: 1rem;
   padding: 3rem 6rem;
+  background-color: ${props => props.theme.colors.bg};
+  z-index: 9000;
+  margin-top: -3rem;
   @media (max-width: ${props => props.theme.breakpoints.tablet}) {
     padding: 3rem 2rem;
   }
   @media (max-width: ${props => props.theme.breakpoints.phone}) {
     padding: 2rem 1.5rem;
-  }
-  overflow: hidden;
-`;
+  }`;
 const Icon = styled.img`
   width: 40px;
 `;
@@ -41,9 +43,7 @@ const Project = ({
   const project = projectNode.frontmatter;
   return (
     <Layout customSEO>
-      <Cover>
-        <Link to="/projects">Back to Projects</Link>
-      </Cover>
+      <Cover condensed />
       <Wrapper>
         <SEO postPath={slug} postNode={projectNode} article />
         <Content>

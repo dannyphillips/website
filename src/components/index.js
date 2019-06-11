@@ -1,5 +1,4 @@
 import BlogPostTile from "./Blog/BlogPostTile";
-import Breadcrumbs from './_shared/Breadcrumbs'
 import Code from './_shared/Code'
 import Cover from './_shared/Cover'
 import ExperienceTimeline from "./Experience/ExperienceTimeline";
@@ -18,7 +17,6 @@ import Wrapper from "./Navigation/Wrapper";
 
 export {
   BlogPostTile,
-  Breadcrumbs,
   Code,
   Cover,
   ExperienceTimeline,

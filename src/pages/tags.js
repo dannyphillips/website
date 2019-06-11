@@ -36,7 +36,7 @@ const TagsPage = ({
   },
 }) => (
   <Layout>
-    <Cover/>
+    <Cover condensed/>
     <Wrapper>
       <Helmet title={`tags | ${config.siteTitle}`} />
     <Content>

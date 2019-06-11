@@ -1,8 +1,13 @@
-import React from 'react'
+import React from "react";
 import styled from "styled-components";
 
-import bg from '../../assets/exp-bg-small.jpg'
+import bg from "../../assets/exp-bg-small.jpg";
 
+const CondensedCover = styled.div`
+  height: 100px;
+  background-color: lightblue;
+  width: 100%;
+`;
 const CoverPhoto = styled.div`
   display: flex;
   justify-content: center;
@@ -10,7 +15,7 @@ const CoverPhoto = styled.div`
   font-size: 72px;
   font-weight: bold;
   color: black;
-  background: url(${bg}) center;
+  background: url (${bg}) center;
   background-size: cover;
   width: 100%;
   height: 250px;
@@ -21,8 +26,11 @@ const CoverPhoto = styled.div`
   }
 `;
 
-const Cover = ({children, ...rest}) => (
-  <CoverPhoto {...rest}>{children}</CoverPhoto>
-)
+const Cover = ({ condensed, children, ...rest }) =>
+  condensed ? (
+    <CondensedCover />
+  ) : (
+    <CoverPhoto {...rest}>{children}</CoverPhoto>
+  );
 
-export default Cover
+export default Cover;
