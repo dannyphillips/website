@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Link, graphql } from "gatsby";
+import { graphql } from "gatsby";
 import styled from "styled-components";
 import MDXRenderer from "gatsby-mdx/mdx-renderer";
 import { Chip } from "@material-ui/core";
@@ -49,23 +49,23 @@ const Project = ({
         <Content>
           <Title>{project.title}</Title>
           <div>{project.slogan}</div>
-          <Link to={project.source}>
+          <a href={project.source}>
             Source Code: <Icon src={source} alt="source" />
-          </Link>
-          <Link to={project.demo}>
+          </a>
+          <a href={project.demo}>
             Demo: <Icon src={demo} alt="demo" />
-          </Link>
+          </a>
           <div>
             Tech:{" "}
             {project.techs.map(tech => (
-              <Chip label={tech} />
+              <Chip label={tech} key={tech}/>
             ))}
           </div>
 
           <div>
             Tags:{" "}
             {project.tags.map(tag => (
-              <Chip label={tag} />
+              <Chip label={tag} key={tag}/>
             ))}
           </div>
           <ProjectContent>
