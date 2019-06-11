@@ -9,6 +9,7 @@ const wrapper = promise =>
     return result;
   });
 
+// add slugs as node to each page
 exports.onCreateNode = ({ node, actions }) => {
   const { createNodeField } = actions;
 
@@ -39,6 +40,7 @@ exports.createPages = async ({ graphql, actions }) => {
   const tagTemplate = require.resolve("./src/templates/tag.js");
   const techTemplate = require.resolve("./src/templates/tech.js");
 
+  // get all blogs
   const blogResults = await wrapper(
     graphql(`
       {
@@ -61,6 +63,8 @@ exports.createPages = async ({ graphql, actions }) => {
       }
     `)
   );
+
+  // get all projects
   const projectResults = await wrapper(
     graphql(`
       {
@@ -87,6 +91,7 @@ exports.createPages = async ({ graphql, actions }) => {
   const blogs = blogResults.data.allMdx.edges;
   const projects = projectResults.data.allMdx.edges;
 
+  // create all blog pages
   blogs.map((edge, index) => {
     const next = index === 0 ? null : blogs[index - 1].node;
     const prev = index === blogs.length - 1 ? null : blogs[index + 1].node;
@@ -102,6 +107,7 @@ exports.createPages = async ({ graphql, actions }) => {
     });
   });
 
+  // create all project pages
   projects.map((edge, index) => {
     const next = index === 0 ? null : projects[index - 1].node;
     const prev =
@@ -117,8 +123,8 @@ exports.createPages = async ({ graphql, actions }) => {
     });
   });
 
+  // create all tags from blogs and projects
   const tagSet = new Set();
-
   blogs.map(edge => {
     if (_.get(edge, "node.frontmatter.tags")) {
       edge.node.frontmatter.tags.forEach(cat => {
@@ -134,8 +140,8 @@ exports.createPages = async ({ graphql, actions }) => {
     }
   });
 
+  // create all tag pages from tags
   const tags = Array.from(tagSet);
-
   tags.map(tag => {
     createPage({
       path: `/tags/${_.kebabCase(tag)}`,
@@ -145,8 +151,9 @@ exports.createPages = async ({ graphql, actions }) => {
       }
     });
   });
-  const techSet = new Set();
 
+  // create all techs from projects
+  const techSet = new Set();
   projects.map(edge => {
     if (_.get(edge, "node.frontmatter.techs")) {
       edge.node.frontmatter.techs.forEach(tech => {
@@ -155,8 +162,8 @@ exports.createPages = async ({ graphql, actions }) => {
     }
   });
 
+  // create all tech pages
   const techs = Array.from(techSet);
-
   techs.map(tech => {
     createPage({
       path: `/techs/${_.kebabCase(tech)}`,

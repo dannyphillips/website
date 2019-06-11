@@ -5,7 +5,7 @@ import { Link, graphql } from 'gatsby'
 import styled from 'styled-components'
 import kebabCase from 'lodash/kebabCase'
 
-import { Layout, Wrapper, SectionTitle } from '../components'
+import { Layout, Cover, Wrapper, SectionTitle } from '../components'
 import config from '../../config'
 
 const Content = styled.div`
@@ -36,16 +36,17 @@ const TagsPage = ({
   },
 }) => (
   <Layout>
+    <Cover condensed/>
     <Wrapper>
       <Helmet title={`tags | ${config.siteTitle}`} />
-      <Content>
-        <SectionTitle>tags</SectionTitle>
-        {group.map(tag => (
-          <Title key={tag.fieldValue}>
-            <Link to={`/tags/${kebabCase(tag.fieldValue)}`}>{tag.fieldValue}</Link> ({tag.totalCount})
-          </Title>
-        ))}
-      </Content>
+    <Content>
+      <SectionTitle>tags</SectionTitle>
+      {group.map(tag => (
+        <Title key={tag.fieldValue}>
+          <Link to={`/tags/${kebabCase(tag.fieldValue)}`}>{tag.fieldValue}</Link> ({tag.totalCount})
+        </Title>
+      ))}
+    </Content>
     </Wrapper>
   </Layout>
 )

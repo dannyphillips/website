@@ -1,14 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Link, graphql } from "gatsby";
+import { graphql } from "gatsby";
 import styled from "styled-components";
 import MDXRenderer from "gatsby-mdx/mdx-renderer";
 import { Chip } from "@material-ui/core";
 
-import { Layout, Wrapper, SEO, PrevNext } from "../components";
-import ProjectHeader from "../components/Projects/ProjectHeader";
-import source from '../assets/source-code.png'
-import demo from '../assets/demo.png'
+import { Cover, Layout, Wrapper, SEO, PrevNext } from "../components";
+import source from "../assets/source-code.png";
+import demo from "../assets/demo.png";
 
 const Title = styled.h1`
   margin-bottom: 1rem;
@@ -21,16 +20,18 @@ const ProjectContent = styled.div`
 const Content = styled.div`
   grid-column: 2;
   box-shadow: 0 4px 120px rgba(0, 0, 0, 0.1);
+  max-width: 1000px;
   border-radius: 1rem;
   padding: 3rem 6rem;
+  background-color: ${props => props.theme.colors.bg};
+  z-index: 9000;
+  margin-top: -3rem;
   @media (max-width: ${props => props.theme.breakpoints.tablet}) {
     padding: 3rem 2rem;
   }
   @media (max-width: ${props => props.theme.breakpoints.phone}) {
     padding: 2rem 1.5rem;
-  }
-  overflow: hidden;
-`;
+  }`;
 const Icon = styled.img`
   width: 40px;
 `;
@@ -42,25 +43,29 @@ const Project = ({
   const project = projectNode.frontmatter;
   return (
     <Layout customSEO>
+      <Cover condensed />
       <Wrapper>
         <SEO postPath={slug} postNode={projectNode} article />
-        <ProjectHeader>
-          <Link to="/projects">Back to Projects</Link>
-        </ProjectHeader>
         <Content>
           <Title>{project.title}</Title>
           <div>{project.slogan}</div>
-          <Link to={project.source}>Source Code: <Icon src={source} alt="source"/></Link>
-          <Link to={project.demo}>Demo: <Icon src={demo} alt="demo"/></Link>
+          <a href={project.source}>
+            Source Code: <Icon src={source} alt="source" />
+          </a>
+          <a href={project.demo}>
+            Demo: <Icon src={demo} alt="demo" />
+          </a>
           <div>
-            Tech: {project.techs.map(tech => (
-              <Chip label={tech} />
+            Tech:{" "}
+            {project.techs.map(tech => (
+              <Chip label={tech} key={tech}/>
             ))}
           </div>
 
           <div>
-            Tags: {project.tags.map(tag => (
-              <Chip label={tag} />
+            Tags:{" "}
+            {project.tags.map(tag => (
+              <Chip label={tag} key={tag}/>
             ))}
           </div>
           <ProjectContent>
