@@ -1,11 +1,12 @@
 import React from "react";
 import styled from "styled-components";
+import RandomColor from 'randomColor';
 
 import bg from "../../assets/exp-bg-small.jpg";
 
 const CondensedCover = styled.div`
   height: 100px;
-  background-color: lightblue;
+  background-color: ${RandomColor()};
   width: 100%;
 `;
 const CoverPhoto = styled.div`
