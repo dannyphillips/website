@@ -47,7 +47,7 @@ const Excerpt = styled.p`
 
 const BlogPostTile = ({ title, date, excerpt, slug, timeToRead, tags }) => {
   const firstChar = title.charAt(0)
-
+  debugger;
   return (
     <Post>
       <Title>
