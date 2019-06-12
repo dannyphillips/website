@@ -5,7 +5,7 @@ import styled from "styled-components";
 import MDXRenderer from "gatsby-mdx/mdx-renderer";
 import { Chip } from "@material-ui/core";
 
-import { Layout, Wrapper, SEO, PrevNext } from "../components";
+import { Layout, Wrapper, SEO, Flex, PrevNext } from "../components";
 import ProjectHeader from "../components/Projects/ProjectHeader";
 import source from '../assets/source-code.png'
 import demo from '../assets/demo.png'
@@ -35,7 +35,7 @@ const Icon = styled.img`
 `;
 
 const Project = ({
-  pageContext: { slug, dir, prev, next },
+  pageContext: { slug, prev, next },
   data: { mdx: projectNode, file: publicURL }
 }) => {
   const project = projectNode.frontmatter;
@@ -47,9 +47,13 @@ const Project = ({
           <Link to="/projects">Back to Projects</Link>
         </ProjectHeader>
         <Content>
-          <Title>{project.title}</Title>
-          <div>{project.slogan}</div>
+          <Flex>
           <img src={publicURL.publicURL} alt="logo" />
+          <div>
+            <Title>{project.title}</Title>
+            <div>{project.slogan}</div>
+          </div>
+          </Flex>
           <a href={project.source}>
             Source Code: <Icon src={source} alt="source" />
           </a>
@@ -100,8 +104,8 @@ Project.defaultProps = {
 };
 
 export const projectQuery = graphql`
-  query projectBySlug($slug: String!, $dir: String!) {
-    file(relativeDirectory: { glob: $dir }, name: { in: "logo" }) {
+  query projectBySlug($slug: String!) {
+    file(relativeDirectory: { glob: "recall" }, name: { in: "logo" }) {
       publicURL
     }
     mdx(
