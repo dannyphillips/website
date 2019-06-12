@@ -7,7 +7,7 @@ import styled from "styled-components";
 import {
   Layout,
   Wrapper,
-  Header,
+  Cover,
   Subline,
   BlogPostTile,
   SectionTitle
@@ -38,11 +38,9 @@ const Tag = ({ pageContext: { tag }, data: { allMdx } }) => {
 
   return (
     <Layout>
+      <Cover condensed />
       <Wrapper>
         <Helmet title={`tag: ${tag} | ${config.siteTitle}`} />
-        <Header>
-          <Link to="/">{config.siteTitle}</Link>
-        </Header>
         <Content>
           <SectionTitle>tag &ndash; {tag}</SectionTitle>
           <Subline sectionTitle>
