@@ -8,41 +8,30 @@ const LinkContainer = styled(Flex)`
   width: 300px;
 `;
 
+const Icon = styled.img`
+  height: 32px;
+  width: 32px;
+`;
+
 const SocialLinks = () => (
   <LinkContainer justify="space-evenly">
     <a href="https://www.linkedin.com/in/dannyphillips1/">
-      <img
-        height="32"
-        width="32"
-        src="https://unpkg.com/simple-icons@latest/icons/linkedin.svg"
-      />
+      <Icon alt="linkedin" src="https://unpkg.com/simple-icons@latest/icons/linkedin.svg" />
     </a>
     <a href="mailto:danny.phillips8@gmail.com">
-      <img
-        height="32"
-        width="32"
-        src="https://unpkg.com/simple-icons@latest/icons/gmail.svg"
-      />
+      <Icon alt="gmail" src="https://unpkg.com/simple-icons@latest/icons/gmail.svg" />
     </a>
     <a href="https://github.com/dannyphillips">
-      <img
-        height="32"
-        width="32"
-        src="https://unpkg.com/simple-icons@latest/icons/github.svg"
-      />
+      <Icon alt="github" src="https://unpkg.com/simple-icons@latest/icons/github.svg" />
     </a>
     <a href="https://twitter.com/_dannyjphillips">
-      <img
-        height="32"
-        width="32"
-        src="https://unpkg.com/simple-icons@latest/icons/twitter.svg"
-      />
+      <Icon alt="twitter" src="https://unpkg.com/simple-icons@latest/icons/twitter.svg" />
     </a>
-    <a href="">
-      <img
+    <a href="/">
+      <Icon
         height="28"
         width="28"
-        src="https://unpkg.com/simple-icons@latest/icons/rss.svg"
+        alt="rss" src="https://unpkg.com/simple-icons@latest/icons/rss.svg"
       />
     </a>
   </LinkContainer>
