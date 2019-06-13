@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { graphql } from "gatsby";
+import { Link, graphql } from "gatsby";
 import styled from "styled-components";
 import MDXRenderer from "gatsby-mdx/mdx-renderer";
 import { Chip } from "@material-ui/core";
@@ -64,14 +64,18 @@ const Project = ({
           <div>
             Tech:{" "}
             {project.techs.map(tech => (
-              <Chip label={tech} key={tech} />
+              <Link to={`/techs/${tech}`}>
+                <Chip label={tech} key={tech} />
+              </Link>
             ))}
           </div>
 
           <div>
             Tags:{" "}
             {project.tags.map(tag => (
-              <Chip label={tag} key={tag} />
+              <Link to={`/tags/${tag}`}>
+                <Chip label={tag} key={tag} />
+              </Link>
             ))}
           </div>
           <ProjectContent>
@@ -105,8 +109,8 @@ Project.defaultProps = {
 };
 
 export const projectQuery = graphql`
-  query projectBySlug($slug: String!) {
-    file(relativeDirectory: { glob: "recall" }, name: { in: "logo" }) {
+  query projectBySlug($slug: String!, $dir: String!) {
+    file(relativeDirectory: { eq: $dir }, name: { in: "logo" }) {
       publicURL
     }
     mdx(
