@@ -1,10 +1,16 @@
-const KEBAB_REGEX = /[A-Z\u00C0-\u00D6\u00D8-\u00DE]/g;
-const kebabCase = (str) => (
-  str.replace(KEBAB_REGEX, (match) => (
-    "-" + match.toLowerCase()
-  ))
-);
+const INSERT_REGEX = /[.]/g;
+const OMIT_REGEX = /\s/g;
+const REPLACE_REGEX = /[A-Z]/g;
 
+const kebabCase = str => {
+  let kebab = str;
+  kebab = kebab.replace(INSERT_REGEX, () => "-");
+  kebab = kebab.replace(OMIT_REGEX, () => "");
+  kebab = kebab
+    .replace(REPLACE_REGEX, match => "-" + match.toLowerCase())
+    .substring(1);
+  return kebab;
+};
 
 // graphql function doesn't throw an error so we have to check to check for the result.errors to throw manually
 const wrapper = promise =>
@@ -22,16 +28,10 @@ exports.onCreateNode = ({ node, actions }) => {
   let slug;
 
   if (node.internal.type === "Mdx") {
-    if (
-      Object.prototype.hasOwnProperty.call(node, "frontmatter") &&
-      Object.prototype.hasOwnProperty.call(node.frontmatter, "slug")
-    ) {
+    if (node.frontmatter && node.frontmatter.slug) {
       slug = `/${kebabCase(node.frontmatter.slug)}`;
     }
-    if (
-      Object.prototype.hasOwnProperty.call(node, "frontmatter") &&
-      Object.prototype.hasOwnProperty.call(node.frontmatter, "title")
-    ) {
+    if (node.frontmatter && node.frontmatter.title) {
       slug = `/${kebabCase(node.frontmatter.title)}`;
     }
     createNodeField({ node, name: "slug", value: slug });
