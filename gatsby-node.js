@@ -117,6 +117,7 @@ exports.createPages = async ({ graphql, actions }) => {
       component: projectTemplate,
       context: {
         slug: edge.node.fields.slug,
+        dir: edge.node.fields.slug.substring(1),
         prev,
         next
       }

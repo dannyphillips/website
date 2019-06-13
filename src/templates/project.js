@@ -1,20 +1,30 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { graphql } from "gatsby";
+import { Link, graphql } from "gatsby";
 import styled from "styled-components";
 import MDXRenderer from "gatsby-mdx/mdx-renderer";
 import { Chip } from "@material-ui/core";
 
-import { Cover, Layout, Wrapper, SEO, PrevNext } from "../components";
+import { Cover, Layout, Wrapper, SEO, Flex, PrevNext } from "../components";
 import source from "../assets/source-code.png";
 import demo from "../assets/demo.png";
 
 const Title = styled.h1`
   margin-bottom: 1rem;
+  margin-top: 0px;
 `;
 
-const ProjectContent = styled.div`
-  margin-top: 4rem;
+const Details = styled.div`
+  margin: 20px;
+`;
+
+const Heading = styled(Flex)`
+  border-bottom: 2px solid lightgray;
+  padding-bottom: 40px;
+`;
+
+const TagContainer = styled.div`
+  margin: 20px 0px;
 `;
 
 const Content = styled.div`
@@ -31,14 +41,19 @@ const Content = styled.div`
   }
   @media (max-width: ${props => props.theme.breakpoints.phone}) {
     padding: 2rem 1.5rem;
-  }`;
+  }
+`;
 const Icon = styled.img`
   width: 40px;
 `;
 
+const Logo = styled.img`
+  height: 140px;
+`;
+
 const Project = ({
   pageContext: { slug, prev, next },
-  data: { mdx: projectNode }
+  data: { mdx: projectNode, file: publicURL }
 }) => {
   const project = projectNode.frontmatter;
   return (
@@ -47,30 +62,52 @@ const Project = ({
       <Wrapper>
         <SEO postPath={slug} postNode={projectNode} article />
         <Content>
-          <Title>{project.title}</Title>
-          <div>{project.slogan}</div>
-          <a href={project.source}>
-            Source Code: <Icon src={source} alt="source" />
-          </a>
-          <a href={project.demo}>
-            Demo: <Icon src={demo} alt="demo" />
-          </a>
-          <div>
+          <Heading justify="space-between">
+            <Flex justify="flex-start">
+              <Logo src={publicURL.publicURL} alt="logo" />
+              <Details>
+                <Title>{project.title}</Title>
+                <div>{project.slogan}</div>
+              </Details>
+            </Flex>
+            <Flex direction="column">
+              <Flex justify="space-between">
+                <a
+                  href={project.source}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Code: <Icon src={source} alt="source" />
+                </a>
+              </Flex>
+              <Flex justify="space-between">
+                <a
+                  href={project.demo}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Demo: <Icon src={demo} alt="demo" />
+                </a>
+              </Flex>
+            </Flex>
+          </Heading>
+          <TagContainer>
             Tech:{" "}
             {project.techs.map(tech => (
-              <Chip label={tech} key={tech}/>
+              <Link to={`/techs/${tech}`}>
+                <Chip label={tech} key={tech} />
+              </Link>
             ))}
-          </div>
-
-          <div>
+          </TagContainer>
+          <TagContainer>
             Tags:{" "}
             {project.tags.map(tag => (
-              <Chip label={tag} key={tag}/>
+              <Link to={`/tags/${tag}`}>
+                <Chip label={tag} key={tag} />
+              </Link>
             ))}
-          </div>
-          <ProjectContent>
-            <MDXRenderer>{projectNode.code.body}</MDXRenderer>
-          </ProjectContent>
+          </TagContainer>
+          <MDXRenderer>{projectNode.code.body}</MDXRenderer>
           <PrevNext prefix={`/projects`} prev={prev} next={next} />
         </Content>
       </Wrapper>
@@ -82,6 +119,7 @@ export default Project;
 
 Project.propTypes = {
   pageContext: PropTypes.shape({
+    dir: PropTypes.string.isRequired,
     slug: PropTypes.string.isRequired,
     next: PropTypes.object,
     prev: PropTypes.object
@@ -99,7 +137,10 @@ Project.defaultProps = {
 };
 
 export const projectQuery = graphql`
-  query projectBySlug($slug: String!) {
+  query projectBySlug($slug: String!, $dir: String!) {
+    file(relativeDirectory: { eq: $dir }, name: { in: "logo" }) {
+      publicURL
+    }
     mdx(
       fields: { slug: { eq: $slug } }
       fileAbsolutePath: { regex: "/projects/" }
