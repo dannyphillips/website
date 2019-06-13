@@ -1,9 +1,15 @@
 import React from 'react'
+import styled from 'styled-components'
 // import Helmet from "react-helmet";
 
-import { Layout, Cover } from '../components'
+import { Layout, Cover, SocialLinks } from '../components'
 // import { ReadingList } from '../components'
 
+const Container = styled.div`
+  padding: 40px;
+  margin: 20px;
+  border: 2px solid black;
+`;
 const AboutPage = () => (
   <Layout>
     <Cover>About Me</Cover>
@@ -15,6 +21,11 @@ const AboutPage = () => (
       />
     </Helmet>
     <ReadingList /> */}
+    <Container>My Bio</Container>
+    <Container>My Skills</Container>
+    <Container>Insert Reading List</Container>
+    <Container><SocialLinks/></Container>
+    <Container>Link to Resume</Container>
   </Layout>
 );
 

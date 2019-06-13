@@ -14,6 +14,7 @@ import SectionTitle from "./_shared/SectionTitle";
 import SEO from "./_shared/SEO";
 import Subline from "./_shared/Subline";
 import Wrapper from "./Navigation/Wrapper";
+import SocialLinks from "./_shared/SocialLinks";
 
 export {
   BlogPostTile,
@@ -31,5 +32,6 @@ export {
   SectionTitle,
   SEO,
   Subline,
-  Wrapper
+  Wrapper,
+  SocialLinks
 };

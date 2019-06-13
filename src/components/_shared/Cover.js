@@ -5,7 +5,7 @@ import RandomColor from 'randomcolor';
 import bg from "../../assets/exp-bg-small.jpg";
 
 const CondensedCover = styled.div`
-  height: 100px;
+  height: 250px;
   background-color: ${RandomColor()};
   width: 100%;
 `;
