@@ -1,3 +1,4 @@
+import Bio from "./About/Bio";
 import BlogPostTile from "./Blog/BlogPostTile";
 import Code from './_shared/Code'
 import Cover from './_shared/Cover'
@@ -12,11 +13,13 @@ import ProjectTile from "./Projects/ProjectTile";
 import ReadingList from "./About/ReadingList";
 import SectionTitle from "./_shared/SectionTitle";
 import SEO from "./_shared/SEO";
+import Skills from "./About/Skills";
+import SocialLinks from "./About/SocialLinks";
 import Subline from "./_shared/Subline";
 import Wrapper from "./Navigation/Wrapper";
-import SocialLinks from "./_shared/SocialLinks";
 
 export {
+  Bio,
   BlogPostTile,
   Code,
   Cover,
@@ -31,7 +34,8 @@ export {
   ReadingList,
   SectionTitle,
   SEO,
+  Skills,
+  SocialLinks,
   Subline,
   Wrapper,
-  SocialLinks
 };
