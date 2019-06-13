@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Link, graphql } from "gatsby";
 import styled from "styled-components";
-import kebabCase from "lodash/kebabCase";
+import kebabCase from "../utils/kebabCase";
 import MDXRenderer from "gatsby-mdx/mdx-renderer";
 
 import {
@@ -71,10 +71,10 @@ const Blog = ({
           <Title>{blog.title}</Title>
           <Subline>
             {blog.date} &mdash; {blogNode.timeToRead} Min Read &mdash; In{" "}
-            {blog.tags.map((cat, i) => (
-              <React.Fragment key={cat}>
+            {blog.tags.map((tag, i) => (
+              <React.Fragment key={tag}>
                 {!!i && ", "}
-                <Link to={`/tags/${kebabCase(cat)}`}>{cat}</Link>
+                <Link to={`/tags/${kebabCase(tag)}`}>{tag}</Link>
               </React.Fragment>
             ))}
           </Subline>

@@ -1,4 +1,10 @@
-const _ = require("lodash");
+const KEBAB_REGEX = /[A-Z\u00C0-\u00D6\u00D8-\u00DE]/g;
+const kebabCase = (str) => (
+  str.replace(KEBAB_REGEX, (match) => (
+    "-" + match.toLowerCase()
+  ))
+);
+
 
 // graphql function doesn't throw an error so we have to check to check for the result.errors to throw manually
 const wrapper = promise =>
@@ -20,13 +26,13 @@ exports.onCreateNode = ({ node, actions }) => {
       Object.prototype.hasOwnProperty.call(node, "frontmatter") &&
       Object.prototype.hasOwnProperty.call(node.frontmatter, "slug")
     ) {
-      slug = `/${_.kebabCase(node.frontmatter.slug)}`;
+      slug = `/${kebabCase(node.frontmatter.slug)}`;
     }
     if (
       Object.prototype.hasOwnProperty.call(node, "frontmatter") &&
       Object.prototype.hasOwnProperty.call(node.frontmatter, "title")
     ) {
-      slug = `/${_.kebabCase(node.frontmatter.title)}`;
+      slug = `/${kebabCase(node.frontmatter.title)}`;
     }
     createNodeField({ node, name: "slug", value: slug });
   }
@@ -127,14 +133,14 @@ exports.createPages = async ({ graphql, actions }) => {
   // create all tags from blogs and projects
   const tagSet = new Set();
   blogs.map(edge => {
-    if (_.get(edge, "node.frontmatter.tags")) {
+    if (edge.node.frontmatter.tags) {
       edge.node.frontmatter.tags.forEach(cat => {
         tagSet.add(cat);
       });
     }
   });
   projects.map(edge => {
-    if (_.get(edge, "node.frontmatter.tags")) {
+    if (edge.node.frontmatter.tags) {
       edge.node.frontmatter.tags.forEach(cat => {
         tagSet.add(cat);
       });
@@ -145,7 +151,7 @@ exports.createPages = async ({ graphql, actions }) => {
   const tags = Array.from(tagSet);
   tags.map(tag => {
     createPage({
-      path: `/tags/${_.kebabCase(tag)}`,
+      path: `/tags/${kebabCase(tag)}`,
       component: tagTemplate,
       context: {
         tag
@@ -156,7 +162,7 @@ exports.createPages = async ({ graphql, actions }) => {
   // create all techs from projects
   const techSet = new Set();
   projects.map(edge => {
-    if (_.get(edge, "node.frontmatter.techs")) {
+    if (edge.node.frontmatter.techs) {
       edge.node.frontmatter.techs.forEach(tech => {
         techSet.add(tech);
       });
@@ -167,7 +173,7 @@ exports.createPages = async ({ graphql, actions }) => {
   const techs = Array.from(techSet);
   techs.map(tech => {
     createPage({
-      path: `/techs/${_.kebabCase(tech)}`,
+      path: `/techs/${kebabCase(tech)}`,
       component: techTemplate,
       context: {
         tech

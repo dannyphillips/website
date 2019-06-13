@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 import { Link } from "gatsby";
-import kebabCase from "lodash/kebabCase";
+import kebabCase from "../../utils/kebabCase";
 import { Flex, Subline } from "../../components";
 import {
   Card,
