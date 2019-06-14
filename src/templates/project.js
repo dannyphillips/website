@@ -1,6 +1,7 @@
-import React from "react";
+import React, { Fragment } from "react";
 import PropTypes from "prop-types";
 import { Link, graphql } from "gatsby";
+import Palette from "react-palette";
 import styled from "styled-components";
 import MDXRenderer from "gatsby-mdx/mdx-renderer";
 import { Chip } from "@material-ui/core";
@@ -58,59 +59,65 @@ const Project = ({
   const project = projectNode.frontmatter;
   return (
     <Layout customSEO>
-      <Cover condensed />
-      <Wrapper>
-        <SEO postPath={slug} postNode={projectNode} article />
-        <Content>
-          <Heading justify="space-between">
-            <Flex justify="flex-start">
-              <Logo src={publicURL.publicURL} alt="logo" />
-              <Details>
-                <Title>{project.title}</Title>
-                <div>{project.slogan}</div>
-              </Details>
-            </Flex>
-            <Flex direction="column">
-              <Flex justify="space-between">
-                <a
-                  href={project.source}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Code: <Icon src={source} alt="source" />
-                </a>
-              </Flex>
-              <Flex justify="space-between">
-                <a
-                  href={project.demo}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Demo: <Icon src={demo} alt="demo" />
-                </a>
-              </Flex>
-            </Flex>
-          </Heading>
-          <TagContainer>
-            Tech:{" "}
-            {project.techs.map(tech => (
-              <Link to={`/techs/${tech}`}>
-                <Chip label={tech} key={tech} />
-              </Link>
-            ))}
-          </TagContainer>
-          <TagContainer>
-            Tags:{" "}
-            {project.tags.map(tag => (
-              <Link to={`/tags/${tag}`}>
-                <Chip label={tag} key={tag} />
-              </Link>
-            ))}
-          </TagContainer>
-          <MDXRenderer>{projectNode.code.body}</MDXRenderer>
-          <PrevNext prefix={`/projects`} prev={prev} next={next} />
-        </Content>
-      </Wrapper>
+      <Palette image={publicURL.publicURL}>
+        {palette => (
+          <Fragment>
+            <Cover condensed color={palette.muted}/>
+            <Wrapper>
+              <SEO postPath={slug} postNode={projectNode} article />
+              <Content>
+                <Heading justify="space-between">
+                  <Flex justify="flex-start">
+                    <Logo src={publicURL.publicURL} alt="logo" />
+                    <Details>
+                      <Title>{project.title}</Title>
+                      <div>{project.slogan}</div>
+                    </Details>
+                  </Flex>
+                  <Flex direction="column">
+                    <Flex justify="space-between">
+                      <a
+                        href={project.source}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        Code: <Icon src={source} alt="source" />
+                      </a>
+                    </Flex>
+                    <Flex justify="space-between">
+                      <a
+                        href={project.demo}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        Demo: <Icon src={demo} alt="demo" />
+                      </a>
+                    </Flex>
+                  </Flex>
+                </Heading>
+                <TagContainer>
+                  Tech:{" "}
+                  {project.techs.map(tech => (
+                    <Link to={`/techs/${tech}`}>
+                      <Chip label={tech} key={tech} />
+                    </Link>
+                  ))}
+                </TagContainer>
+                <TagContainer>
+                  Tags:{" "}
+                  {project.tags.map(tag => (
+                    <Link to={`/tags/${tag}`}>
+                      <Chip label={tag} key={tag} />
+                    </Link>
+                  ))}
+                </TagContainer>
+                <MDXRenderer>{projectNode.code.body}</MDXRenderer>
+                <PrevNext prefix={`/projects`} prev={prev} next={next} />
+              </Content>
+            </Wrapper>
+          </Fragment>
+        )}
+      </Palette>
     </Layout>
   );
 };

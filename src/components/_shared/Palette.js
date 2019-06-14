@@ -39,7 +39,7 @@ class App extends Component {
           >
             <div className="app__main">
               <div className="app__main__image">
-                <img src={image} />
+                <img src={image} alt="logo"/>
               </div>
               <div
                 style={{
