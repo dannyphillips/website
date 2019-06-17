@@ -1,12 +1,12 @@
 import React from "react";
 import styled from "styled-components";
-import RandomColor from 'randomcolor';
+import RandomColor from "randomcolor";
 
 import bg from "../../assets/exp-bg-small.jpg";
 
 const CondensedCover = styled.div`
   height: 250px;
-  background-color: ${RandomColor()};
+  background-color: ${props => (props.color ? props.color : RandomColor())};
   width: 100%;
 `;
 const CoverPhoto = styled.div`
@@ -27,9 +27,9 @@ const CoverPhoto = styled.div`
   }
 `;
 
-const Cover = ({ condensed, children, ...rest }) =>
+const Cover = ({ condensed, color, children, ...rest }) =>
   condensed ? (
-    <CondensedCover />
+    <CondensedCover color={color} />
   ) : (
     <CoverPhoto {...rest}>{children}</CoverPhoto>
   );
