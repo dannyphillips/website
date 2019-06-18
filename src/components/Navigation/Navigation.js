@@ -65,6 +65,10 @@ const NavButton = styled.button`
 const LinkContainer = styled.div`
   display: flex;
   justify-content: space-between;
+
+  > .active {
+    border-bottom: 2px solid white;
+  }
 `;
 
 class Navigation extends React.Component {
@@ -95,16 +99,16 @@ class Navigation extends React.Component {
         </Link>
         <DesktopNav>
           <LinkContainer>
-            <Link to="/about">
+            <Link to="/about" activeClassName="active">
               <NavButton>About</NavButton>
             </Link>
-            <Link to="/experience">
+            <Link to="/experience" activeClassName="active">
               <NavButton>Experience</NavButton>
             </Link>
-            <Link to="/projects">
+            <Link to="/projects" activeClassName="active">
               <NavButton>Projects</NavButton>
             </Link>
-            <Link to="/blog">
+            <Link to="/blog" activeClassName="active">
               <NavButton>Blog</NavButton>
             </Link>
           </LinkContainer>
