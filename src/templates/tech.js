@@ -42,9 +42,9 @@ const Tech = ({ pageContext: { tech }, data: { allMdx } }) => {
       <Wrapper>
         <Helmet title={`tech: ${tech} | ${config.siteTitle}`} />
         <Content>
-          <SectionTitle>tech &ndash; {tech}</SectionTitle>
+          <SectionTitle>{tech}</SectionTitle>
           <Subline sectionTitle>
-            {subline} (See <Link to="/tech">all tech</Link>)
+            {subline} (See <Link to="/techs">all tech</Link>)
           </Subline>
           {edges.map(post => (
             <BlogPostTile

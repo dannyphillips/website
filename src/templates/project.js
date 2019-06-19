@@ -21,7 +21,9 @@ const Details = styled.div`
 
 const Heading = styled(Flex)`
   border-bottom: 2px solid lightgray;
-  padding-bottom: 40px;
+`;
+const Row = styled(Flex)`
+  width: 100%;
 `;
 
 const TagContainer = styled.div`
@@ -62,7 +64,7 @@ const Project = ({
       <Palette image={publicURL.publicURL}>
         {palette => (
           <Fragment>
-            <Cover condensed color={palette.muted}/>
+            <Cover condensed color={palette.muted} />
             <Wrapper>
               <SEO postPath={slug} postNode={projectNode} article />
               <Content>
@@ -94,23 +96,25 @@ const Project = ({
                       </a>
                     </Flex>
                   </Flex>
+                  <Row justify="space-between">
+                    <TagContainer>
+                      Tech:{" "}
+                      {project.techs.map(tech => (
+                        <Link to={`/techs/${tech}`}>
+                          <Chip label={tech} key={tech} />
+                        </Link>
+                      ))}
+                    </TagContainer>
+                    <TagContainer>
+                      Tags:{" "}
+                      {project.tags.map(tag => (
+                        <Link to={`/tags/${tag}`}>
+                          <Chip label={tag} key={tag} />
+                        </Link>
+                      ))}
+                    </TagContainer>
+                  </Row>
                 </Heading>
-                <TagContainer>
-                  Tech:{" "}
-                  {project.techs.map(tech => (
-                    <Link to={`/techs/${tech}`}>
-                      <Chip label={tech} key={tech} />
-                    </Link>
-                  ))}
-                </TagContainer>
-                <TagContainer>
-                  Tags:{" "}
-                  {project.tags.map(tag => (
-                    <Link to={`/tags/${tag}`}>
-                      <Chip label={tag} key={tag} />
-                    </Link>
-                  ))}
-                </TagContainer>
                 <MDXRenderer>{projectNode.code.body}</MDXRenderer>
                 <PrevNext prefix={`/projects`} prev={prev} next={next} />
               </Content>
