@@ -6055,6 +6055,13 @@ gatsby-plugin-react-helmet@^3.0.12:
   dependencies:
     "@babel/runtime" "^7.0.0"
 
+gatsby-plugin-released@^0.3.0:
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-released/-/gatsby-plugin-released-0.3.0.tgz#16104ebb7acc2af6528df4c5b281982ba00e38a5"
+  integrity sha512-pfO8J7DtHfnh+9TakFgOXO3doM5OC44C+OOge8dB1aVFKrN/uk90Brccr/+/Fw84brLjg4ZExu9Cv5B/nLM0zA==
+  dependencies:
+    moment-timezone "^0.5.25"
+
 gatsby-plugin-sharp@^2.1.7:
   version "2.1.7"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-sharp/-/gatsby-plugin-sharp-2.1.7.tgz#5f54ad420a62d6b35b75c86b8aabaac1a2db119d"
@@ -9386,7 +9393,7 @@ mkdirp@0.5.1, mkdirp@0.5.x, mkdirp@^0.5.0, mkdirp@^0.5.1, mkdirp@~0.5.0, mkdirp@
   dependencies:
     minimist "0.0.8"
 
-moment-timezone@^0.5.23:
+moment-timezone@^0.5.23, moment-timezone@^0.5.25:
   version "0.5.25"
   resolved "https://registry.yarnpkg.com/moment-timezone/-/moment-timezone-0.5.25.tgz#a11bfa2f74e088327f2cd4c08b3e7bdf55957810"
   integrity sha512-DgEaTyN/z0HFaVcVbSyVCUU6HeFdnNC3vE4c9cgu2dgMTvjBUBdBzWfasTBmAW45u5OIMeCJtU8yNjM22DHucw==
