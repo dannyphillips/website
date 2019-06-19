@@ -25,6 +25,7 @@ module.exports = {
         path: `${__dirname}/projects`
       }
     },
+    "gatsby-transformer-remark",
     {
       resolve: "gatsby-plugin-google-analytics",
       options: {
@@ -75,6 +76,10 @@ module.exports = {
         icon: config.favicon
       }
     },
-    "gatsby-plugin-offline"
+    "gatsby-plugin-offline",
+    {
+      resolve: "gatsby-plugin-draft",
+      publishDraft: process.env.NODE_ENV == "production"
+    }
   ]
 };
