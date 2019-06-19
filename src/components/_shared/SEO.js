@@ -145,29 +145,50 @@ const SEO = props => {
       <meta name="description" content={description} />
       <meta name="image" content={image} />
       <meta name="danny-phillips" content="Danny Phillips" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <meta property="og:locale" content={config.ogLanguage} />
-      <meta property="og:site_name" content={config.ogSiteName ? config.ogSiteName : ''} />
+      <meta
+        property="og:site_name"
+        content={config.ogSiteName ? config.ogSiteName : ""}
+      />
       <meta property="og:url" content={URL} />
-      <meta property="og:type" content={article ? 'article' : 'website'} />
+      <meta property="og:type" content={article ? "article" : "website"} />
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
       <meta property="og:image" content={image} />
       <meta property="og:image:alt" content={description} />
-      {config.siteFBAppID && <meta property="fb:app_id" content={config.siteFBAppID} />}
+      {config.siteFBAppID && (
+        <meta property="fb:app_id" content={config.siteFBAppID} />
+      )}
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:creator" content={config.userTwitter ? config.userTwitter : ''} />
+      <meta
+        name="twitter:creator"
+        content={config.userTwitter ? config.userTwitter : ""}
+      />
       <meta name="twitter:title" content={title} />
       <meta name="twitter:url" content={config.siteUrl} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={image} />
       <meta name="twitter:image:alt" content={description} />
       {/* Insert schema.org data conditionally (webpage/article) + everytime (breadcrumbs) */}
-      {!article && <script type="application/ld+json">{JSON.stringify(schemaOrgWebPage)}</script>}
-      {article && <script type="application/ld+json">{JSON.stringify(schemaArticle)}</script>}
+      {!article && (
+        <script type="application/ld+json">
+          {JSON.stringify(schemaOrgWebPage)}
+        </script>
+      )}
+      {article && (
+        <script type="application/ld+json">
+          {JSON.stringify(schemaArticle)}
+        </script>
+      )}
       <script type="application/ld+json">{JSON.stringify(breadcrumb)}</script>
+      <script
+        src="https://www.goodreads.com/review/custom_widget/74627569.Danny%20Phillips's%20bookshelf:%20to-read?cover_position=left&cover_size=small&num_books=5&order=a&shelf=to-read&show_author=1&show_cover=1&show_rating=1&show_review=1&show_tags=1&show_title=1&sort=date_added&widget_bg_color=FFFFFF&widget_bg_transparent=&widget_border_width=1&widget_id=1560404559&widget_text_color=000000&widget_title_size=medium&widget_width=medium"
+        type="text/javascript"
+        charset="utf-8"
+      ></script>
     </Helmet>
-  )
+  );
 }
 
 export default SEO

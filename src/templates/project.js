@@ -38,7 +38,7 @@ const Content = styled.div`
   padding: 3rem 6rem;
   background-color: ${props => props.theme.colors.bg};
   z-index: 9000;
-  margin-top: -3rem;
+  margin-top: -10rem;
   @media (max-width: ${props => props.theme.breakpoints.tablet}) {
     padding: 3rem 2rem;
   }
