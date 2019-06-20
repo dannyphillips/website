@@ -67,7 +67,7 @@ const Project = ({
   data: { mdx: projectNode, file: publicURL }
 }) => {
   const project = projectNode.frontmatter;
-  const draft_mode = projectNode.fields && !projectNode.fields.released;
+  const draft_mode = projectNode.fields && !projectNode.fields.releasedNotForced;
   return (
     <Layout customSEO>
       {draft_mode && <Banner />}
@@ -171,6 +171,7 @@ export const projectQuery = graphql`
       }
       fields {
         released
+        releasedNotForced
       }
       frontmatter {
         title

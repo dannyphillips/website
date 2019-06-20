@@ -5,7 +5,7 @@ const AboutPage = () => (
   <Layout>
     <Bio />
     <Flex>
-      <ReadingList />
+      {/* <ReadingList /> */}
       <Skills />
     </Flex>
     <SocialLinks />
