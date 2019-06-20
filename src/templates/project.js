@@ -6,7 +6,15 @@ import styled from "styled-components";
 import MDXRenderer from "gatsby-mdx/mdx-renderer";
 import { Chip } from "@material-ui/core";
 
-import { Cover, Layout, Wrapper, SEO, Flex, PrevNext } from "../components";
+import {
+  Cover,
+  Layout,
+  Wrapper,
+  SEO,
+  Flex,
+  PrevNext,
+  Banner
+} from "../components";
 import source from "../assets/source-code.png";
 import demo from "../assets/demo.png";
 
@@ -59,9 +67,10 @@ const Project = ({
   data: { mdx: projectNode, file: publicURL }
 }) => {
   const project = projectNode.frontmatter;
-  debugger;
+  const draft_mode = projectNode.fields && !projectNode.fields.released;
   return (
     <Layout customSEO>
+      {draft_mode && <Banner />}
       <Palette image={publicURL.publicURL}>
         {palette => (
           <Fragment>
@@ -101,16 +110,16 @@ const Project = ({
                     <TagContainer>
                       Tech:{" "}
                       {project.techs.map(tech => (
-                        <Link to={`/techs/${tech}`}>
-                          <Chip label={tech} key={tech} />
+                        <Link to={`/techs/${tech}`} key={tech}>
+                          <Chip label={tech} />
                         </Link>
                       ))}
                     </TagContainer>
                     <TagContainer>
                       Tags:{" "}
                       {project.tags.map(tag => (
-                        <Link to={`/tags/${tag}`}>
-                          <Chip label={tag} key={tag} />
+                        <Link to={`/tags/${tag}`} key={tag}>
+                          <Chip label={tag} />
                         </Link>
                       ))}
                     </TagContainer>
@@ -159,6 +168,9 @@ export const projectQuery = graphql`
     ) {
       code {
         body
+      }
+      fields {
+        released
       }
       frontmatter {
         title

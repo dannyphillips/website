@@ -16,9 +16,11 @@ import SEO from "./_shared/SEO";
 import Skills from "./About/Skills";
 import SocialLinks from "./About/SocialLinks";
 import Subline from "./_shared/Subline";
+import Banner from './_shared/Banner'
 import Wrapper from "./Navigation/Wrapper";
 
 export {
+  Banner,
   Bio,
   BlogPostTile,
   Code,

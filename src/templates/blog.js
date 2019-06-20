@@ -6,6 +6,7 @@ import kebabCase from "../utils/kebabCase";
 import MDXRenderer from "gatsby-mdx/mdx-renderer";
 
 import {
+  Banner,
   Cover,
   Layout,
   PrevNext,
@@ -61,10 +62,11 @@ const Blog = ({
   data: { mdx: blogNode }
 }) => {
   const blog = blogNode.frontmatter;
-
+  const draft_mode = blogNode.fields && !blogNode.fields.released;
   return (
     <Layout customSEO>
-      <Cover condensed/>
+      {draft_mode && <Banner />}
+      <Cover condensed />
       <Wrapper>
         <SEO postPath={slug} postNode={blogNode} article />
         <Content>
@@ -116,6 +118,9 @@ export const postQuery = graphql`
     ) {
       code {
         body
+      }
+      fields {
+        released
       }
       excerpt
       frontmatter {
