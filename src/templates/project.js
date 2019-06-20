@@ -59,6 +59,7 @@ const Project = ({
   data: { mdx: projectNode, file: publicURL }
 }) => {
   const project = projectNode.frontmatter;
+  debugger;
   return (
     <Layout customSEO>
       <Palette image={publicURL.publicURL}>
