@@ -9,7 +9,7 @@
     "@mdx-js/mdx": "1.0.21",
     "@mdx-js/react": "1.0.21",
     "babel-plugin-styled-components": "1.10.1",
-    "gatsby": "2.11.0",
+    "gatsby": "2.9.6",
     "gatsby-mdx": "0.6.3",
     "gatsby-plugin-catch-links": "2.1.0",
     "gatsby-plugin-google-analytics": "2.1.0",
@@ -47,7 +47,7 @@
   "main": "n/a",
   "scripts": {
     "clean": "gatsby clean",
-    "build": "node --max-old-space-size=8192 node_modules/.bin/gatsby build",
+    "build": "gatsby build",
     "dev": "gatsby develop -o",
     "develop": "gatsby develop",
     "serve": "gatsby serve",
