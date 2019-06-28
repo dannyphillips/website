@@ -47,7 +47,7 @@
   "main": "n/a",
   "scripts": {
     "clean": "gatsby clean",
-    "build": "gatsby build",
+    "build": "node --max-old-space-size=8192 node_modules/.bin/gatsby build",
     "dev": "gatsby develop -o",
     "develop": "gatsby develop",
     "serve": "gatsby serve",
