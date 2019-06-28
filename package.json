@@ -47,7 +47,7 @@
   "main": "n/a",
   "scripts": {
     "clean": "gatsby clean",
-    "build": "GATSBY_CPU_COUNT=2 gatsby build",
+    "build": "gatsby build",
     "dev": "gatsby develop -o",
     "develop": "gatsby develop",
     "serve": "gatsby serve",
