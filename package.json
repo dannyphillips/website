@@ -8,7 +8,7 @@
     "@material-ui/icons": "3.0.2",
     "@mdx-js/mdx": "1.0.21",
     "@mdx-js/react": "1.0.21",
-    "babel-plugin-styled-components": "1.10.5",
+    "babel-plugin-styled-components": "1.10.6",
     "gatsby": "2.11.7",
     "gatsby-mdx": "0.6.3",
     "gatsby-plugin-catch-links": "2.1.0",
