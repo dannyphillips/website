@@ -102,9 +102,9 @@ class Navigation extends React.Component {
             {/* <Link to="/about" activeClassName="active">
               <NavButton>About</NavButton>
             </Link> */}
-            <Link to="/experience" activeClassName="active">
+            {/* <Link to="/experience" activeClassName="active">
               <NavButton>Experience</NavButton>
-            </Link>
+            </Link> */}
             <Link to="/projects" activeClassName="active">
               <NavButton>Projects</NavButton>
             </Link>
@@ -134,11 +134,11 @@ class Navigation extends React.Component {
                   <ListItemText primary={"About"} />
                 </ListItem>
               </a> */}
-              <a href="/experience">
+              {/* <a href="/experience">
                 <ListItem button key={"experience"}>
                   <ListItemText primary={"Experience"} />
                 </ListItem>
-              </a>
+              </a> */}
               <a href="/projects">
                 <ListItem button key={"projects"}>
                   <ListItemText primary={"Projects"} />
