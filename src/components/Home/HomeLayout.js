@@ -258,9 +258,9 @@ const Layout = ({ children, customSEO }) => {
             </LinkContainer>
           </Link>
           <LinkContainer>
-            <Link to="/about">
+            {/* <Link to="/about">
               <NavButton>About</NavButton>
-            </Link>
+            </Link> */}
             <Link to="/experience">
               <NavButton>Experience</NavButton>
             </Link>

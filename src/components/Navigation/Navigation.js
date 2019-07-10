@@ -99,9 +99,9 @@ class Navigation extends React.Component {
         </Link>
         <DesktopNav>
           <LinkContainer>
-            <Link to="/about" activeClassName="active">
+            {/* <Link to="/about" activeClassName="active">
               <NavButton>About</NavButton>
-            </Link>
+            </Link> */}
             <Link to="/experience" activeClassName="active">
               <NavButton>Experience</NavButton>
             </Link>
@@ -129,11 +129,11 @@ class Navigation extends React.Component {
             onOpen={this.toggleDrawer("open", true)}
           >
             <List>
-              <a href="/about">
+              {/* <a href="/about">
                 <ListItem button key={"about"}>
                   <ListItemText primary={"About"} />
                 </ListItem>
-              </a>
+              </a> */}
               <a href="/experience">
                 <ListItem button key={"experience"}>
                   <ListItemText primary={"Experience"} />
