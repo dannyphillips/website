@@ -1,10 +1,10 @@
 import React, { Fragment } from "react";
 import PropTypes from "prop-types";
 import { ThemeProvider, createGlobalStyle } from "styled-components";
+import Navigation from './Navigation'
+import Footer from './Footer'
 import { SEO } from "../../components";
-import Navigation from '../Navigation/Navigation'
 import theme from "../../../config/theme";
-import Footer from '../Home/Footer'
 import useBuildTime from "../../hooks/useBuildTime";
 
 const GlobalStyle = createGlobalStyle`
@@ -22,23 +22,11 @@ const GlobalStyle = createGlobalStyle`
     color: ${props => props.theme.colors.bg};
     background: ${props => props.theme.colors.primary};
   }
-
-  #___gatsby {
-    height: inherit;
-  }
-
-  div[role="group"][tabindex] {
-    height: inherit;
-    background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
-  }
-  #header {
-    background: transparent;
-  }
   html {
     font-family: ${props => props.theme.fontFamily.sansSerif};
     font-size: ${props => props.theme.baseFontSize};
     height: 100%;
-    overflow: hidden;
+    overflow: scroll;
     h1 {
       font-size: 3.052rem;
     }
@@ -46,7 +34,7 @@ const GlobalStyle = createGlobalStyle`
       font-size: 2.441rem;
     }
     h3 {
-      font-size: 1.953rem;
+      font-size: 1.903rem;
     }
     h4 {
       font-size: 1.563rem;
@@ -210,10 +198,11 @@ const Layout = ({ children, customSEO }) => {
       <Fragment>
         {!customSEO && <SEO buildTime={buildTime} />}
         <GlobalStyle />
-        <Navigation id="header" transparent={true}/>
+        <Navigation id="header"/>
         {children}
-        <Footer home={true}>
+        <Footer>
           <span>&copy; 2019 by Danny Phillips. All rights reserved.</span>
+          <span> [Last build: {buildTime}]</span>
         </Footer>
       </Fragment>
     </ThemeProvider>
