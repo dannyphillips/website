@@ -1,9 +1,10 @@
 import React, { Fragment } from "react";
 import PropTypes from "prop-types";
-import styled, { ThemeProvider, createGlobalStyle } from "styled-components";
+import { ThemeProvider, createGlobalStyle } from "styled-components";
 import Navigation from './Navigation/Navigation'
 import { SEO } from "../components";
 import theme from "../../config/theme";
+import Footer from './Home/Footer'
 import useBuildTime from "../hooks/useBuildTime";
 
 const GlobalStyle = createGlobalStyle`
@@ -187,16 +188,6 @@ const GlobalStyle = createGlobalStyle`
     display: none !important;
   }
   button:focus { outline: none; }
-`;
-
-const Footer = styled.footer`
-  text-align: center;
-  color: black;
-  padding: 10px;
-  width: 100%;
-  span {
-    font-size: 0.75rem;
-  }
 `;
 
 const Layout = ({ children, customSEO }) => {

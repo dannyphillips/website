@@ -1,9 +1,10 @@
 import React, { Fragment } from "react";
 import PropTypes from "prop-types";
-import styled, { ThemeProvider, createGlobalStyle } from "styled-components";
+import { ThemeProvider, createGlobalStyle } from "styled-components";
 import { SEO } from "../../components";
 import Navigation from '../Navigation/Navigation'
 import theme from "../../../config/theme";
+import Footer from '../Home/Footer'
 import useBuildTime from "../../hooks/useBuildTime";
 
 const GlobalStyle = createGlobalStyle`
@@ -201,18 +202,6 @@ const GlobalStyle = createGlobalStyle`
   button:focus { outline: none; }
 `;
 
-const Footer = styled.footer`
-  position: fixed;
-  bottom: 0;
-  text-align: center;
-  color: white;
-  padding: 10px;
-  width: 100%;
-  span {
-    font-size: 0.75rem;
-  }
-`;
-
 const Layout = ({ children, customSEO }) => {
   const buildTime = useBuildTime();
 
@@ -223,7 +212,7 @@ const Layout = ({ children, customSEO }) => {
         <GlobalStyle />
         <Navigation id="header" transparent={true}/>
         {children}
-        <Footer>
+        <Footer home={true}>
           <span>&copy; 2019 by Danny Phillips. All rights reserved.</span>
         </Footer>
       </Fragment>
