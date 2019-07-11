@@ -18,7 +18,7 @@ const Header = styled.div`
   justify-content: space-between;
   height: 50px;
   padding: 10px;
-  background-color: ${props => props.transparent ? "none" : "black"};
+  background-color: ${props => props.home ? "none" : "black"};
 `;
 
 const DesktopNav = styled.div`

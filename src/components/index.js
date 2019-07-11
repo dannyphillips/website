@@ -5,7 +5,6 @@ import Cover from './_shared/Cover'
 import ExperienceTimeline from "./Experience/ExperienceTimeline";
 import Flex from './_shared/Flex'
 import Home from "./Home/Home";
-import HomeLayout from "./Layout/HomeLayout";
 import Layout from "./Layout/Layout";
 import Maintenance from "./_shared/Maintenance";
 import PrevNext from "./_shared/PrevNext";
@@ -28,7 +27,6 @@ export {
   ExperienceTimeline,
   Flex,
   Home,
-  HomeLayout,
   Layout,
   Maintenance,
   PrevNext,
