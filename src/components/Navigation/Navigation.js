@@ -18,7 +18,7 @@ const Header = styled.div`
   justify-content: space-between;
   height: 50px;
   padding: 10px;
-  background-color: black;
+  background-color: ${props => props.transparent ? "none" : "black"};
 `;
 
 const DesktopNav = styled.div`
@@ -88,7 +88,7 @@ class Navigation extends React.Component {
   render() {
     const { open } = this.state;
     return (
-      <Header>
+      <Header {...this.props}>
         <Link to="/">
           <LinkContainer>
             <NavButton>
