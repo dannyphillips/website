@@ -1,10 +1,11 @@
 import React, { Fragment } from "react";
 import PropTypes from "prop-types";
-import styled, { ThemeProvider, createGlobalStyle } from "styled-components";
-import Navigation from './Navigation/Navigation'
-import { SEO } from "../components";
-import theme from "../../config/theme";
-import useBuildTime from "../hooks/useBuildTime";
+import { ThemeProvider, createGlobalStyle } from "styled-components";
+import Navigation from "./Navigation";
+import Footer from "./Footer";
+import { SEO } from "../../components";
+import theme from "../../../config/theme";
+import useBuildTime from "../../hooks/useBuildTime";
 
 const GlobalStyle = createGlobalStyle`
   *,
@@ -25,7 +26,6 @@ const GlobalStyle = createGlobalStyle`
     font-family: ${props => props.theme.fontFamily.sansSerif};
     font-size: ${props => props.theme.baseFontSize};
     height: 100%;
-    overflow: scroll;
     h1 {
       font-size: 3.052rem;
     }
@@ -187,29 +187,33 @@ const GlobalStyle = createGlobalStyle`
     display: none !important;
   }
   button:focus { outline: none; }
+  ${props =>
+    props.home &&
+    `
+    html {
+      overflow: hidden;
+    }
+    #___gatsby {
+      height: inherit;
+    }
+    div[role="group"][tabindex] {
+      height: inherit;
+      background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+    }
+  `}
 `;
 
-const Footer = styled.footer`
-  text-align: center;
-  color: black;
-  padding: 10px;
-  width: 100%;
-  span {
-    font-size: 0.75rem;
-  }
-`;
-
-const Layout = ({ children, customSEO }) => {
+const Layout = ({ children, customSEO, home }) => {
   const buildTime = useBuildTime();
 
   return (
     <ThemeProvider theme={theme}>
       <Fragment>
         {!customSEO && <SEO buildTime={buildTime} />}
-        <GlobalStyle />
-        <Navigation id="header"/>
+        <GlobalStyle home={home} />
+        <Navigation id="header" home={home} />
         {children}
-        <Footer>
+        <Footer home={home}>
           <span>&copy; 2019 by Danny Phillips. All rights reserved.</span>
           <span> [Last build: {buildTime}]</span>
         </Footer>

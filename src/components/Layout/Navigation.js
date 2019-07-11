@@ -18,7 +18,7 @@ const Header = styled.div`
   justify-content: space-between;
   height: 50px;
   padding: 10px;
-  background-color: black;
+  background-color: ${props => props.home ? "none" : "black"};
 `;
 
 const DesktopNav = styled.div`
@@ -88,7 +88,7 @@ class Navigation extends React.Component {
   render() {
     const { open } = this.state;
     return (
-      <Header>
+      <Header {...this.props}>
         <Link to="/">
           <LinkContainer>
             <NavButton>
@@ -99,12 +99,12 @@ class Navigation extends React.Component {
         </Link>
         <DesktopNav>
           <LinkContainer>
-            <Link to="/about" activeClassName="active">
+            {/* <Link to="/about" activeClassName="active">
               <NavButton>About</NavButton>
-            </Link>
-            <Link to="/experience" activeClassName="active">
+            </Link> */}
+            {/* <Link to="/experience" activeClassName="active">
               <NavButton>Experience</NavButton>
-            </Link>
+            </Link> */}
             <Link to="/projects" activeClassName="active">
               <NavButton>Projects</NavButton>
             </Link>
@@ -129,16 +129,16 @@ class Navigation extends React.Component {
             onOpen={this.toggleDrawer("open", true)}
           >
             <List>
-              <a href="/about">
+              {/* <a href="/about">
                 <ListItem button key={"about"}>
                   <ListItemText primary={"About"} />
                 </ListItem>
-              </a>
-              <a href="/experience">
+              </a> */}
+              {/* <a href="/experience">
                 <ListItem button key={"experience"}>
                   <ListItemText primary={"Experience"} />
                 </ListItem>
-              </a>
+              </a> */}
               <a href="/projects">
                 <ListItem button key={"projects"}>
                   <ListItemText primary={"Projects"} />
