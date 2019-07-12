@@ -62,7 +62,7 @@ const Blog = ({
   data: { mdx: blogNode }
 }) => {
   const blog = blogNode.frontmatter;
-  const draft_mode = blogNode.fields && !blogNode.fields.released;
+  const draft_mode = blogNode.fields && !blogNode.fields.releasedNotForced;
   return (
     <Layout customSEO>
       {draft_mode && <Banner />}
@@ -121,6 +121,7 @@ export const postQuery = graphql`
       }
       fields {
         released
+        releasedNotForced
       }
       excerpt
       frontmatter {
