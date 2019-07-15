@@ -9,6 +9,7 @@
     "@mdx-js/mdx": "1.0.24",
     "@mdx-js/react": "1.0.23",
     "babel-plugin-styled-components": "1.10.6",
+    "change-case": "^3.1.0",
     "gatsby": "2.13.17",
     "gatsby-mdx": "0.6.3",
     "gatsby-plugin-catch-links": "2.1.1",
