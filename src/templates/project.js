@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { Link, graphql } from "gatsby";
 import Palette from "react-palette";
 import styled from "styled-components";
-import MDXRenderer from "gatsby-mdx/mdx-renderer";
+import MDXRenderer from "gatsby-plugin-mdx";
 import { Chip } from "@material-ui/core";
 
 import {
@@ -125,7 +125,9 @@ const Project = ({
                     </TagContainer>
                   </Row>
                 </Heading>
-                <MDXRenderer>{projectNode.code.body}</MDXRenderer>
+                <MDXRenderer>
+                  {projectNode.body}
+                </MDXRenderer>
                 <PrevNext prefix={`/projects`} prev={prev} next={next} />
               </Content>
             </Wrapper>
@@ -166,9 +168,7 @@ export const projectQuery = graphql`
       fields: { slug: { eq: $slug } }
       fileAbsolutePath: { regex: "/projects/" }
     ) {
-      code {
-        body
-      }
+      body
       fields {
         released
         releasedNotForced
