@@ -22,7 +22,13 @@ jobs:
       - run:
           name: Gatsby Build
           command: yarn build
+  deploy:
+    docker:
+      - image: circleci/node:10
+    working_directory: ~/repo
 
+    steps:
+      - checkout
       - run:
           name: Firebase Deploy
           command: yarn deploy
@@ -32,3 +38,9 @@ workflows:
   test-build:
     jobs:
     - build
+    - deploy:
+        requires:
+          - build
+        filters:
+          branches:
+            only: master
