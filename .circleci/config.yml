@@ -1,12 +1,12 @@
 version: 2
 
 defaults: &defaults
-  working_directory: ~/repo
+  working_directory: ~/app
   docker:
-      - image: circleci/node:10
-      environment:
-        ## this enables colors in the output
-        TERM: xterm
+    - image: circleci/node:10
+  environment:
+    ## this enables colors in the output
+    TERM: xterm
 
 jobs:
   build:
@@ -31,7 +31,7 @@ jobs:
           root: ~/
           paths:
             - .cache
-            - repo
+            - app
 
 
   deploy:
