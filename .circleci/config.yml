@@ -1,9 +1,16 @@
 version: 2
+
+defaults: &defaults
+  working_directory: ~/repo
+  docker:
+      - image: circleci/node:10
+      environment:
+        ## this enables colors in the output
+        TERM: xterm
+
 jobs:
   build:
-    docker:
-      - image: circleci/node:10
-    working_directory: ~/repo
+    <<: *defaults
 
     steps:
       - checkout
@@ -16,21 +23,24 @@ jobs:
       - save_cache:
           key: v{{ .Environment.versionCache }}-deps-{{ .Branch }}-{{ checksum "yarn.lock" }}-{{ checksum ".circleci/config.yml" }}
           paths:
-            - ./node_modules
+            - ~/.cache
       - run:
           name: Gatsby Build
           command: yarn build
       - persist_to_workspace:
-          root: .
+          root: ~/
+          paths:
+            - .cache
+            - repo
+
 
   deploy:
-    docker:
-      - image: circleci/node:10
+    <<: *defaults
 
     steps:
       - checkout
       - attach_workspace:
-          at: ~/repo
+          at: ~/
       - run:
           name: Firebase Deploy
           command: yarn deploy
