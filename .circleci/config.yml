@@ -38,7 +38,7 @@ workflows:
   test-build:
     jobs:
     - build
-    - deploy
+    - deploy:
         filters:
           branches:
             only: master
