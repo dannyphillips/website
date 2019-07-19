@@ -31,7 +31,6 @@ jobs:
       - checkout
       - attach_workspace:
           at: ~/repo
-
       - run:
           name: Firebase Deploy
           command: yarn deploy
@@ -41,3 +40,9 @@ workflows:
   test-build:
     jobs:
     - build
+    - deploy:
+        requires:
+          - build
+        filters:
+          branches:
+            only: master
