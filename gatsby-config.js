@@ -33,6 +33,10 @@ module.exports = {
     {
       resolve: "gatsby-plugin-mdx",
       options: {
+        defaultLayouts: {
+          blog: require.resolve("./src/templates/blog.js"),
+          project: require.resolve("./src/templates/project.js")
+        },
         gatsbyRemarkPlugins: [
           {
             resolve: "gatsby-remark-external-links",
@@ -56,7 +60,16 @@ module.exports = {
               maintainCase: false
             }
           }
-        ]
+        ],
+        plugins: [{
+          resolve: "gatsby-remark-images",
+          options: {
+            maxWidth: 830,
+            quality: 90,
+            withWebp: true,
+            linkImagesToOriginal: false
+          }
+        }]
       }
     },
     "gatsby-plugin-catch-links",

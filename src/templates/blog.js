@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { Link, graphql } from "gatsby";
 import styled from "styled-components";
 import kebabCase from "../utils/kebabCase";
-import MDXRenderer from "gatsby-plugin-mdx";
+import { MDXRenderer } from "gatsby-plugin-mdx";
 
 import {
   Banner,

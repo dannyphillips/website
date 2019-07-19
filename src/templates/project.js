@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { Link, graphql } from "gatsby";
 import Palette from "react-palette";
 import styled from "styled-components";
-import MDXRenderer from "gatsby-plugin-mdx";
+import { MDXRenderer } from "gatsby-plugin-mdx";
 import { Chip } from "@material-ui/core";
 
 import {
