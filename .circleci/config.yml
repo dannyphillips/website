@@ -21,7 +21,7 @@ jobs:
           name: Gatsby Build
           command: yarn build
       - persist_to_workspace:
-          root: ~/repo
+          root: .
 
   deploy:
     docker:
