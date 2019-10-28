@@ -6125,10 +6125,10 @@ find-versions@^3.0.0:
     array-uniq "^2.1.0"
     semver-regex "^2.0.0"
 
-firebase-tools@7.6.1:
-  version "7.6.1"
-  resolved "https://registry.yarnpkg.com/firebase-tools/-/firebase-tools-7.6.1.tgz#4198e973ef515513d56cc2d3ebf2e23b2bc0f3ad"
-  integrity sha512-FLsNZ8ZHvqaM94Mh31w8ppm3i0cfh7FzdUqINFqUKr7EwgLzg4f0TyAz59XwDd42rkzFk/ZPAlaiv6yCaIUIZA==
+firebase-tools@7.6.2:
+  version "7.6.2"
+  resolved "https://registry.yarnpkg.com/firebase-tools/-/firebase-tools-7.6.2.tgz#8b56cf123ee1017f33ee12cf6c910540526dd42d"
+  integrity sha512-q11RNl8E1lVu0E1lESUCW8j0QX6YsL18e4qXta9xMuTY2a9fpbubXuabaYEQ2qO+if60Ch31HKvF5zBG3GrNAQ==
   dependencies:
     JSONStream "^1.2.1"
     archiver "^3.0.0"
@@ -9909,7 +9909,7 @@ mixin-deep@^1.2.0:
     for-in "^1.0.2"
     is-extendable "^1.0.1"
 
-mkdirp@0.5.1, mkdirp@0.5.x, mkdirp@^0.5.0, mkdirp@^0.5.1, mkdirp@~0.5.1:
+mkdirp@0.5.1, mkdirp@^0.5.0, mkdirp@^0.5.1, mkdirp@~0.5.1:
   version "0.5.1"
   resolved "https://registry.yarnpkg.com/mkdirp/-/mkdirp-0.5.1.tgz#30057438eac6cf7f8c4767f38648d6697d75c903"
   integrity sha1-MAV0OOrGz3+MR2fzhkjWaX11yQM=
@@ -11178,16 +11178,7 @@ popper.js@^1.14.1:
   resolved "https://registry.yarnpkg.com/popper.js/-/popper.js-1.15.0.tgz#5560b99bbad7647e9faa475c6b8056621f5a4ff2"
   integrity sha512-w010cY1oCUmI+9KwwlWki+r5jxKfTFDVoadl7MSrIujHU5MJ5OR6HTDj6Xo8aoR/QsA56x8jKjA59qGH4ELtrA==
 
-portfinder@^1.0.23:
-  version "1.0.24"
-  resolved "https://registry.yarnpkg.com/portfinder/-/portfinder-1.0.24.tgz#11efbc6865f12f37624b6531ead1d809ed965cfa"
-  integrity sha512-ekRl7zD2qxYndYflwiryJwMioBI7LI7rVXg3EnLK3sjkouT5eOuhS3gS255XxBksa30VG8UPZYZCdgfGOfkSUg==
-  dependencies:
-    async "^1.5.2"
-    debug "^2.2.0"
-    mkdirp "0.5.x"
-
-portfinder@^1.0.25:
+portfinder@^1.0.23, portfinder@^1.0.25:
   version "1.0.25"
   resolved "https://registry.yarnpkg.com/portfinder/-/portfinder-1.0.25.tgz#254fd337ffba869f4b9d37edc298059cb4d35eca"
   integrity sha512-6ElJnHBbxVA1XSLgBp7G1FiCkQdlqGzuF7DswL5tcea+E8UpuvPU7beVAjjRwCioTS9ZluNbu+ZyRvgTsmqEBg==
