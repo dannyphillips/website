@@ -55,7 +55,7 @@
     "deploy": "firebase deploy"
   },
   "devDependencies": {
-    "firebase-tools": "7.8.0",
+    "firebase-tools": "7.8.1",
     "prettier": "1.19.1"
   }
 }
