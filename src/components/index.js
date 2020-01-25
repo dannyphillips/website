@@ -9,7 +9,6 @@ import Layout from "./Layout/Layout";
 import Maintenance from "./_shared/Maintenance";
 import PrevNext from "./_shared/PrevNext";
 import ProjectTile from "./Projects/ProjectTile";
-import ReadingList from "./About/ReadingList";
 import SectionTitle from "./_shared/SectionTitle";
 import SEO from "./_shared/SEO";
 import Skills from "./About/Skills";
@@ -31,7 +30,6 @@ export {
   Maintenance,
   PrevNext,
   ProjectTile,
-  ReadingList,
   SectionTitle,
   SEO,
   Skills,

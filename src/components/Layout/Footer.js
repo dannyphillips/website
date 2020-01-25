@@ -17,6 +17,6 @@ const StyledFooter = styled.footer`
   `}
 `;
 
-const Footer = (props) => <StyledFooter {...props}>{props.children}</StyledFooter>;
+const Footer = (props) => { debugger; return <StyledFooter {...props}>{props.children}</StyledFooter>};
 
 export default Footer;
