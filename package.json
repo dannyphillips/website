@@ -25,7 +25,7 @@
     "gatsby-remark-images": "3.2.4",
     "gatsby-source-filesystem": "2.2.4",
     "mdx-utils": "0.2.0",
-    "polished": "3.5.1",
+    "polished": "3.5.2",
     "prism-react-renderer": "1.0.2",
     "prop-types": "15.7.2",
     "randomcolor": "0.5.4",
