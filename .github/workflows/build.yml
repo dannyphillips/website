@@ -4,8 +4,9 @@
 name: Build
 
 on:
-  branches-ignore:
-    - 'master'
+  push:
+    branches-ignore:
+      - master
 
 jobs:
   build:
