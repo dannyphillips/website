@@ -19,12 +19,12 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
   }
   ::selection {
-    color: ${props => props.theme.colors.bg};
-    background: ${props => props.theme.colors.primary};
+    color: ${(props) => props.theme.colors.bg};
+    background: ${(props) => props.theme.colors.primary};
   }
   html {
-    font-family: ${props => props.theme.fontFamily.sansSerif};
-    font-size: ${props => props.theme.baseFontSize};
+    font-family: ${(props) => props.theme.fontFamily.sansSerif};
+    font-size: ${(props) => props.theme.baseFontSize};
     height: 100%;
     h1 {
       font-size: 3.052rem;
@@ -41,7 +41,7 @@ const GlobalStyle = createGlobalStyle`
     h5 {
       font-size: 1.25rem;
     }
-    @media (max-width: ${props => props.theme.breakpoints.phone}) {
+    @media (max-width: ${(props) => props.theme.breakpoints.phone}) {
       font-size: 16px;
       h1 {
         font-size: 2.488rem;
@@ -61,17 +61,17 @@ const GlobalStyle = createGlobalStyle`
     }
   }
   body {
-    background: ${props => props.theme.colors.bg};
-    color: ${props => props.theme.colors.grey.default};
+    background: ${(props) => props.theme.colors.bg};
+    color: ${(props) => props.theme.colors.grey.default};
     height: 100%;
   }
   a {
-    color: ${props => props.theme.colors.primary};
+    color: ${(props) => props.theme.colors.primary};
     text-decoration: none;
-    transition: all ${props => props.theme.transitions.normal};
+    transition: all ${(props) => props.theme.transitions.normal};
   }
   a:hover {
-    color: ${props => props.theme.colors.primaryLight};
+    color: ${(props) => props.theme.colors.primaryLight};
   }
   a:not([href]):not([tabindex]) {
     color: inherit;
@@ -86,8 +86,8 @@ const GlobalStyle = createGlobalStyle`
     }
   }
   h1, h2, h3, h4, h5, h6 {
-    color: ${props => props.theme.colors.grey.dark};
-    font-family: ${props => props.theme.fontFamily.serif};
+    color: ${(props) => props.theme.colors.grey.dark};
+    font-family: ${(props) => props.theme.fontFamily.serif};
   }
   blockquote {
     font-style: italic;
@@ -97,19 +97,19 @@ const GlobalStyle = createGlobalStyle`
   blockquote:before {
     content: "";
     position: absolute;
-    background: ${props => props.theme.colors.primary};
+    background: ${(props) => props.theme.colors.primary};
     height: 100%;
     width: 6px;
     margin-left: -1.6rem;
   }
   label {
     margin-bottom: .5rem;
-    color: ${props => props.theme.colors.grey.dark};
+    color: ${(props) => props.theme.colors.grey.dark};
   }
   input, textarea, button   font-size: 1rem;
   }
   textarea {
-    font-family: ${props => props.theme.fontFamily.sansSerif};
+    font-family: ${(props) => props.theme.fontFamily.sansSerif};
   }
   input, textarea {
     border-radius: .5rem;
@@ -147,12 +147,12 @@ const GlobalStyle = createGlobalStyle`
   }
   table {
     border-collapse: collapse;
-    background-color: ${props => props.theme.colors.bg};
+    background-color: ${(props) => props.theme.colors.bg};
   }
   caption {
     padding-top: 1.5rem;
     padding-bottom: 1.5rem;
-    color: ${props => props.theme.colors.color};
+    color: ${(props) => props.theme.colors.color};
     text-align: center;
     caption-side: bottom;
   }
@@ -187,7 +187,7 @@ const GlobalStyle = createGlobalStyle`
     display: none !important;
   }
   button:focus { outline: none; }
-  ${props =>
+  ${(props) =>
     props.home &&
     `
     html {
@@ -195,10 +195,10 @@ const GlobalStyle = createGlobalStyle`
     }
     #___gatsby {
       height: inherit;
-    }
-    div[role="group"][tabindex] {
-      height: inherit;
       background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+    }
+    #gatsby-focus-wrapper {
+      height: inherit;
     }
   `}
 `;
