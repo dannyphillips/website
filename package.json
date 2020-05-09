@@ -47,12 +47,13 @@
   "license": "UNLICENSED",
   "main": "n/a",
   "scripts": {
-    "clean": "gatsby clean",
     "build": "gatsby build",
+    "clean": "gatsby clean",
+    "deploy": "firebase deploy",
     "dev": "gatsby develop -o",
     "develop": "gatsby develop",
     "serve": "gatsby serve",
-    "deploy": "firebase deploy"
+    "test": "echo 'no tests found'"
   },
   "devDependencies": {
     "firebase-tools": "8.2.0",
