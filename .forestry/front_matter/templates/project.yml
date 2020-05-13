@@ -1,0 +1,25 @@
+---
+label: Project
+hide_body: false
+fields:
+- type: datetime
+  name: date
+  label: date
+- type: text
+  name: title
+  label: title
+- type: text
+  name: slogan
+  label: slogan
+- type: text
+  name: source
+  label: source
+- type: text
+  name: demo
+  label: demo
+- type: list
+  name: techs
+  label: techs
+- type: list
+  name: tags
+  label: tags
