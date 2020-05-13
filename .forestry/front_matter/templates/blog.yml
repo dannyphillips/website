@@ -1,0 +1,16 @@
+---
+label: Blog
+hide_body: false
+fields:
+- type: datetime
+  name: date
+  label: date
+- type: text
+  name: title
+  label: title
+- type: boolean
+  name: released
+  label: released
+- type: list
+  name: tags
+  label: tags
