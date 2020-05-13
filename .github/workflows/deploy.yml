@@ -26,6 +26,7 @@ jobs:
     - run: yarn install
     - run: yarn build
     - run: yarn test
+    - run: firebase login
     - run: yarn deploy
       env:
         CI: true
