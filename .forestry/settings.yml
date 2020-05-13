@@ -1,9 +1,19 @@
 ---
-new_page_extension: md
+new_page_extension: mdx
 auto_deploy: false
 admin_path: ''
-webhook_url: 
-sections: 
+webhook_url:
+sections:
+- path: content/blog
+  label: Blog
+  create: all
+  templates:
+  - blog
+- path: content/projects
+  label: Projects
+  create: all
+  templates:
+  - project
 upload_dir: uploads
 public_path: "/uploads"
 front_matter_path: ''
@@ -13,6 +23,6 @@ build:
   preview_output_directory: public
   install_dependencies_command: npm install
   preview_docker_image: node:10
-  mount_path: "/srv"
-  working_dir: "/srv"
+  mount_path: "/src"
+  working_dir: "/src"
   instant_preview_command: npm run forestry:preview
