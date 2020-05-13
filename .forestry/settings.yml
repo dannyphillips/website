@@ -17,4 +17,4 @@ build:
   preview_docker_image: node:latest
   mount_path: "/src"
   working_dir: "/src"
-  instant_preview_command: npm run develop
+  instant_preview_command: npm run forestry:preview

@@ -52,6 +52,7 @@
     "deploy": "firebase deploy",
     "dev": "gatsby develop -o",
     "develop": "gatsby develop",
+    "forestry:preview": "gatsby develop",
     "serve": "gatsby serve",
     "test": "echo 'no tests found'"
   },
