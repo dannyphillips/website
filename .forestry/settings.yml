@@ -2,16 +2,20 @@
 new_page_extension: mdx
 auto_deploy: false
 admin_path: ''
-webhook_url:
+webhook_url: 
 sections:
-- path: content/blog
+- type: directory
+  path: content/blog
   label: Blog
   create: all
+  match: "**/*"
   templates:
   - blog
-- path: content/projects
+- type: directory
+  path: content/projects
   label: Projects
   create: all
+  match: "**/*"
   templates:
   - project
 upload_dir: uploads
