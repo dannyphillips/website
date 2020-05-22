@@ -15,4 +15,5 @@ fields:
   name: tags
   label: tags
 pages:
+- content/blog/personal/learning-curve.mdx
 - content/blog/personal/mana-from-heave.mdx
