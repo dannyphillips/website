@@ -1,5 +1,5 @@
 import React from "react";
-import { Layout, Bio, SocialLinks, Skills, ReadingList, Flex } from "../components";
+import { Layout, Bio, SocialLinks, Skills, Flex } from "../components";
 
 const AboutPage = () => (
   <Layout>

@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Helmet from 'react-helmet'
+import { Helmet } from 'react-helmet'
 
 import config from '../../../config'
 
@@ -182,11 +182,6 @@ const SEO = props => {
         </script>
       )}
       <script type="application/ld+json">{JSON.stringify(breadcrumb)}</script>
-      <script
-        src="https://www.goodreads.com/review/custom_widget/74627569.Danny%20Phillips's%20bookshelf:%20to-read?cover_position=left&cover_size=small&num_books=5&order=a&shelf=to-read&show_author=1&show_cover=1&show_rating=1&show_review=1&show_tags=1&show_title=1&sort=date_added&widget_bg_color=FFFFFF&widget_bg_transparent=&widget_border_width=1&widget_id=1560404559&widget_text_color=000000&widget_title_size=medium&widget_width=medium"
-        type="text/javascript"
-        charset="utf-8"
-      ></script>
     </Helmet>
   );
 }

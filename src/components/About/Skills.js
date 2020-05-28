@@ -28,7 +28,7 @@ const Skills = () => (
     <List>
       <Title>Frontend</Title>
       <Container>
-        <Icon src="https://unpkg.com/simple-icons@latest/icons/react.svg" />
+        <Icon src="https://unpkg.com/simple-icons@latest/icons/react.svg" alt="react"/>
         <Icon src="https://unpkg.com/simple-icons@latest/icons/css3.svg" />
         <Icon src="https://unpkg.com/simple-icons@latest/icons/jest.svg" />
         <Icon src="https://unpkg.com/simple-icons@latest/icons/typescript.svg" />
@@ -47,6 +47,8 @@ const Skills = () => (
       <Container>
         <Icon src="https://unpkg.com/simple-icons@latest/icons/firebase.svg" />
         <Icon src="https://unpkg.com/simple-icons@latest/icons/heroku.svg" />
+        <Icon src="https://unpkg.com/simple-icons@latest/icons/googlecloud.svg" />
+        <Icon src="https://unpkg.com/simple-icons@latest/icons/cloudflare.svg" />
         <Icon src="https://unpkg.com/simple-icons@latest/icons/amazonaws.svg" />
         <Icon src="https://unpkg.com/simple-icons@latest/icons/next-dot-js.svg" />
       </Container>
@@ -55,6 +57,7 @@ const Skills = () => (
         <Icon src="https://unpkg.com/simple-icons@latest/icons/visualstudiocode.svg" />
         <Icon src="https://unpkg.com/simple-icons@latest/icons/circleci.svg" />
         <Icon src="https://unpkg.com/simple-icons@latest/icons/travisci.svg" />
+        <Icon src="https://unpkg.com/simple-icons@latest/icons/github.svg" />
         <Icon src="https://unpkg.com/simple-icons@latest/icons/codeclimate.svg" />
         {/* <Icon src="https://unpkg.com/simple-icons@latest/icons/sketch.svg" /> */}
         <Icon src="https://unpkg.com/simple-icons@latest/icons/slack.svg" />

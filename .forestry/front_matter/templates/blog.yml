@@ -1,0 +1,21 @@
+---
+label: blog
+hide_body: false
+fields:
+- type: datetime
+  name: date
+  label: date
+- type: text
+  name: title
+  label: title
+- type: boolean
+  name: released
+  label: released
+- type: list
+  name: tags
+  label: tags
+pages:
+- content/blog/personal/learning-curve.mdx
+- content/blog/personal/mana-from-heave.mdx
+- content/blog/personal/the-80-20-rule.mdx
+- content/projects/rally.mdx

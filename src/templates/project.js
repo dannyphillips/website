@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Link, graphql } from "gatsby";
 import styled from "styled-components";
-import MDXRenderer from "gatsby-mdx/mdx-renderer";
+import { MDXRenderer } from "gatsby-plugin-mdx";
 import { Chip } from "@material-ui/core";
 import { usePalette } from "react-palette";
 
@@ -73,61 +73,69 @@ const Project = ({
   return (
     <Layout customSEO>
       {draft_mode && <Banner />}
-      <Cover condensed color={data.muted} />
-      <Wrapper>
-        <SEO postPath={slug} postNode={projectNode} article />
-        <Content>
-          <Heading justify="space-between">
-            <Flex justify="flex-start">
-              <Logo src={publicURL.publicURL} alt="logo" />
-              <Details>
-                <Title>{project.title}</Title>
-                <div>{project.slogan}</div>
-              </Details>
-            </Flex>
-            <Flex direction="column">
-              <Flex justify="space-between">
-                <a
-                  href={project.source}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Code: <Icon src={source} alt="source" />
-                </a>
-              </Flex>
-              <Flex justify="space-between">
-                <a
-                  href={project.demo}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Demo: <Icon src={demo} alt="demo" />
-                </a>
-              </Flex>
-            </Flex>
-            <Row justify="space-between">
-              <TagContainer>
-                Tech:{" "}
-                {project.techs.map(tech => (
-                  <Link to={`/techs/${tech}`} key={tech}>
-                    <Chip label={tech} />
-                  </Link>
-                ))}
-              </TagContainer>
-              <TagContainer>
-                Tags:{" "}
-                {project.tags.map(tag => (
-                  <Link to={`/tags/${tag}`} key={tag}>
-                    <Chip label={tag} />
-                  </Link>
-                ))}
-              </TagContainer>
-            </Row>
-          </Heading>
-          <MDXRenderer>{projectNode.code.body}</MDXRenderer>
-          <PrevNext prefix={`/projects`} prev={prev} next={next} />
-        </Content>
-      </Wrapper>
+      <Palette src={publicURL.publicURL}>
+        {({data, loading, error}) => (
+          <Fragment>
+            <Cover condensed color={data.muted} />
+            <Wrapper>
+              <SEO postPath={slug} postNode={projectNode} article />
+              <Content>
+                <Heading justify="space-between">
+                  <Flex justify="flex-start">
+                    <Logo src={publicURL.publicURL} alt="logo" />
+                    <Details>
+                      <Title>{project.title}</Title>
+                      <div>{project.slogan}</div>
+                    </Details>
+                  </Flex>
+                  <Flex direction="column">
+                    <Flex justify="space-between">
+                      <a
+                        href={project.source}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        Code: <Icon src={source} alt="source" />
+                      </a>
+                    </Flex>
+                    <Flex justify="space-between">
+                      <a
+                        href={project.demo}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        Demo: <Icon src={demo} alt="demo" />
+                      </a>
+                    </Flex>
+                  </Flex>
+                  <Row justify="space-between">
+                    <TagContainer>
+                      Tech:{" "}
+                      {project.techs.map(tech => (
+                        <Link to={`/techs/${tech}`} key={tech}>
+                          <Chip label={tech} />
+                        </Link>
+                      ))}
+                    </TagContainer>
+                    <TagContainer>
+                      Tags:{" "}
+                      {project.tags.map(tag => (
+                        <Link to={`/tags/${tag}`} key={tag}>
+                          <Chip label={tag} />
+                        </Link>
+                      ))}
+                    </TagContainer>
+                  </Row>
+                </Heading>
+                <MDXRenderer>
+                  {projectNode.body}
+                </MDXRenderer>
+                <PrevNext prefix={`/projects`} prev={prev} next={next} />
+              </Content>
+            </Wrapper>
+          </Fragment>
+        )}
+      </Palette>
     </Layout>
   );
 };
@@ -162,9 +170,7 @@ export const projectQuery = graphql`
       fields: { slug: { eq: $slug } }
       fileAbsolutePath: { regex: "/projects/" }
     ) {
-      code {
-        body
-      }
+      body
       fields {
         released
         releasedNotForced

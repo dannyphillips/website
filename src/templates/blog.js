@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { Link, graphql } from "gatsby";
 import styled from "styled-components";
 import kebabCase from "../utils/kebabCase";
-import MDXRenderer from "gatsby-mdx/mdx-renderer";
+import { MDXRenderer } from "gatsby-plugin-mdx";
 
 import {
   Banner,
@@ -62,7 +62,7 @@ const Blog = ({
   data: { mdx: blogNode }
 }) => {
   const blog = blogNode.frontmatter;
-  const draft_mode = blogNode.fields && !blogNode.fields.released;
+  const draft_mode = blogNode.fields && !blogNode.fields.releasedNotForced;
   return (
     <Layout customSEO>
       {draft_mode && <Banner />}
@@ -81,7 +81,7 @@ const Blog = ({
             ))}
           </Subline>
           <BlogPostContent>
-            <MDXRenderer>{blogNode.code.body}</MDXRenderer>
+            <MDXRenderer>{blogNode.body}</MDXRenderer>
           </BlogPostContent>
           <PrevNext prefix={`/blog`} prev={prev} next={next} />
         </Content>
@@ -116,11 +116,10 @@ export const postQuery = graphql`
       fields: { slug: { eq: $slug } }
       fileAbsolutePath: { regex: "/blog/" }
     ) {
-      code {
-        body
-      }
+      body
       fields {
         released
+        releasedNotForced
       }
       excerpt
       frontmatter {

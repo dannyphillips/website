@@ -15,14 +15,14 @@ module.exports = {
       resolve: "gatsby-source-filesystem",
       options: {
         name: "blog",
-        path: `${__dirname}/blog`
+        path: `${__dirname}/content/blog`
       }
     },
     {
       resolve: "gatsby-source-filesystem",
       options: {
         name: "project",
-        path: `${__dirname}/projects`
+        path: `${__dirname}/content/projects`
       }
     },
     {
@@ -32,8 +32,12 @@ module.exports = {
       }
     },
     {
-      resolve: "gatsby-mdx",
+      resolve: "gatsby-plugin-mdx",
       options: {
+        defaultLayouts: {
+          blog: require.resolve("./src/templates/blog.js"),
+          project: require.resolve("./src/templates/project.js")
+        },
         gatsbyRemarkPlugins: [
           {
             resolve: "gatsby-remark-external-links",
@@ -57,7 +61,16 @@ module.exports = {
               maintainCase: false
             }
           }
-        ]
+        ],
+        plugins: [{
+          resolve: "gatsby-remark-images",
+          options: {
+            maxWidth: 830,
+            quality: 90,
+            withWebp: true,
+            linkImagesToOriginal: false
+          }
+        }]
       }
     },
     "gatsby-plugin-catch-links",
