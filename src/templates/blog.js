@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Link, graphql } from "gatsby";
+import { mdxForm } from "gatsby-tinacms-mdx";
 import styled from "styled-components";
 import kebabCase from "../utils/kebabCase";
 import { MDXRenderer } from "gatsby-plugin-mdx";
@@ -90,7 +91,7 @@ const Blog = ({
   );
 };
 
-export default Blog;
+export default mdxForm(Blog, { queryName: "post" });
 
 Blog.propTypes = {
   pageContext: PropTypes.shape({
@@ -110,12 +111,13 @@ Blog.defaultProps = {
   })
 };
 
-export const postQuery = graphql`
-  query postBySlug($slug: String!) {
+export const blogQuery = graphql`
+  query blogBySlug($slug: String!) {
     mdx(
       fields: { slug: { eq: $slug } }
       fileAbsolutePath: { regex: "/blog/" }
     ) {
+      ...TinaMdx
       body
       fields {
         released
