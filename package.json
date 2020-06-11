@@ -34,7 +34,7 @@
     "react-helmet": "6.1.0",
     "react-live": "2.2.2",
     "react-palette": "1.0.2",
-    "react-vertical-timeline-component": "3.0.0",
+    "react-vertical-timeline-component": "3.0.1",
     "simple-icons": "2.16.0",
     "styled-components": "5.1.1"
   },
