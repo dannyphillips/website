@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Link, graphql } from "gatsby";
+import { mdxForm } from "gatsby-tinacms-mdx";
 import styled from "styled-components";
 import { MDXRenderer } from "gatsby-plugin-mdx";
 import { Chip } from "@material-ui/core";
@@ -135,7 +136,7 @@ const Project = ({
   );
 };
 
-export default Project;
+export default mdxForm(Project, { queryName: "project" });
 
 Project.propTypes = {
   pageContext: PropTypes.shape({
@@ -165,6 +166,7 @@ export const projectQuery = graphql`
       fields: { slug: { eq: $slug } }
       fileAbsolutePath: { regex: "/projects/" }
     ) {
+      ...TinaMdx
       body
       fields {
         released
