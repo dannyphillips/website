@@ -15,6 +15,7 @@ fields:
   name: tags
   label: tags
 pages:
+- content/blog/business/thinking-differently.mdx
 - content/blog/personal/attention-the-unspoken-currency.mdx
 - content/blog/personal/communication.mdx
 - content/blog/personal/learning-curve.mdx
