@@ -66,38 +66,41 @@ ProjectsPage.propTypes = {
 export default ProjectsPage;
 
 export const ProjectsQuery = graphql`
-  query ProjectsQuery {
-    allFile(
-      filter: {
-        name: { regex: "/logo/" }
-        extension: { regex: "/png|jpg/" }
-        absolutePath: { regex: "/projects/" }
-      }
-    ) {
-      edges {
-        node {
-          publicURL
-          relativeDirectory
-        }
-      }
-    }
-    allMdx(
-      sort: { fields: [frontmatter___title], order: ASC }
-      filter: { fileAbsolutePath: { regex: "/projects/" } }
-    ) {
-      edges {
-        node {
-          fields {
-            slug
-          }
-          frontmatter {
-            title
-            slogan
-            date(formatString: "MM/DD/YYYY")
-            tags
-          }
-        }
-      }
-    }
-  }
-`;
+         query ProjectsQuery {
+           allFile(
+             filter: {
+               name: { regex: "/logo/" }
+               extension: { regex: "/png|jpg/" }
+               absolutePath: { regex: "/projects/" }
+             }
+           ) {
+             edges {
+               node {
+                 publicURL
+                 relativeDirectory
+               }
+             }
+           }
+           allMdx(
+             sort: { fields: [frontmatter___title], order: ASC }
+             filter: {
+               fileAbsolutePath: { regex: "/projects/" }
+               fields: { released: { eq: true } }
+             }
+           ) {
+             edges {
+               node {
+                 fields {
+                   slug
+                 }
+                 frontmatter {
+                   title
+                   slogan
+                   date(formatString: "MM/DD/YYYY")
+                   tags
+                 }
+               }
+             }
+           }
+         }
+       `;

@@ -84,7 +84,10 @@ export const BlogQuery = graphql`
   query BlogQuery {
     allMdx(
       sort: { fields: [frontmatter___date], order: DESC }
-      filter: { fileAbsolutePath: { regex: "/blog/" } }
+      filter: {
+        fileAbsolutePath: { regex: "/blog/" }
+        fields: { released: { eq: true } }
+      }
     ) {
       edges {
         node {
