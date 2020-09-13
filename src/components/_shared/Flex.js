@@ -6,7 +6,6 @@ const Flex = styled.div`
   justify-content: ${props => (props.justify ? props.justify : "center")};
   align-items: ${props => (props.align ? props.align : "center")};
   flex-wrap: wrap;
-  height: 100%;
 `;
 
 export default Flex;
