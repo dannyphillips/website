@@ -31,6 +31,12 @@ This calculator works in three ways:
 
 ### How it works
 
+This app will use a small predefined database of vehicle data to prepopulate the vehicle fields or allow user input. It will then determine some baseline specs for a trailer that can be suitably paired with the vehicle. Users can then use these data point to query prospective trailers. The app uses a predefined list of static trailer spec data.
+
 ### Take Aways
 
+This app was built, first as a simple hobby project to more easily visualize and perform calculations as I shopped for a personal travel trailer. While the app is quite simple, it was used as a prototyping bed for some trialing out the entire vercel ecosystem. It uses next.js with now.sh (vercel) for automated deployments and hosting.
+
 ### Next Steps
+
+Rather than performing calculations against a static list, the app should be able to query vehicle and trailer data to prepopulate those fields based on a given model and year. There aren't great vehicle APIs today, but there are ways of aggregating this data into an API for its easy consumption. 
