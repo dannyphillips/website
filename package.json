@@ -20,7 +20,7 @@
     "gatsby-plugin-released": "0.3.0",
     "gatsby-plugin-sharp": "2.7.0",
     "gatsby-plugin-styled-components": "3.3.14",
-    "gatsby-remark-autolink-headers": "2.3.16",
+    "gatsby-remark-autolink-headers": "2.4.0",
     "gatsby-remark-external-links": "0.0.4",
     "gatsby-remark-images": "3.3.40",
     "gatsby-source-filesystem": "2.3.37",
