@@ -6,7 +6,7 @@
   "dependencies": {
     "@material-ui/core": "3.9.4",
     "@material-ui/icons": "3.0.2",
-    "@mdx-js/mdx": "1.6.19",
+    "@mdx-js/mdx": "1.6.21",
     "@mdx-js/react": "1.6.20",
     "babel-plugin-styled-components": "1.11.1",
     "change-case": "^4.1.1",
