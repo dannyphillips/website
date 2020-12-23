@@ -23,7 +23,7 @@
     "gatsby-remark-autolink-headers": "^2.8.0",
     "gatsby-remark-external-links": "^0.0.4",
     "gatsby-remark-images": "^3.8.1",
-    "gatsby-source-filesystem": "^2.8.0",
+    "gatsby-source-filesystem": "^2.8.1",
     "mdx-utils": "^0.2.0",
     "polished": "^4.0.5",
     "prism-react-renderer": "^1.1.1",
