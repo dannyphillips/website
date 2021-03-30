@@ -36,7 +36,7 @@
     "react-palette": "^1.0.2",
     "react-vertical-timeline-component": "^3.3.3",
     "simple-icons": "^4.17.0",
-    "styled-components": "^5.2.1"
+    "styled-components": "^5.2.2"
   },
   "keywords": [
     "blog",
