@@ -16,10 +16,21 @@ tags:
 
 ### Background
 
+I regularly learn new things, but find that i forget all the things I learned. This often resulted in learnings not being remembered longterm, because they weren't regularly recalled.
+
 ### Summary
+
+An app that records your learnings when they happen (daily) and then regularly reminds you of them to improve your ability to recall them longterm (eg. flash cards).
 
 ### How it works
 
+This is a simple react app powered by google sheets. It was setup as a slack bot that regularly asks for learnings, thanks to a cron job, and will post the slack responses in a google sheet. It also regularly, posts a digest of learnings to slack from the past week, month, and year.
+
 ### Take Aways
 
+It was cool to build a slackbot and use cron.
+
 ### Next Steps
+
+* Style the slack responses using thei UI SDK to provide better UX.
+* Create a single app for viewing, sorting, filtering all recalls.

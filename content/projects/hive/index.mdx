@@ -14,10 +14,14 @@ tags:
 
 ### Background
 
-### Summary
+Playing board games on your phone is not nearly as fun as a physical game. It got me thinking, "what if the board was also a screen (aka. tablet) and people used their mobile phones to connect to a game?". This would allow users to look at the screen on the table to see the game board and community pieces but also use their phone to view their hand and make their moves. I then started to think about all the potential games that could work in this format. I realized I shouldn't just build a single game, but a game engine and protocol for mobile devices to become a "host" and other devices to "join a host network". I named it Hive to describe the host and the drone (bees) are the clients that join the host network.
 
 ### How it works
 
+The app is still a work in progress. I decided to explore building it as a monorepo so the client and server apps could share code as there is likely many shared concerns between the two.
+
 ### Take Aways
+* Colocating client and server apps together in a monorepo makes local development simple and easy to iterate.
 
 ### Next Steps
+* Finish building the first version of the client/server apps to showcase a working demo.
